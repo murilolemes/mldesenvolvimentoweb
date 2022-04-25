@@ -29,6 +29,7 @@ export const DivNetworking = styled.div`
 
     h2 {
       font-size: 6rem;
+      text-align: center;
     }
 
     p {
@@ -54,7 +55,6 @@ export const DivNetworking = styled.div`
 
       h2 {
         font-size: 3.5rem;
-        text-align: center;
       }
 
       p {
