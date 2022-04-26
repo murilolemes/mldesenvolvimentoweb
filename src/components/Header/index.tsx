@@ -8,7 +8,7 @@ export function Header() {
   const routePathName = window.location.pathname;
 
   const activeHome = routePathName === '/' ? 'active' : '';
-  const activeCalc = routePathName === '/calculator' ? 'active' : '';
+  const activeCalc = routePathName === '/calculadora' ? 'active' : '';
   const activeFin = routePathName === '/finances' ? 'active' : '';
 
   return (
@@ -28,7 +28,7 @@ export function Header() {
             </li>
 
             <li>
-              <Link to="/calculator" className={activeCalc}>
+              <Link to="/calculadora" className={activeCalc}>
                 Calculadora
               </Link>
             </li>
