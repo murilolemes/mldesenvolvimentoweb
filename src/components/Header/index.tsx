@@ -34,7 +34,7 @@ export function Header() {
             </li>
 
             <li>
-              <Link to="/finances" className={activeFin}>
+              <Link to="/financas" className={activeFin}>
                 Finanças
               </Link>
             </li>
