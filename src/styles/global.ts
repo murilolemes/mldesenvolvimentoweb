@@ -8,6 +8,8 @@ export default createGlobalStyle`
     --primary: #cfdaff;
     --secondary-light: #8794c0;
     --secondary: #5a6794;
+    --red: #e52e4d;
+    --green: #33cc95;
 
     font-size: 60%;
   }
