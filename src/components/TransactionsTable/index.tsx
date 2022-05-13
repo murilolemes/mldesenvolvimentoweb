@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { TransactionsContext } from '../../context/TransactionsContext';
+import { formatValue } from '../../utils/formatValue';
 
 import { Container } from './styles';
 
@@ -22,10 +23,7 @@ export function TransactionsTable() {
             <tr key={transaction.id}>
               <td>{transaction.title}</td>
               <td className={transaction.type}>
-                {new Intl.NumberFormat('pt-BR', {
-                  style: 'currency',
-                  currency: 'BRL',
-                }).format(transaction.amount)}
+                {formatValue(transaction.amount)}
               </td>
               <td>{transaction.category}</td>
               <td>
