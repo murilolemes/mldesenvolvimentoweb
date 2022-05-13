@@ -1,17 +1,32 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
 import totalImg from '../../assets/total.svg';
 
 import { TransactionsContext } from '../../context/TransactionsContext'
+import { getBalance } from '../../utils/getBalance';
+import { formatValue } from '../../utils/formatValue';
 
 import { Container } from './styles';
 
+interface Balance {
+  deposit: number;
+  withdraw: number;
+  total: number;
+}
+
 export function Summary() {
   const { transactions } = useContext(TransactionsContext);
+  const [amount, setAmount] = useState<Balance>({} as Balance);
 
-  console.log(transactions);
+  useEffect(() => {
+    const { deposit, withdraw, total } = getBalance(transactions)
+
+    const balance = { deposit, withdraw, total }
+
+    setAmount(balance)
+  }, [transactions])
 
   return (
     <Container>
@@ -20,22 +35,22 @@ export function Summary() {
           <p>Entradas</p>
           <img src={incomeImg} alt="Entradas" />
         </header>
-        <strong>R$1000,00</strong>
+        <strong id='valueDeposit'>{formatValue(amount.deposit)}</strong>
       </div>
       <div>
         <header>
           <p>Saídas</p>
           <img src={outcomeImg} alt="Saídas" />
         </header>
-        <strong>- R$500,00</strong>
+        <strong id='valueWithdraw'>- {formatValue(amount.withdraw)}</strong>
       </div>
-      <div>
+      <div className={amount.total >= 0 ? 'positive' : 'negative'}>
         <header>
           <p>Total</p>
           <img src={totalImg} alt="Total" />
         </header>
-        <strong>R$500,00</strong>
+        <strong>{formatValue(amount.total)}</strong>
       </div>
-    </Container>
+    </Container >
   )
 }

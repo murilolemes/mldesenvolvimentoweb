@@ -30,9 +30,21 @@ export const Container = styled.div`
       text-align: center;
     }
 
-    &:last-child {
-      background: var(--green);
-      color: var(--primary-light);
+    #valueDeposit {
+      color: var(--green);
     }
+
+    #valueWithdraw {
+      color: var(--red);
+    }
+  }
+  .positive {
+    background: var(--green);
+    color: var(--primary-light);
+  }
+
+  .negative {
+    background: var(--red);
+    color: var(--primary-light);
   }
 `;
