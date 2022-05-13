@@ -1,8 +1,4 @@
-interface ValueProps {
-  value: number;
-}
-
-export function formatValue({ value }: ValueProps) {
+export function formatValue(value: number) {
   const valueFormatted = Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL'
