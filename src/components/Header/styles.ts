@@ -11,6 +11,7 @@ export const Content = styled.div`
   max-width: 1200px;
   width: 100%;
   height: 100%;
+  padding: 10px;
   display: flex;
   align-items: center;
   margin: 0 auto;
