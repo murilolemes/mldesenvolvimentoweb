@@ -80,21 +80,19 @@ export const NavBar = styled.div`
     margin: 0;
     padding: 0;
 
-    a {
-      font-size: 2rem;
-      font-weight: 500;
-      color: var(--primary-light);
-      text-decoration: none;
-    }
-
     li {
       a {
+        font-size: 2rem;
+        font-weight: 500;
+        color: var(--primary-light);
+        text-decoration: none;
         transition: color 0.2s;
 
         &:hover {
           color: var(--primary);
         }
       }
+
       & + li {
         margin-left: 15px;
       }
@@ -103,6 +101,10 @@ export const NavBar = styled.div`
 
   .active {
     color: var(--primary);
+  }
+
+  .inative {
+    color: var(--primary-light);
   }
 
   @media (max-width: 599px) {
