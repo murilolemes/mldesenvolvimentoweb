@@ -40,5 +40,7 @@ createServer({
 
       return schema.create('transaction', data);
     })
+
+    this.delete('/transactions/:id')
   }
 })
