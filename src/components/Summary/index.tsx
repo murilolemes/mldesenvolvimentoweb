@@ -44,7 +44,7 @@ export function Summary() {
         </header>
         <strong id='valueWithdraw'>- {formatValue(amount.withdraw)}</strong>
       </div>
-      <div className={amount.total >= 0 ? 'positive' : 'negative'}>
+      <div className={amount.total > 0 ? 'positive' : amount.total < 0 ? 'negative' : ''}>
         <header>
           <p>Total</p>
           <img src={totalImg} alt="Total" />
