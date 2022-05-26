@@ -1,11 +1,17 @@
 import { useContext } from 'react';
+import { FiTrash2 } from 'react-icons/fi';
+
 import { TransactionsContext } from '../../context/TransactionsContext';
 import { formatValue } from '../../utils/formatValue';
 
 import { Container } from './styles';
 
 export function TransactionsTable() {
-  const { transactions } = useContext(TransactionsContext);
+  const { transactions, deleteTransaction } = useContext(TransactionsContext);
+
+  async function handleDelete(id: Number) {
+    await deleteTransaction(id);
+  }
 
   return (
     <Container>
@@ -30,6 +36,14 @@ export function TransactionsTable() {
                 {new Intl.DateTimeFormat('pt-BR')
                   .format(new Date(transaction.createdAt))
                 }
+              </td>
+              <td id="trash">
+                <button
+                  type='button'
+                  onClick={() => handleDelete(transaction.id)}
+                >
+                  <FiTrash2 size={20} />
+                </button>
               </td>
             </tr>
           ))}
