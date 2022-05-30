@@ -1,10 +1,10 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useTransactions } from '../../hooks/TransactionsContext'
 
 import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
 import totalImg from '../../assets/total.svg';
 
-import { TransactionsContext } from '../../context/TransactionsContext'
 import { getBalance } from '../../utils/getBalance';
 import { formatValue } from '../../utils/formatValue';
 
@@ -17,7 +17,7 @@ interface Balance {
 }
 
 export function Summary() {
-  const { transactions } = useContext(TransactionsContext);
+  const { transactions } = useTransactions();
   const [amount, setAmount] = useState<Balance>({} as Balance);
 
   useEffect(() => {

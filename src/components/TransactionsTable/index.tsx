@@ -1,13 +1,12 @@
-import { useContext } from 'react';
-import { FiTrash2 } from 'react-icons/fi';
-
-import { TransactionsContext } from '../../context/TransactionsContext';
+import { useTransactions } from '../../hooks/TransactionsContext';
 import { formatValue } from '../../utils/formatValue';
+
+import { FiTrash2 } from 'react-icons/fi';
 
 import { Container } from './styles';
 
 export function TransactionsTable() {
-  const { transactions, deleteTransaction } = useContext(TransactionsContext);
+  const { transactions, deleteTransaction } = useTransactions();
 
   async function handleDelete(id: Number) {
     await deleteTransaction(id);

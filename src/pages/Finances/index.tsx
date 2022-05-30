@@ -1,8 +1,8 @@
 import { useState } from 'react';
+import { TransactionsProvider } from '../../hooks/TransactionsContext';
 
 import { NewTransactionModal } from '../../components/NewTransactionModal';
 import { Summary } from '../../components/Summary';
-import { TransactionsProvider } from '../../context/TransactionsContext';
 import { TransactionsTable } from '../../components/TransactionsTable';
 import '../../services/server';
 
