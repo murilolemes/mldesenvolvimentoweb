@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  height: 150px;
-  padding: 10px;
+  height: 7.5rem;
+  padding: 0.625rem;
   background: linear-gradient(
     0,
     var(--secondary),
@@ -24,11 +24,15 @@ export const Content = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 0.625rem;
+
+    svg {
+      margin-right: 0.063rem;
+    }
   }
 
-  @media (max-width: 599px) {
+  /* @media (max-width: 599px) {
     flex-direction: column;
     justify-content: center;
-  }
+  } */
 `;
