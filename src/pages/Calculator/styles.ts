@@ -3,56 +3,59 @@ import { shade } from 'polished';
 
 export const Container = styled.div`
   width: 100%;
-`;
-
-export const Content = styled.div`
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 100px 0;
+`;
+
+export const Content = styled.div`
+  max-width: 25rem;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Body = styled.div`
-  max-width: 400px;
-  height: 500px;
-  padding: 0 25px;
+  height: 31.25rem;
+  padding: 0 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid ${shade(0.7, '#1c2135')};
+  box-shadow: 0 0 0.75rem 0.375rem ${shade(0.7, '#1c2135')};
+  background: ${shade(0.4, '#8794c0')};
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 7px;
-  background: ${shade(0.4, '#8794c0')};
-  border: 1px solid ${shade(0.7, '#1c2135')};
-  box-shadow: 0px 0px 12px 6px ${shade(0.7, '#1c2135')};
 `;
 
 export const Log = styled.div`
   width: 100%;
-  height: 150px;
-  margin-top: 10px;
-  border-radius: 7px;
+  height: 9.375rem;
+  margin-top: 0.625rem;
+  border-radius: 0.5rem;
+  border: 1px solid ${shade(0.7, '#1c2135')};
+  box-shadow: 0 0 0.375rem 0.188rem ${shade(0.7, '#1c2135')};
+  background: ${shade(0.3, '#8794c0')};
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: ${shade(0.3, '#8794c0')};
-  border: 1px solid ${shade(0.7, '#1c2135')};
-  box-shadow: 0px 0px 6px 3px ${shade(0.7, '#1c2135')};
 
   p {
     width: 100%;
-    height: 20px;
+    height: 1.25rem;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 1.1rem;
     font-weight: 500;
 
     & + p {
-      margin-top: 5px;
+      margin-top: 0.375rem;
     }
   }
 
   #result {
-    color: #ff5555;
+    color: var(--red)
   }
 `;
 
@@ -70,32 +73,32 @@ export const Keyboard = styled.div`
     justify-content: center;
 
     button {
-      width: 60px;
-      height: 50px;
+      width: 3.75rem;
+      height: 3.125rem;
       background: var(--background);
       border: 1px solid var(--secondary-light);
-      border-radius: 7px;
+      border-radius: 0.5rem;
       transition: 0.5s;
-      font-size: 2rem;
+      font-size: 1.2rem;
       font-weight: 700;
       transition: 0.5s;
       color: var(--primary-light);
 
       &:hover {
-        transform: translateY(-5px);
+        transform: translateY(-0.313rem);
         background: var(--secondary-light);
         color: var(--background);
         border: 1px solid ${shade(0.7, '#1c2135')};
-        box-shadow: 0px 0px 12px 6px ${shade(0.7, '#1c2135')};
+        box-shadow: 0 0 0.75rem 0.375rem ${shade(0.7, '#1c2135')};
       }
 
       & + button {
-        margin-left: 20px;
+        margin-left: 1.25rem;
       }
     }
 
     & + .keyboardButtons {
-      margin-top: 20px;
+      margin-top: 1.25rem;
     }
 
     #backSpace {

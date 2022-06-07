@@ -10,41 +10,43 @@ export const Container = styled.div`
 export const Content = styled.div`
   max-width: 1200px;
   width: 100%;
-  padding: 10px;
+  padding: 0.625rem;
   margin: 0 auto;
 `;
 
 export const DivNetworking = styled.div`
   width: 100%;
-  height: 550px;
+  height: 31.25rem;
   display: flex;
   justify-content: space-between;
 
   .descriptions {
-    flex: 1;
+    max-width: 37.5rem;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     h2 {
-      font-size: 6rem;
+      font-size: 3rem;
       text-align: center;
     }
 
     p {
-      font-size: 1.6rem;
+      font-size: 1rem;
       color: var(--secondary-light);
+      margin-top: 0.625rem;
     }
   }
 
   .images {
-    width: 750px;
+    width: 37.5rem;
     background: url(${ImagemSite1}) no-repeat;
     background-position: center;
   }
 
-  @media (max-width: 599px) {
+  /* @media (max-width: 599px) {
     height: initial;
     flex-direction: column;
     justify-content: flex-start;
@@ -71,44 +73,45 @@ export const DivNetworking = styled.div`
       border-left: none;
       margin-top: 50px;
     }
-  }
+  } */
 `;
 
 export const MakeYourSite = styled.div`
   width: 100%;
-  height: 550px;
+  height: 31.25rem;
   display: flex;
   justify-content: space-between;
-  margin-top: 50px;
-
-  .images {
-    width: 750px;
-    background: url(${ImagemSite2}) no-repeat;
-    background-position: center;
-  }
 
   .descriptions {
-    flex: 1;
+    max-width: 37.5rem;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     h2 {
-      font-size: 6rem;
+      font-size: 3rem;
       text-align: center;
     }
 
     p {
-      max-width: 500px;
+      max-width: 25rem;
+      width: 100%;
       text-align: center;
-      font-size: 1.6rem;
-      margin-top: 10px;
+      font-size: 1rem;
       color: var(--secondary-light);
+      margin-top: 0.625rem;
     }
   }
 
-  @media (max-width: 599px) {
+  .images {
+    width: 37.5rem;
+    background: url(${ImagemSite2}) no-repeat;
+    background-position: center;
+  }
+
+  /* @media (max-width: 599px) {
     height: initial;
     flex-direction: column;
     justify-content: flex-start;
@@ -138,5 +141,5 @@ export const MakeYourSite = styled.div`
         margin-top: 10px;
       }
     }
-  }
+  } */
 `;
