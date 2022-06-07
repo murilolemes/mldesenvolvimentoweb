@@ -11,13 +11,23 @@ export default createGlobalStyle`
     --red: #e52e4d;
     --green: #33cc95;
 
-    font-size: 60%;
+    /* font-size: 60%; */
   }
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     outline: 0;
+  }
+  @media (max-width: 1000px) {
+    html {
+      font-size: 93.75%;
+    }
+  }
+  @media (max-width: 720px) {
+    html {
+      font-size: 87.5%;
+    }
   }
   body {
     background: var(--background);
@@ -40,15 +50,19 @@ export default createGlobalStyle`
   html, body {
     height: 100vh;
   }
-  body, input, button {
+  body, input, textarea, select, button {
     font-family: 'Roboto';
-    font-size: 1.6rem;
+    font-size: 1rem;
   }
   h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
   }
   button {
     cursor: pointer;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
   }
   [disabled] {
     opacity: 0.6;
