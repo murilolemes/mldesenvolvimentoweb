@@ -10,6 +10,7 @@ export function Header() {
   const [home, setHome] = useState('inative');
   const [calc, setCalc] = useState('inative');
   const [finance, setFinance] = useState('inative');
+  const [pokemon, setPokemon] = useState('inative');
 
   useEffect(() => {
     switch (path) {
@@ -17,14 +18,23 @@ export function Header() {
         setHome('active');
         setCalc('inative');
         setFinance('inative');
+        setPokemon('inative');
         break;
       case 'calculadora':
         setCalc('active');
         setHome('inative');
         setFinance('inative');
+        setPokemon('inative');
         break;
       case 'financas':
         setFinance('active');
+        setHome('inative');
+        setCalc('inative');
+        setPokemon('inative');
+        break;
+      case 'pokemon':
+        setPokemon('active');
+        setFinance('inative');
         setHome('inative');
         setCalc('inative');
         break;
@@ -41,6 +51,9 @@ export function Header() {
             break;
           case '/financas':
             setFinance('active');
+            break;
+          case '/pokemon':
+            setPokemon('active');
             break;
           default:
             break;
@@ -74,6 +87,12 @@ export function Header() {
             <li>
               <Link to="/financas" className={finance} onClick={() => setPath('financas')}>
                 Finanças
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/pokemon" className={pokemon} onClick={() => setPath('pokemon')}>
+                Pokemon
               </Link>
             </li>
           </ul>
