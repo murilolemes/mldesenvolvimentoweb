@@ -1,13 +1,13 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
-import { api } from '../services/api';
+import { v4 as uuidv4 } from 'uuid'
 
 interface Transaction {
-  id: number;
+  id: string;
   title: string;
   amount: number;
   type: string;
   category: string;
-  createdAt: string;
+  createdAt: Date;
 }
 
 interface TransactionsProviderProps {
@@ -19,7 +19,7 @@ type TransactionInput = Omit<Transaction, 'id' | 'createdAt'>;
 interface TransactionContextData {
   transactions: Transaction[];
   createTransaction: (transaction: TransactionInput) => Promise<void>;
-  deleteTransaction: (id: Number) => Promise<void>;
+  deleteTransaction: (id: string) => Promise<void>;
 }
 
 const TransactionsContext = createContext<TransactionContextData>(
@@ -27,31 +27,49 @@ const TransactionsContext = createContext<TransactionContextData>(
 )
 
 export function TransactionsProvider({ children }: TransactionsProviderProps) {
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
+  const [transactions, setTransactions] = useState<Transaction[]>(() => {
+    const storageTransactions = localStorage.getItem('@Transaction:transaction');
+
+    if (storageTransactions) {
+      return JSON.parse(storageTransactions);
+    }
+
+    return []
+  });
 
   useEffect(() => {
-    api.get('/transactions')
-      .then(response => setTransactions(response.data.transactions))
+    const response = localStorage.getItem('@Transaction:transaction');
+    if (response) {
+      setTransactions(JSON.parse(response));
+    }
   }, []);
 
   async function createTransaction(transactionInput: TransactionInput) {
-    const response = await api.post('/transactions', {
-      ...transactionInput,
-      createdAt: new Date(),
-    })
-    const { transaction } = response.data;
+    const updateTransactions = [...transactions];
 
-    setTransactions([
-      ...transactions,
-      transaction
-    ]);
+    const newTransaction = {
+      id: uuidv4(),
+      ...transactionInput,
+      createdAt: new Date()
+    }
+
+    updateTransactions.push(newTransaction);
+
+    setTransactions(updateTransactions);
+
+    localStorage.setItem('@Transaction:transaction', JSON.stringify(updateTransactions));
   }
 
-  async function deleteTransaction(id: Number) {
-    await api.delete(`/transactions/${id}`);
+  async function deleteTransaction(id: string) {
+    const updateTransactions = [...transactions];
 
-    api.get('/transactions')
-      .then(response => setTransactions(response.data.transactions));
+    const transactionIndex = updateTransactions.findIndex(transaction => transaction.id === id);
+
+    updateTransactions.splice(transactionIndex, 1);
+
+    setTransactions(updateTransactions);
+
+    localStorage.setItem('@Transaction:transaction', JSON.stringify(updateTransactions));
   }
 
   return (

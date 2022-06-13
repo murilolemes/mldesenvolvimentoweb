@@ -4,7 +4,6 @@ import { TransactionsProvider } from '../../hooks/TransactionsContext';
 import { NewTransactionModal } from '../../components/NewTransactionModal';
 import { Summary } from '../../components/Summary';
 import { TransactionsTable } from '../../components/TransactionsTable';
-import '../../services/server';
 
 import { Container, Content, ButtonNewTransaction } from './styles';
 

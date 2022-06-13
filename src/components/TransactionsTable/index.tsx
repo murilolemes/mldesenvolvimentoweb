@@ -13,7 +13,7 @@ export function TransactionsTable() {
   const [page, setPage] = useState(0);
   const rowsPerPage = 6;
 
-  async function handleDelete(id: Number) {
+  async function handleDelete(id: string) {
     await deleteTransaction(id);
   }
 
