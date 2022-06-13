@@ -13,6 +13,7 @@ export const Card = styled.div`
   border-radius: 0.25rem;
   box-shadow: 0 0 4px 1px var(--secondary-light);
   transition: 0.2s;
+  padding: 1rem;
 
   &:hover {
     background: var(--secondary);
@@ -26,9 +27,12 @@ export const Card = styled.div`
     }
   }
 
+  h1 {
+    text-align: center;
+  }
+
   img {
-    width: 10rem;
-    height: 10rem;
+    flex: 1;
   }
 
   .descriptions {
@@ -39,6 +43,7 @@ export const Card = styled.div`
     justify-content: space-between;
     padding: 0.5rem 1rem;
     background-color: var(--secondary-light);
+    border-radius: 0.25rem;
 
     & + div {
       margin-top: 1rem;
@@ -53,7 +58,6 @@ export const Card = styled.div`
 
   .btnRemove {
     width: 100%;
-    padding: 0 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,10 +87,6 @@ export const Card = styled.div`
 
     #remove {
       background: var(--red);
-    }
-
-    #btnAdd {
-      background: var(--green);
     }
   }
 `;

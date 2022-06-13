@@ -9,7 +9,7 @@ export function CardPokemon() {
     <Container>
       {pokemons.map(pokemon => (
         <Card key={pokemon.id}>
-          <h1>{pokemon.name}</h1>
+          <h1>{pokemon.name.replace(/-/g, ' ')}</h1>
           <img src={pokemon.img} alt={pokemon.name} />
           <div className='descriptions'>
             <p>Tipo:</p>
