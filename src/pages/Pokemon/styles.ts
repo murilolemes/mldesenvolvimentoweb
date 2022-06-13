@@ -10,8 +10,6 @@ export const Content = styled.div`
   padding: 0.625rem;
   margin: 0 auto;
 
-  border: 1px solid red;
-
   > div {
     margin-top: 2rem;
     display: flex;
