@@ -4,7 +4,7 @@ import { FiX } from "react-icons/fi";
 import { Container, Card } from "./styles";
 
 export function CardPokemon() {
-  const { pokemons } = usePokemons();
+  const { pokemons, deletePokemon } = usePokemons();
   return (
     <Container>
       {pokemons.map(pokemon => (
@@ -16,7 +16,13 @@ export function CardPokemon() {
             <p>{pokemon.type}</p>
           </div>
           <div className="btnRemove">
-            <button type='button' id='remove'><FiX /> Remover</button>
+            <button
+              type='button'
+              id='remove'
+              onClick={() => deletePokemon(pokemon.id)}
+            >
+              <FiX /> Remover
+            </button>
           </div>
         </Card>
       ))}

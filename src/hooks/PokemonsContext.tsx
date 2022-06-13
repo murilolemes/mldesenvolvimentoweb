@@ -15,6 +15,7 @@ interface PokemonsProviderProps {
 interface PokemonContexData {
   pokemons: Pokemon[];
   createPokemon: (pokemonPath: Pokemon) => Promise<void>;
+  deletePokemon: (id: number) => Promise<void>;
 }
 
 const PokemonsContext = createContext<PokemonContexData>(
@@ -41,16 +42,30 @@ export function PokemonProvider({ children }: PokemonsProviderProps) {
 
         setPokemons(updatePokemon)
         localStorage.setItem('@Pokemons:poke', JSON.stringify(updatePokemon));
-        toast.success('Pokemon adicionado com sucesso! 😀')
+        toast.success('Pokemon adicionado com sucesso! 😀');
       } else {
-        throw Error('Este pokemon já existe em sua bag! 😕');
+        throw Error();
       }
     } catch (error) {
-      toast.error(`Erro ao adicionar o Pokemon! 😞`);
+      toast.error('Este pokemon já existe em sua lista de Pokemons! 😕');
     }
   }
+
+  async function deletePokemon(id: number) {
+    const updatePokemon = [...pokemons];
+
+    const pokemonIndex = updatePokemon.findIndex(pokemon => pokemon.id === id);
+
+    updatePokemon.splice(pokemonIndex, 1);
+
+    setPokemons(updatePokemon);
+
+    localStorage.setItem('@Pokemons:poke', JSON.stringify(updatePokemon));
+    toast.success('Pokemon removido com sucesso! 😀')
+  }
+
   return (
-    <PokemonsContext.Provider value={{ pokemons, createPokemon }}>
+    <PokemonsContext.Provider value={{ pokemons, createPokemon, deletePokemon }}>
       {children}
     </PokemonsContext.Provider>
   )
