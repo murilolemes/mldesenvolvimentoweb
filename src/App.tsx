@@ -1,5 +1,6 @@
 import { BrowserRouter } from 'react-router-dom';
 import Modal from 'react-modal';
+import { ToastContainer } from 'react-toastify';
 
 import { Header } from './components/Header'
 import { Routes } from './routes'
@@ -15,6 +16,7 @@ export function App() {
         <Header />
         <Routes />
         {/* <Footer /> */}
+        <ToastContainer autoClose={3000} />
       </BrowserRouter>
       <GlobalStyle />
     </>
