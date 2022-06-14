@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 
-import ImagemSite1 from '../../assets/site1.png';
-import ImagemSite2 from '../../assets/site2.png';
-
 export const Container = styled.div`
   width: 100%;
 `;
@@ -10,136 +7,134 @@ export const Container = styled.div`
 export const Content = styled.div`
   max-width: 1200px;
   width: 100%;
-  padding: 0.625rem;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
-export const DivNetworking = styled.div`
+export const Perfil = styled.div`
   width: 100%;
-  height: 31.25rem;
+  height: 25rem;
+  padding: 1rem;
+  margin: 0 auto;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 
-  .descriptions {
-    max-width: 37.5rem;
+  .header {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+
+    h1 {
+      width: 100%;
+      font-size: 3rem;
+    }
+
+    .bio {
+      width: 100%;
+      height: 12rem;
+      text-align: justify;
+      padding-right: 1rem;
+      line-height: 1.6rem;
+    }
+  }
+
+  .description {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    img {
+      width: 16rem;
+      height: 16rem;
+      border-radius: 50%;
+    }
+
+    .data {
+      text-align: center;
+
+      p {
+        & + p {
+          margin: 0.375rem 0;
+        }
+      }
+
+      a {
+        height: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--secondary);
+        border: 1px solid var(--secondary);
+        border-radius: 0.25rem;
+        transition: filter 0.2s;
+
+        &:hover {
+          filter: brightness(0.9);
+        }
+
+        svg {
+          margin-right: 0.375rem;
+        }
+      }
+    }
+  }
+`;
+
+export const Repos = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1rem;
+  gap: 0.75rem;
+
+  a {
+    width: 30rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border-color: var(--primary);
+    box-shadow: 0 0 4px 1px var(--primary-light);
+    transition: 0.2s;
 
     h2 {
-      font-size: 3rem;
+      width: 100%;
       text-align: center;
     }
 
     p {
-      font-size: 1rem;
+      width: 100%;
+      text-align: center;
+      font-size: 0.9rem;
       color: var(--secondary-light);
-      margin-top: 0.625rem;
     }
-  }
 
-  .images {
-    width: 37.5rem;
-    background: url(${ImagemSite1}) no-repeat;
-    background-position: center;
-  }
-
-  /* @media (max-width: 599px) {
-    height: initial;
-    flex-direction: column;
-    justify-content: flex-start;
-
-    .descriptions {
-      flex: none;
-      margin-top: 15px;
+    &:hover {
+      background: var(--secondary);
+      border: 1px solid var(--secondary);
+      box-shadow: 0 0 4px 1px var(--secondary-light);
 
       h2 {
-        font-size: 3.5rem;
+        color: var(--background);
       }
 
       p {
-        font-size: 1.2rem;
-        text-align: center;
-        margin-top: 10px;
+        color: var(--primary-light);
       }
-    }
-
-    .images {
-      width: 100%;
-      height: 250px;
-      background-size: contain;
-      border-left: none;
-      margin-top: 50px;
-    }
-  } */
-`;
-
-export const MakeYourSite = styled.div`
-  width: 100%;
-  height: 31.25rem;
-  display: flex;
-  justify-content: space-between;
-
-  .descriptions {
-    max-width: 37.5rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    h2 {
-      font-size: 3rem;
-      text-align: center;
-    }
-
-    p {
-      max-width: 25rem;
-      width: 100%;
-      text-align: center;
-      font-size: 1rem;
-      color: var(--secondary-light);
-      margin-top: 0.625rem;
     }
   }
-
-  .images {
-    width: 37.5rem;
-    background: url(${ImagemSite2}) no-repeat;
-    background-position: center;
-  }
-
-  /* @media (max-width: 599px) {
-    height: initial;
-    flex-direction: column;
-    justify-content: flex-start;
-
-    .images {
-      width: 100%;
-      height: 250px;
-      background-size: contain;
-      border-left: none;
-      margin-top: 50px;
-      order: 2;
-    }
-
-    .descriptions {
-      flex: none;
-      margin-top: 15px;
-      order: 1;
-
-      h2 {
-        font-size: 3.5rem;
-        text-align: center;
-      }
-
-      p {
-        font-size: 1.2rem;
-        text-align: center;
-        margin-top: 10px;
-      }
-    }
-  } */
 `;
