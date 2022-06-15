@@ -9,7 +9,6 @@ interface GitHubData {
   name: string;
   avatar_url: string
   location: string;
-  email: string;
   bio: string;
   html_url: string;
 
@@ -38,16 +37,14 @@ export function Home() {
         <Perfil>
           <div className="header">
             <h1>{response?.name}</h1>
-            <p className="bio">
-              {response?.bio}Iniciante em desenvolvimento front-end e back-end com as tecnologias ReactJs e Node.js. Estou sempre tentando ser melhor que ontem, gosto de enfrentar novos desafios e meus medos para melhorar a cada dia, estou sempre disposto a aprender e a ajudar as pessoas.
-            </p>
+            <p className="bio">{response?.bio}</p>
           </div>
           <div className="description">
             <img src={response?.avatar_url} alt={response?.name} />
             <div className="data">
               <p>{response?.location}</p>
-              <p>{response?.email} murilo.lemes.mhl@gmail.com</p>
-              <a href={response?.html_url}>
+              <p>murilo.lemes.mhl@gmail.com</p>
+              <a href={response?.html_url} target={'_blank'} rel="noreferrer">
                 <FaGithub size={20} />
                 Acesse meu Github
               </a>
@@ -56,7 +53,13 @@ export function Home() {
         </Perfil>
         <Repos>
           {responseRepo.map(repo => (
-            <a href={repo.html_url} key={repo.id} className="divRepo">
+            <a
+              href={repo.html_url}
+              key={repo.id}
+              className="divRepo"
+              target={'_blank'}
+              rel="noreferrer"
+            >
               <h2>{repo.name.replace(/-/g, ' ')}</h2>
               <p>{repo.description}</p>
               <p>{repo.language}</p>

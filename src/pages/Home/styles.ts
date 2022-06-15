@@ -24,7 +24,7 @@ export const Perfil = styled.div`
   justify-content: space-between;
 
   .header {
-    width: 100%;
+    width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -39,9 +39,11 @@ export const Perfil = styled.div`
     .bio {
       width: 100%;
       height: 12rem;
+      font-size: 1.4rem;
       text-align: justify;
       padding-right: 1rem;
       line-height: 1.6rem;
+      color: var(--primary);
     }
   }
 
@@ -76,6 +78,7 @@ export const Perfil = styled.div`
         border: 1px solid var(--secondary);
         border-radius: 0.25rem;
         transition: filter 0.2s;
+        padding: 1rem;
 
         &:hover {
           filter: brightness(0.9);
@@ -96,7 +99,7 @@ export const Repos = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   padding: 1rem;
-  gap: 0.75rem;
+  gap: 1rem;
 
   a {
     width: 30rem;
@@ -111,6 +114,23 @@ export const Repos = styled.div`
     box-shadow: 0 0 4px 1px var(--primary-light);
     transition: 0.2s;
 
+    &:hover {
+      width: 30.5rem;
+      height: 10.5rem;
+      background: var(--secondary);
+      border: 1px solid var(--secondary-light);
+      box-shadow: 0 0 4px 1px var(--primary);
+
+      h2 {
+        color: var(--background);
+      }
+
+      p {
+        color: var(--primary-light);
+      }
+    }
+  }
+
     h2 {
       width: 100%;
       text-align: center;
@@ -122,19 +142,4 @@ export const Repos = styled.div`
       font-size: 0.9rem;
       color: var(--secondary-light);
     }
-
-    &:hover {
-      background: var(--secondary);
-      border: 1px solid var(--secondary);
-      box-shadow: 0 0 4px 1px var(--secondary-light);
-
-      h2 {
-        color: var(--background);
-      }
-
-      p {
-        color: var(--primary-light);
-      }
-    }
-  }
 `;
