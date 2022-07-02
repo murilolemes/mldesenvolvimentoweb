@@ -4,16 +4,29 @@ import { shade } from 'polished';
 
 export default createGlobalStyle`
   :root {
-    --background: #1c2135;
-    --primary-light: #e7e9ee;
-    --primary: #cfdaff;
-    --secondary-light: #8794c0;
-    --secondary: #5a6794;
+    //--background: #1c2135;
+    //--primary-light: #e7e9ee;
+    //--primary: #cfdaff;
+    //--secondary-light: #8794c0;
+    //--secondary: #5a6794;
     --red: #e52e4d;
     --green: #33cc95;
 
-    /* font-size: 60%; */
+    --background: #080c25;
+    --secondary: #161e35;
+    --secondary-light: #3071e7;
+    --primary: #a6b2ec;
+    --primary-light: #F5F5F5;
   }
+
+  #cleanTheme {
+    border: 1px solid red;
+  }
+
+  #darkTheme {
+    border: 1px solid yellow;
+  }
+
   * {
     margin: 0;
     padding: 0;

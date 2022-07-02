@@ -74,14 +74,16 @@ export const Perfil = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: var(--secondary);
-        border: 1px solid var(--secondary);
+        background-color: var(--secondary-light);
+        border: 1px solid var(--secondary-light);
+        color: var(--primary-light);
         border-radius: 0.25rem;
-        transition: filter 0.2s;
+        transition: filter 0.2s, color 0.5s;
         padding: 1rem;
 
         &:hover {
           filter: brightness(0.9);
+          color: var(--secondary);
         }
 
         svg {
@@ -110,36 +112,27 @@ export const Repos = styled.div`
     justify-content: space-between;
     padding: 0.5rem;
     border-radius: 0.25rem;
-    border-color: var(--primary);
-    box-shadow: 0 0 4px 1px var(--primary-light);
+    border: 1px solid var(--primary);
+    box-shadow: 0 0 4px 1px var(--primary);
     transition: 0.2s;
-
-    &:hover {
-      width: 30.5rem;
-      height: 10.5rem;
-      background: var(--secondary);
-      border: 1px solid var(--secondary-light);
-      box-shadow: 0 0 4px 1px var(--primary);
-
-      h2 {
-        color: var(--background);
-      }
-
-      p {
-        color: var(--primary-light);
-      }
-    }
-  }
+    background: var(--secondary-light);
 
     h2 {
       width: 100%;
       text-align: center;
+      color: var(--background);
     }
 
     p {
       width: 100%;
       text-align: center;
       font-size: 0.9rem;
-      color: var(--secondary-light);
+      color: var(--primary-light);
     }
+
+    &:hover {
+      border-color: var(--primary-light);
+      box-shadow: 0 0 6px 2px var(--primary-light);
+    }
+  }
 `;

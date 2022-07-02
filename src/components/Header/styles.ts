@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 100%;
   height: 9.375rem;
   padding: 0.625rem;
-  background: linear-gradient(var(--secondary), var(--background));
+  background: linear-gradient(var(--secondary-light), var(--background));
 `;
 
 export const Content = styled.div`
@@ -27,7 +27,6 @@ export const Title = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  color: var(--background);
 
   a {
     width: 7.5rem;
@@ -39,10 +38,10 @@ export const Title = styled.div`
       height: 100%;
       border-radius: 50%;
       transition: 0.6s;
-      border-top: 0.25rem solid var(--background);
-      border-right: 0.25rem solid var(--background);
-      border-bottom: 0.25rem solid var(--secondary-light);
-      border-left: 0.25rem solid var(--secondary-light);
+      border-top: 0.125rem solid var(--background);
+      border-right: 0.125rem solid var(--background);
+      border-bottom: 0.125rem solid var(--secondary-light);
+      border-left: 0.125rem solid var(--secondary-light);
 
       &:hover {
         transform: rotate(360deg);
@@ -115,4 +114,30 @@ export const NavBar = styled.div`
       }
     }
   } */
+`;
+
+export const DarkTheme = styled.div`
+  height: 100%;
+  padding: 0 1rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  button {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      transition: color 0.2s;
+
+      &:hover {
+        color: var(--primary-light);
+      }
+    }
+  }
 `;

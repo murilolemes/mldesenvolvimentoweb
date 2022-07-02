@@ -6,7 +6,7 @@ export const Container = styled.div`
     width: 100%;
     border-spacing: 0.2rem 0.2rem;
     th {
-      color: var(--secondary-light);
+      color: var(--primary);
       font-weight: 400;
       padding: 1rem 1rem;
       text-align: left;
@@ -29,6 +29,7 @@ export const Container = styled.div`
       border-radius: 0.25rem;
       &:first-child {
         color: var(--background);
+        font-weight: 500;
       }
       &.deposit {
         color: var(--green);
@@ -52,8 +53,10 @@ export const Container = styled.div`
         border: none;
         background: var(--primary-light);
         color: var(--secondary);
+        transition: color 0.2s;
+
         &:hover {
-          color: #e83f5b;
+          color: var(--red);
         }
       }
     }
@@ -66,33 +69,35 @@ export const DivPages = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-bottom: 1rem;
+  padding: 0.25rem 0;
+
   p {
     margin: 0 1rem;
   }
+
   button {
     height: 2.5rem;
     width: 2.5rem;
     background-color: transparent;
     border-radius: 50%;
-    border: 0px;
-    color: var(--color-primary-light);
+    border: none;
+    color: var(--primary-light);
     display: flex;
     align-items: center;
     justify-content: center;
     transition: background 0.2s;
+
     & + button {
       margin-left: 1rem;
     }
+
     svg {
       width: 1.5rem;
       height: 1.5rem;
     }
-    :disabled {
-      opacity: 0.2;
-    }
+
     :hover {
-      background: var(--color-secondary);
+      background: var(--secondary);
     }
   }
 `;

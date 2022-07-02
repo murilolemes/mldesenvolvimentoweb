@@ -53,23 +53,12 @@ export const CardPokemon = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--secondary);
+    border: 1px solid var(--primary);
     border-radius: 0.25rem;
-    box-shadow: 0 0 4px 1px var(--secondary-light);
+    box-shadow: 0 0 4px 1px var(--primary);
     transition: 0.2s;
     padding: 1rem;
-
-    &:hover {
-      background: var(--secondary);
-      border-color: var(--primary);
-      box-shadow: 0 0 4px 1px var(--primary-light);
-
-      .descriptions {
-        p {
-          color: var(--background);
-        }
-      }
-    }
+    background: var(--secondary-light);
 
     h1 {
       text-align: center;
@@ -86,8 +75,9 @@ export const CardPokemon = styled.div`
       align-items: center;
       justify-content: space-between;
       padding: 0.5rem 1rem;
-      background-color: var(--secondary-light);
+      background-color: var(--primary-light);
       border-radius: 0.25rem;
+      color: var(--secondary);
 
       & + div {
         margin-top: 1rem;
@@ -99,6 +89,18 @@ export const CardPokemon = styled.div`
         color: var(--background);
       }
     }
+
+    &:hover {
+      border-color: var(--primary-light);
+      box-shadow: 0 0 4px 2px var(--primary-light);
+
+      .descriptions {
+        p {
+          color: var(--background);
+        }
+      }
+    }
+
 
     .btnAddRemove {
       width: 100%;
