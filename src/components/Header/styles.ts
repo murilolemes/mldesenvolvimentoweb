@@ -14,6 +14,7 @@ export const Content = styled.div`
   display: flex;
   align-items: center;
   margin: 0 auto;
+  position: relative;
 
   /* @media (max-width: 599px) {
     flex-direction: column;
@@ -67,38 +68,59 @@ export const Title = styled.div`
 
 export const NavBar = styled.div`
   width: 100%;
-  height: 2.5rem;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  /* border: 1px solid red; */
 
   ul {
     display: flex;
+    align-items: center;
+    justify-content: center;
     list-style-type: none;
     margin: 0;
     padding: 0;
+    height: 100%;
+    /* border: 1px solid yellow; */
 
     li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
       a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
         font-size: 1.2rem;
         font-weight: 500;
         color: var(--primary-light);
         text-decoration: none;
         transition: color 0.2s;
+        padding: 0.375rem;
+        /* border: 1px solid green; */
 
         &:hover {
-          color: var(--primary);
+          border: 2px solid #F5F5F5;
+          box-shadow: 0px 0px 4px 4px #F5F5F5;
+          border-radius: 0.25rem;
+          /* padding: 4px; */
         }
       }
 
       & + li {
-        margin-left: 1rem;
+        margin-left: 0.625rem;
       }
     }
   }
 
   .active {
-    color: var(--primary);
+    border: 1px solid #F5F5F5;
+    box-shadow: 0px 0px 4px 4px #F5F5F5;
+    border-radius: 0.25rem;
+    /* padding: 4px; */
   }
 
   .inative {
@@ -114,30 +136,4 @@ export const NavBar = styled.div`
       }
     }
   } */
-`;
-
-export const DarkTheme = styled.div`
-  height: 100%;
-  padding: 0 1rem;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-
-  button {
-    background: none;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    svg {
-      width: 1.25rem;
-      height: 1.25rem;
-      transition: color 0.2s;
-
-      &:hover {
-        color: var(--primary-light);
-      }
-    }
-  }
 `;

@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiSun, FiMoon } from 'react-icons/fi'
+import { ThemesMode } from '../../components/ThemesMode';
 
 import Logo1 from '../../assets/Logo1.png';
 
-import { Container, Content, Title, NavBar, DarkTheme } from './styles';
+import { Container, Content, Title, NavBar } from './styles';
 
 export function Header() {
   const [path, setPath] = useState('');
@@ -12,7 +12,6 @@ export function Header() {
   const [calc, setCalc] = useState('inative');
   const [finance, setFinance] = useState('inative');
   const [pokemon, setPokemon] = useState('inative');
-  const [theme, setTheme] = useState('darkTheme');
 
   useEffect(() => {
     switch (path) {
@@ -63,13 +62,10 @@ export function Header() {
     }
   }, [path]);
 
-  function handleDarkTheme() {
-    theme === 'darkTheme' ? setTheme('cleanTheme') : setTheme('darkTheme');
-  }
-
   return (
     <Container>
       <Content>
+        <ThemesMode />
         <Title>
           <Link to="/" onClick={() => setPath('home')}>
             <img src={Logo1} alt="Logo Murilo" />
@@ -102,11 +98,6 @@ export function Header() {
             </li>
           </ul>
         </NavBar>
-        <DarkTheme>
-          <button type='button' onClick={handleDarkTheme} id={theme}>
-            {theme === 'darkTheme' ? <FiSun /> : <FiMoon />}
-          </button>
-        </DarkTheme>
       </Content>
     </Container >
   );

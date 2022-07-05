@@ -12,19 +12,11 @@ export default createGlobalStyle`
     --red: #e52e4d;
     --green: #33cc95;
 
-    --background: #080c25;
+    --background: #080C25;
     --secondary: #161e35;
     --secondary-light: #3071e7;
     --primary: #a6b2ec;
     --primary-light: #F5F5F5;
-  }
-
-  #cleanTheme {
-    border: 1px solid red;
-  }
-
-  #darkTheme {
-    border: 1px solid yellow;
   }
 
   * {
