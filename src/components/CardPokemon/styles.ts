@@ -18,6 +18,7 @@ export const Card = styled.div`
 
   h1 {
     text-align: center;
+    color: var(--white-100);
   }
 
   img {
@@ -31,9 +32,9 @@ export const Card = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem 1rem;
-    background-color: var(--primary-light);
+    background-color: var(--white-100);
     border-radius: 0.25rem;
-    color: var(--secondary);
+    color: var(--blue-800);
 
     & + div {
       margin-top: 1rem;
@@ -42,19 +43,13 @@ export const Card = styled.div`
     p:first-child {
       font-size: 1.25rem;
       font-weight: 500;
-      color: var(--background);
+      color: var(--blue-900);
     }
   }
 
   &:hover {
     border-color: var(--primary-light);
     box-shadow: 0 0 4px 2px var(--primary-light);
-
-    .descriptions {
-      p {
-        color: var(--background);
-      }
-    }
   }
 
   .btnRemove {
@@ -71,7 +66,7 @@ export const Card = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--primary-light);
+      color: var(--white-100);
       font-weight: 500;
       transition: filter 0.2s;
 

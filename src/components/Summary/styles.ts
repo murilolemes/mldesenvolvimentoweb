@@ -40,11 +40,11 @@ export const Container = styled.div`
   }
   .positive {
     background: var(--green);
-    color: var(--primary-light);
+    color: var(--blue-900);
   }
 
   .negative {
     background: var(--red);
-    color: var(--primary-light);
+    color: var(--blue-900);
   }
 `;

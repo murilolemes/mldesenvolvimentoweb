@@ -68,11 +68,10 @@ export const Title = styled.div`
 
 export const NavBar = styled.div`
   width: 100%;
-  height: 3rem;
+  height: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  /* border: 1px solid red; */
 
   ul {
     display: flex;
@@ -82,7 +81,6 @@ export const NavBar = styled.div`
     margin: 0;
     padding: 0;
     height: 100%;
-    /* border: 1px solid yellow; */
 
     li {
       display: flex;
@@ -94,37 +92,39 @@ export const NavBar = styled.div`
         align-items: center;
         justify-content: center;
         height: 100%;
-        font-size: 1.2rem;
+        font-size: 1rem;
         font-weight: 500;
-        color: var(--primary-light);
+        color: var(--blue-900);
         text-decoration: none;
         transition: color 0.2s;
         padding: 0.375rem;
-        /* border: 1px solid green; */
+        background: var(--white-100);
+        border-radius: 0.25rem;
+        border: none;
 
         &:hover {
-          border: 2px solid #F5F5F5;
-          box-shadow: 0px 0px 4px 4px #F5F5F5;
+          border: 1px solid var(--white-100);
+          box-shadow: 0px 0px 4px 2px var(--white-100);
           border-radius: 0.25rem;
-          /* padding: 4px; */
+          margin: 0 0.25rem;
         }
       }
 
       & + li {
-        margin-left: 0.625rem;
+        margin-left: 0.25rem;
       }
     }
   }
 
   .active {
-    border: 1px solid #F5F5F5;
-    box-shadow: 0px 0px 4px 4px #F5F5F5;
+    border: 1px solid var(--white-100);
+    box-shadow: 0px 0px 4px 2px var(--white-100);
     border-radius: 0.25rem;
-    /* padding: 4px; */
+    margin: 0 0.25rem;
   }
 
   .inative {
-    color: var(--primary-light);
+    /* color: var(--primary-light); */
   }
 
   /* @media (max-width: 599px) {
