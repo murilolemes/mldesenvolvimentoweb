@@ -12,6 +12,12 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  h3 {
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
 `;
 
 export const Perfil = styled.div`

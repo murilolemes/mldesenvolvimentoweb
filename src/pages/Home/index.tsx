@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { FaGithub } from 'react-icons/fa';
 
 import { apiGitHub } from '../../services/api';
+import { WhatsApp } from '../../components/WhatsApp';
 
 import { Container, Content, Perfil, Repos } from './styles';
 
@@ -51,6 +52,7 @@ export function Home() {
             </div>
           </div>
         </Perfil>
+        <h3>Acesse meus repositórios</h3>
         <Repos>
           {responseRepo.map(repo => (
             <a
@@ -66,6 +68,7 @@ export function Home() {
             </a>
           ))}
         </Repos>
+        <WhatsApp />
       </Content>
     </Container>
   );
