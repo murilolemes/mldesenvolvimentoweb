@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.form`
   h2 {
-    color: var(--primary-light);
+    color: var(--white-100);
     font-size: 1.4rem;
     margin-bottom: 2rem;
   }
@@ -11,12 +11,12 @@ export const Container = styled.form`
     padding: 0 1rem;
     height: 3rem;
     border-radius: 0.25rem;
-    border: 1px solid #d7d7d7;
-    background: var(--primary-light);
+    border: 1px solid var(--blue-200);
+    background: var(--white-100);
     font-weight: 400;
     font-size: 1rem;
     &::placeholder {
-      color: var(--background);
+      color: var(--blue-200);
     }
     & + input {
       margin-top: 1rem;
@@ -27,7 +27,7 @@ export const Container = styled.form`
     padding: 0 1.5rem;
     height: 3rem;
     background: var(--green);
-    color: var(--background);
+    color: var(--blue-900);
     border-radius: 0.25rem;
     border: 0;
     font-size: 1rem;
@@ -53,9 +53,9 @@ export const CardPokemon = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--primary);
+    border: 1px solid var(--blue-200);
     border-radius: 0.25rem;
-    box-shadow: 0 0 4px 1px var(--primary);
+    box-shadow: 0 0 4px 1px var(--blue-200);
     transition: 0.2s;
     padding: 1rem;
     background: var(--secondary-light);
@@ -64,9 +64,16 @@ export const CardPokemon = styled.div`
       text-align: center;
     }
 
-    img {
-      flex: 1;
-    }
+    /* #img {
+      width: 10rem;
+      height: 10rem;
+      border: 1px; */
+      img {
+        width: 8rem;
+        height: 8rem;
+        /* flex: 1; */
+      }
+    /* } */
 
     .descriptions {
       width: 100%;
@@ -75,9 +82,9 @@ export const CardPokemon = styled.div`
       align-items: center;
       justify-content: space-between;
       padding: 0.5rem 1rem;
-      background-color: var(--primary-light);
+      background-color: var(--white-100);
       border-radius: 0.25rem;
-      color: var(--secondary);
+      color: var(--blue-800);
 
       & + div {
         margin-top: 1rem;
@@ -86,19 +93,13 @@ export const CardPokemon = styled.div`
       p:first-child {
         font-size: 1.25rem;
         font-weight: 500;
-        color: var(--background);
+        color: var(--blue-900);
       }
     }
 
     &:hover {
-      border-color: var(--primary-light);
-      box-shadow: 0 0 4px 2px var(--primary-light);
-
-      .descriptions {
-        p {
-          color: var(--background);
-        }
-      }
+      border-color: var(--white-100);
+      box-shadow: 0 0 4px 2px var(--white-100);
     }
 
 
@@ -116,7 +117,7 @@ export const CardPokemon = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        color: var(--primary-light);
+        color: var(--white-100);
         font-weight: 500;
         transition: filter 0.2s;
         margin: 0;

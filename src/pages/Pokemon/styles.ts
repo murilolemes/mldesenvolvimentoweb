@@ -26,7 +26,7 @@ export const ButtonNewTransaction = styled.button`
   height: 3rem;
   border-radius: 0.25rem;
   border: none;
-  color: var(--secondary);
+  color: var(--background);
   background: var(--primary);
   font-size: 1.2rem;
   font-weight: 500;

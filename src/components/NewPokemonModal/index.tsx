@@ -18,13 +18,19 @@ interface Pokemon {
   id: number;
   name: string;
   img: string;
-  type: string;
+  type: {
+    color: string;
+    typePokemon: string[];
+  };
+  stats: object[];
+  skills: string[];
 }
 
 export function NewPokemonModal({ isOpen, onRequestClose }: NewPokemonModalProps) {
   const { createPokemon } = usePokemons();
   const [pokemonPath, setPokemonPath] = useState('');
   const [pokemon, setPokemon] = useState<Pokemon>();
+  const typesPokemon = { color: '' };
 
   async function handleCreateNewPokemon(event: FormEvent) {
     event.preventDefault();
@@ -35,16 +41,55 @@ export function NewPokemonModal({ isOpen, onRequestClose }: NewPokemonModalProps
       }
 
       const response = await pokeApi.get(`/pokemon/${pokemonPath}`);
+      const data = response.data;
 
-      const poke = response.data;
+      const rawTypesBg = data.types;
+      const typesBg = [];
+      const status = [];
+      const skills = [];
+      const cardBg = document.getElementById('colorBg');
+
+      for (let i = 0; i < rawTypesBg.length; i++) {
+        let typesValueBg = rawTypesBg[i].type.name;
+        typesBg.push(typesValueBg);
+      }
+
+      if (typesBg.length === 1) {
+        typesPokemon.color = `var(--${typesBg})`;
+        if (cardBg) {
+          cardBg.style.background = typesPokemon.color;
+        }
+      } else {
+        typesPokemon.color = `linear-gradient(90deg, var(--${typesBg[0]}), var(--${typesBg[1]}))`;
+        if (cardBg) {
+          cardBg.style.background = typesPokemon.color;
+        }
+      }
+
+      for (let i = 0; i < data.stats.length; i++) {
+        let { base_stat } = data.stats[i];
+        let { name } = data.stats[i].stat;
+        status.push({ name, base_stat })
+      };
+
+      for (let i = 0; i < data.abilities.length; i++) {
+        let { name } = data.abilities[i].ability;
+        skills.push(name)
+      };
 
       setPokemon({
-        id: poke.id,
-        name: poke.name,
-        img: poke.sprites.front_default,
-        type: poke.types[0].type.name
+        id: data.id,
+        name: data.name,
+        img: data.sprites.other.home.front_default,
+        type: {
+          color: typesPokemon.color,
+          typePokemon: typesBg
+        },
+        stats: status,
+        skills
       });
     } catch (error) {
+      console.log(error)
       return toast.error('Pokemon não encontrado! 😞')
     }
   }
@@ -58,7 +103,12 @@ export function NewPokemonModal({ isOpen, onRequestClose }: NewPokemonModalProps
       id: Number(pokemon.id),
       name: pokemon.name,
       img: pokemon.img,
-      type: pokemon.type
+      type: {
+        color: pokemon.type.color,
+        typePokemon: pokemon.type.typePokemon
+      },
+      stats: pokemon.stats,
+      skills: pokemon.skills
     });
 
     setPokemonPath('');
@@ -96,12 +146,14 @@ export function NewPokemonModal({ isOpen, onRequestClose }: NewPokemonModalProps
         <button type='submit'>Procurar</button>
       </Container>
       <CardPokemon>
-        <div className="card">
+        <div className="card" id='colorBg'>
           <h1>{pokemon?.name.replace(/-/g, ' ')}</h1>
-          <img src={pokemon?.img} alt={pokemon?.name} />
+          <div id='img'>
+            <img src={pokemon?.img} alt={pokemon?.name} />
+          </div>
           <div className='descriptions'>
             <p>Tipo:</p>
-            <p>{pokemon?.type}</p>
+            <p>{pokemon?.type.color}</p>
           </div>
           <div className="btnAddRemove">
             <button

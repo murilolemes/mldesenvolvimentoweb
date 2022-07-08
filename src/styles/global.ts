@@ -4,19 +4,37 @@ import { shade } from 'polished';
 
 export default createGlobalStyle`
   :root {
-    //--background: #1c2135;
-    //--primary-light: #e7e9ee;
-    //--primary: #cfdaff;
-    //--secondary-light: #8794c0;
-    //--secondary: #5a6794;
-    --red: #e52e4d;
-    --green: #33cc95;
-
     --background: #080C25;
-    --secondary: #161e35;
-    --secondary-light: #3071e7;
-    --primary: #a6b2ec;
+    --secondary: #161E35;
+    --secondary-light: #3071E7;
+    --primary: #A6B2EC;
     --primary-light: #F5F5F5;
+
+    --blue-900: #080C25;
+    --blue-800: #161E35;
+    --blue-200: #A6B2EC;
+    --white-100: #F5F5F5;
+    --red: #E52E4D;
+    --green: #33CC95;
+
+    --electric: #f8d030;
+    --grass: #49d0b0;
+    --fire: #f08030;
+    --normal: #a8a878;
+    --fighting: #C03028;
+    --water: #76befe;
+    --flying: #a890f0;
+    --poison: #a040a0;
+    --ground: #E0C068;
+    --psychic: #f85888;
+    --rock: #B8A038;
+    --ice: #98D8D8;
+    --bug: #8aee71;
+    --dragon: #7038f8;
+    --ghost: #705898;
+    --dark: #705848;
+    --steel: #B8B8D0;
+    --fairy: #ee99ac;
   }
 
   * {
@@ -88,7 +106,7 @@ export default createGlobalStyle`
   .react-modal-content{
     width: 100%;
     max-width: 576px;
-    background: ${shade(0.3, '#5a6794')};
+    background: var(--blue-800);
     padding: 3rem;
     position: relative;
     border-radius: 0.25rem;

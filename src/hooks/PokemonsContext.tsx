@@ -5,7 +5,12 @@ interface Pokemon {
   id: number;
   name: string;
   img: string;
-  type: string;
+  type: {
+    color: string;
+    typePokemon: string[];
+  };
+  stats: object[];
+  skills: string[];
 }
 
 interface PokemonsProviderProps {
