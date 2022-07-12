@@ -35,7 +35,7 @@ export const Card = styled.div`
 
   #imgPokemon {
     width: 100%;
-    height: 100%;
+    height: 20rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -55,7 +55,7 @@ export const Card = styled.div`
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 0.5rem 1rem;
+    padding: 5rem 1rem 0.5rem;
     background-color: var(--white-100);
 
     .stats, .skills {

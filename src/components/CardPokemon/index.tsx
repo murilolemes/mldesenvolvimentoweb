@@ -7,13 +7,15 @@ export function CardPokemon() {
   const { pokemons, deletePokemon } = usePokemons();
 
   pokemons.map((pokemon) => pokemon.stats.map((pk) => console.log('teste', pk)))
+
+  pokemons.map((pokemon) => console.log('aqui', pokemon))
   // console.log('1', pokemons)
 
-  const colorBg = document.getElementById('colorBackground');
+  // const colorBg = document.getElementById('colorBackground');
 
-  if (colorBg) {
-    pokemons.map((pokemon) => colorBg.style.background = pokemon.type.color);
-  }
+  // if (colorBg) {
+  //   pokemons.map((pokemon) => colorBg.style.background = pokemon.type.color);
+  // }
 
   return (
     <Container>
@@ -29,7 +31,6 @@ export function CardPokemon() {
           <div className='descriptions'>
             <div className="stats">
               <p>Stats</p>
-              {/* {pokemon.stats.map((poke) => ( */}
               <div>
                 <p>HP:<span>63</span></p>
                 <p>Attack:<span>60</span></p>
@@ -38,7 +39,6 @@ export function CardPokemon() {
                 <p>Special Defense:<span>50</span></p>
                 <p>Speed:<span>71</span></p>
               </div>
-              {/* ))} */}
             </div>
             <div className="skills">
               <p>Skills</p>
