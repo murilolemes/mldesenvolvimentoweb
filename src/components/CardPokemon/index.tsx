@@ -6,17 +6,6 @@ import { Container, Card } from "./styles";
 export function CardPokemon() {
   const { pokemons, deletePokemon } = usePokemons();
 
-  pokemons.map((pokemon) => pokemon.stats.map((pk) => console.log('teste', pk)))
-
-  pokemons.map((pokemon) => console.log('aqui', pokemon))
-  // console.log('1', pokemons)
-
-  // const colorBg = document.getElementById('colorBackground');
-
-  // if (colorBg) {
-  //   pokemons.map((pokemon) => colorBg.style.background = pokemon.type.color);
-  // }
-
   return (
     <Container>
       {pokemons.map(pokemon => (
@@ -32,23 +21,22 @@ export function CardPokemon() {
             <div className="stats">
               <p>Stats</p>
               <div>
-                <p>HP:<span>63</span></p>
-                <p>Attack:<span>60</span></p>
-                <p>Defense:<span>55</span></p>
-                <p>Special Attack:<span>50</span></p>
-                <p>Special Defense:<span>50</span></p>
-                <p>Speed:<span>71</span></p>
+                {pokemon.stats.map((stat) => (
+                  <div key={stat.name}>
+                    <p>{stat.name}:</p>
+                    <p>{stat.base_stat}</p>
+                  </div>
+                ))}
               </div>
             </div>
             <div className="skills">
               <p>Skills</p>
               <div>
-                <p>HP:<span>63</span></p>
-                <p>Attack:<span>60</span></p>
-                <p>Defense:<span>55</span></p>
-                <p>Special Attack:<span>50</span></p>
-                <p>Special Defense:<span>50</span></p>
-                <p>Speed:<span>71</span></p>
+                {pokemon.skills.map((skill) => (
+                  <div key={skill.length}>
+                    <p>{skill}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
