@@ -14,6 +14,11 @@ interface NewPokemonModalProps {
   onRequestClose: () => void;
 }
 
+interface Stats {
+  name: string;
+  base_stat: number;
+}
+
 interface Pokemon {
   id: number;
   name: string;
@@ -22,7 +27,7 @@ interface Pokemon {
     color: string;
     typePokemon: string[];
   };
-  stats: object[];
+  stats: Stats[];
   skills: string[];
 }
 
@@ -45,8 +50,8 @@ export function NewPokemonModal({ isOpen, onRequestClose }: NewPokemonModalProps
 
       const rawTypesBg = data.types;
       const typesBg = [];
-      const status = [];
       const skills = [];
+      const status: Stats[] = [];
       const cardBg = document.getElementById('colorBg');
 
       for (let i = 0; i < rawTypesBg.length; i++) {
@@ -89,7 +94,6 @@ export function NewPokemonModal({ isOpen, onRequestClose }: NewPokemonModalProps
         skills
       });
     } catch (error) {
-      console.log(error)
       return toast.error('Pokemon não encontrado! 😞')
     }
   }

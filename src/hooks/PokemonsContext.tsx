@@ -1,6 +1,11 @@
 import { createContext, ReactNode, useContext, useState } from 'react';
 import { toast } from 'react-toastify';
 
+interface Stats {
+  name: string;
+  base_stat: number;
+}
+
 interface Pokemon {
   id: number;
   name: string;
@@ -9,7 +14,7 @@ interface Pokemon {
     color: string;
     typePokemon: string[];
   };
-  stats: object[];
+  stats: Stats[];
   skills: string[];
 }
 
