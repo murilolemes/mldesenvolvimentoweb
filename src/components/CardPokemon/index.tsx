@@ -8,15 +8,17 @@ export function CardPokemon() {
   const { pokemons, deletePokemon } = usePokemons();
 
   useEffect(() => {
-    pokemons.map(poke => {
-      console.log(poke.type.color)
-      let colorbg = document.getElementById(`${poke.type.color}`)
+    if (pokemons) {
+      pokemons.map(poke => {
+        console.log(poke.type.color)
+        let colorbg = document.getElementById(`${poke.type.color}`)
 
-      if (colorbg) {
-        colorbg.style.background = poke.type.color;
-      }
-      return '';
-    });
+        if (colorbg) {
+          colorbg.style.background = poke.type.color;
+        }
+        return '';
+      });
+    }
   }, [pokemons])
 
 
