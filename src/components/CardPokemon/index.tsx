@@ -6,38 +6,49 @@ import { Container, Card } from "./styles";
 export function CardPokemon() {
   const { pokemons, deletePokemon } = usePokemons();
 
+  pokemons.map(poke => {
+    let colorbg = document.getElementById(`${poke.type.color}`)
+
+    if (colorbg) {
+      colorbg.style.background = poke.type.color;
+    }
+  });
+
   return (
     <Container>
       {pokemons.map(pokemon => (
-        <Card key={pokemon.id} id='colorBackground'>
+        <Card key={pokemon.id} id={pokemon.type.color}>
           <div id="title">
             <h1>{pokemon.name.replace(/-/g, ' ')}</h1>
             <p>#{pokemon.id}</p>
           </div>
           <div id="imgPokemon">
+            <div className="type">
+              {pokemon.type.typePokemon.map((type) => (
+                <div key={type}>
+                  <p>{type}</p>
+                </div>
+              ))}
+            </div>
             <img src={pokemon.img} alt={pokemon.name} />
           </div>
           <div className='descriptions'>
             <div className="stats">
-              <p>Stats</p>
-              <div>
-                {pokemon.stats.map((stat) => (
-                  <div key={stat.name}>
-                    <p>{stat.name}:</p>
-                    <p>{stat.base_stat}</p>
-                  </div>
-                ))}
-              </div>
+              <h4>Stats</h4>
+              {pokemon.stats.map((stat) => (
+                <div key={stat.name}>
+                  <p>{stat.name}:</p>
+                  <p>{stat.base_stat}</p>
+                </div>
+              ))}
             </div>
             <div className="skills">
-              <p>Skills</p>
-              <div>
-                {pokemon.skills.map((skill) => (
-                  <div key={skill.length}>
-                    <p>{skill}</p>
-                  </div>
-                ))}
-              </div>
+              <h4>Skills</h4>
+              {pokemon.skills.map((skill) => (
+                <div key={skill}>
+                  <p>{skill}</p>
+                </div>
+              ))}
             </div>
           </div>
           <div className="btnRemove">
@@ -50,8 +61,7 @@ export function CardPokemon() {
             </button>
           </div>
         </Card>
-      ))
-      }
+      ))}
     </Container >
   )
 }

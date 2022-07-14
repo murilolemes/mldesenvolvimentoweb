@@ -47,56 +47,128 @@ export const CardPokemon = styled.div`
   margin-top: 1.5rem;
 
   .card {
-    width: 16rem;
-    height: 20rem;
+    width: 20rem;
+  height: 28rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--primary);
+  border-radius: 0.25rem;
+  box-shadow: 0 0 4px 1px var(--primary);
+  background: var(--secondary-light);
+  transition: 0.2s;
+
+  #title {
+    width: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    border: 1px solid var(--blue-200);
-    border-radius: 0.25rem;
-    box-shadow: 0 0 4px 1px var(--blue-200);
-    transition: 0.2s;
-    padding: 1rem;
-    background: var(--secondary-light);
+    justify-content: space-between;
+    padding: 0.375rem 1rem 0;
 
     h1 {
+      font-size: 1.6rem;
       text-align: center;
+      color: var(--white-100);
     }
 
-    /* #img {
-      width: 10rem;
-      height: 10rem;
-      border: 1px; */
-      img {
-        width: 8rem;
-        height: 8rem;
-        /* flex: 1; */
-      }
-    /* } */
-
-    .descriptions {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.5rem 1rem;
-      background-color: var(--white-100);
+    p{
+      font-size: 0.625rem;
+      background: var(--white-100);
+      color: var(--blue-900);
+      filter: opacity(0.4);
+      padding: 0.25rem;
       border-radius: 0.25rem;
-      color: var(--blue-800);
+    }
+  }
 
-      & + div {
-        margin-top: 1rem;
+  #imgPokemon {
+    width: 100%;
+    height: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .type {
+      position: absolute;
+      right: 1rem;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: opacity(0.8);
+
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.25rem;
+        background: var(--white-100);
+        color: var(--blue-800);
+        border-radius: 0.375rem;
+
+        p {
+          font-size: 0.75rem;
+          font-weight: 500;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        &+div {
+          margin-left: 0.25rem;
+        }
       }
+    }
 
-      p:first-child {
-        font-size: 1.25rem;
-        font-weight: 500;
+    img {
+      width: 13rem;
+      height: 13rem;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  .descriptions {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: var(--white-100);
+
+    .stats, .skills {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 3rem 0.75rem 0.25rem;
+
+      h4 {
         color: var(--blue-900);
       }
+
+      div {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.25rem;
+
+        p {
+          font-size: 0.75rem;
+          color: var(--blue-800);
+        }
+      }
     }
 
+    .skills {
+      border-left: 1px solid var(--blue-800);
+    }
+  }
     &:hover {
       border-color: var(--white-100);
       box-shadow: 0 0 4px 2px var(--white-100);
@@ -110,10 +182,9 @@ export const CardPokemon = styled.div`
       justify-content: space-between;
 
       button {
-        width: 6.5rem;
+        width: 100%;
         height: 2rem;
         border: none;
-        border-radius: 0.25rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -135,10 +206,13 @@ export const CardPokemon = styled.div`
 
       #remove {
         background: var(--red);
+        border-radius: 0 0 0 0.25rem;
       }
 
       #btnAdd {
         background: var(--green);
+        border-left: 1px solid var(--blue-800);
+        border-radius: 0 0 0.25rem 0;
       }
     }
   }
