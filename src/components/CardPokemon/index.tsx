@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { usePokemons } from '../../hooks/PokemonsContext';
 import { FiX } from "react-icons/fi";
 
@@ -6,18 +7,26 @@ import { Container, Card } from "./styles";
 export function CardPokemon() {
   const { pokemons, deletePokemon } = usePokemons();
 
-  pokemons.map(poke => {
-    let colorbg = document.getElementById(`${poke.type.color}`)
+  useEffect(() => {
+    pokemons.map(poke => {
+      console.log(poke.type.color)
+      let colorbg = document.getElementById(`${poke.type.color}`)
 
-    if (colorbg) {
-      colorbg.style.background = poke.type.color;
-    }
-  });
+      if (colorbg) {
+        colorbg.style.background = poke.type.color;
+      }
+      return '';
+    });
+  }, [pokemons])
+
 
   return (
     <Container>
       {pokemons.map(pokemon => (
-        <Card key={pokemon.id} id={pokemon.type.color}>
+        <Card
+          key={pokemon.id}
+          id={pokemon.type.color}
+        >
           <div id="title">
             <h1>{pokemon.name.replace(/-/g, ' ')}</h1>
             <p>#{pokemon.id}</p>
@@ -61,7 +70,8 @@ export function CardPokemon() {
             </button>
           </div>
         </Card>
-      ))}
+      ))
+      }
     </Container >
   )
 }

@@ -60,7 +60,7 @@ export function NewPokemonModal({ isOpen, onRequestClose }: NewPokemonModalProps
       }
 
       if (typesBg.length === 1) {
-        typesPokemon.color = `var(--${typesBg})`;
+        typesPokemon.color = `linear-gradient(90deg, var(--${typesBg}), var(--${typesBg}))`;
         if (cardBg) {
           cardBg.style.background = typesPokemon.color;
         }

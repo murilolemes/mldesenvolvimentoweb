@@ -12,7 +12,7 @@ export const Card = styled.div`
   border: 1px solid var(--primary);
   border-radius: 0.25rem;
   box-shadow: 0 0 4px 1px var(--primary);
-  background: var(--secondary-light);
+  background: var(--white-100);
   transition: 0.2s;
 
   #title {
