@@ -10,8 +10,7 @@ export function CardPokemon() {
   useEffect(() => {
     if (pokemons) {
       pokemons.map(poke => {
-        console.log(poke.type.color)
-        let colorbg = document.getElementById(`${poke.type.color}`)
+        let colorbg = document.getElementById(`${poke.name}`)
 
         if (colorbg) {
           colorbg.style.background = poke.type.color;
@@ -27,7 +26,7 @@ export function CardPokemon() {
       {pokemons.map(pokemon => (
         <Card
           key={pokemon.id}
-          id={pokemon.type.color}
+          id={pokemon.name}
         >
           <div id="title">
             <h1>{pokemon.name.replace(/-/g, ' ')}</h1>
