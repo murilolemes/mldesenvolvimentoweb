@@ -35,6 +35,7 @@ export function NewPokemonModal({ isOpen, onRequestClose }: NewPokemonModalProps
   const { createPokemon } = usePokemons();
   const [pokemonPath, setPokemonPath] = useState('');
   const [pokemon, setPokemon] = useState<Pokemon>();
+  // const [classCard, setClassCard] = useState('none')
   const typesPokemon = { color: '' };
 
   async function handleCreateNewPokemon(event: FormEvent) {
@@ -150,7 +151,10 @@ export function NewPokemonModal({ isOpen, onRequestClose }: NewPokemonModalProps
         <button type='submit'>Procurar</button>
       </Container>
       <CardPokemon>
-        <div className="card" id='colorBg'>
+        <div
+          className={pokemon ? 'card' : 'none'}
+          id='colorBg'
+        >
           <div id="title">
             <h1>{pokemon?.name.replace(/-/g, ' ')}</h1>
             <p>#{pokemon?.id}</p>
