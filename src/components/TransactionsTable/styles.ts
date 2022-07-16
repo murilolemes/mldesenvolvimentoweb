@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   margin-top: 4rem;
+`;
+
+export const Content = styled.div`
   table {
     width: 100%;
     border-spacing: 0.2rem 0.2rem;
@@ -61,8 +64,16 @@ export const Container = styled.div`
       }
     }
   }
-`;
 
+  @media(max-width: 768px) {
+    padding-bottom: 0.5rem;
+    overflow-x: scroll;
+
+    table {
+      width: 1200px;
+    }
+  }
+`;
 
 export const DivPages = styled.div`
   width: 100%;

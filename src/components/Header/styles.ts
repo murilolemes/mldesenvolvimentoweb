@@ -5,6 +5,10 @@ export const Container = styled.div`
   height: 9.375rem;
   padding: 0.625rem;
   background: linear-gradient(var(--secondary-light), var(--background));
+
+  @media(max-width: 420px) {
+    height: auto;
+  }
 `;
 
 export const Content = styled.div`
@@ -16,10 +20,9 @@ export const Content = styled.div`
   margin: 0 auto;
   position: relative;
 
-  /* @media (max-width: 599px) {
+  @media(max-width: 420px) {
     flex-direction: column;
-    justify-content: center;
-  } */
+  }
 `;
 
 export const Title = styled.div`
@@ -49,21 +52,6 @@ export const Title = styled.div`
       }
     }
   }
-
-  /* @media (max-width: 599px) {
-    width: 100px;
-    height: 100px;
-
-    a {
-      width: 100%;
-      height: 100%;
-
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-  } */
 `;
 
 export const NavBar = styled.div`
@@ -123,17 +111,19 @@ export const NavBar = styled.div`
     margin: 0 0.25rem;
   }
 
-  .inative {
-    /* color: var(--primary-light); */
-  }
 
-  /* @media (max-width: 599px) {
-    justify-content: center;
-
+  @media(max-width: 300px) {
     ul {
-      a {
-        font-size: 1rem;
+      li {
+        a {
+          font-size: 0.875rem;
+        }
       }
     }
-  } */
+  }
+
+  @media(max-width: 420px) {
+    justify-content: center;
+    margin-top: 1rem;
+  }
 `;

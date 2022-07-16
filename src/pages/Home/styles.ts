@@ -98,6 +98,48 @@ export const Perfil = styled.div`
       }
     }
   }
+
+  @media(max-width: 530px) {
+    height: auto;
+    flex-direction: column;
+
+    .header {
+      width: 100%;
+
+      h1, .bio {
+        text-align: center;
+      }
+
+      .bio {
+        height: auto;
+        padding-right: 0;
+      }
+    }
+
+    .description {
+      width: 100%;
+
+      img {
+        padding: 1rem;
+      }
+
+      .data {
+        width: 100%;
+
+        a {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @media(max-width: 550px) {
+    .header {
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+  }
 `;
 
 export const Repos = styled.div`
@@ -139,6 +181,12 @@ export const Repos = styled.div`
     &:hover {
       border-color: var(--primary-light);
       box-shadow: 0 0 6px 2px var(--primary-light);
+    }
+  }
+
+  @media(max-width: 530px) {
+    a {
+      width: 100%;
     }
   }
 `;

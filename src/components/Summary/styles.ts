@@ -47,4 +47,17 @@ export const Container = styled.div`
     background: var(--red);
     color: var(--blue-900);
   }
+
+  @media(max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media(min-width: 769px) and (max-width: 834px) {
+    div {
+      padding: 1rem;
+      strong {
+        font-size: 1.8rem;
+      }
+    }
+  }
 `;

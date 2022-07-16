@@ -6,7 +6,7 @@ import { formatValue } from '../../utils/formatValue';
 
 import { FiTrash2 } from 'react-icons/fi';
 
-import { Container, DivPages } from './styles';
+import { Container, Content, DivPages } from './styles';
 
 export function TransactionsTable() {
   const { transactions, deleteTransaction } = useTransactions();
@@ -38,43 +38,44 @@ export function TransactionsTable() {
 
   return (
     <Container>
-      <table>
-        <thead>
-          <tr>
-            <th>Título</th>
-            <th id='valueId'>Valor</th>
-            <th>Categoria</th>
-            <th>Data</th>
-          </tr>
-        </thead>
-        <tbody>
-          {transactions
-            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            .map(transaction => (
-              <tr key={transaction.id}>
-                <td>{transaction.title}</td>
-                <td className={transaction.type}>
-                  {formatValue(transaction.amount)}
-                </td>
-                <td>{transaction.category}</td>
-                <td>
-                  {new Intl.DateTimeFormat('pt-BR')
-                    .format(new Date(transaction.createdAt))
-                  }
-                </td>
-                <td id="trash">
-                  <button
-                    type='button'
-                    onClick={() => handleDelete(transaction.id)}
-                  >
-                    <FiTrash2 size={20} />
-                  </button>
-                </td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
-
+      <Content>
+        <table>
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th id='valueId'>Valor</th>
+              <th>Categoria</th>
+              <th>Data</th>
+            </tr>
+          </thead>
+          <tbody>
+            {transactions
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map(transaction => (
+                <tr key={transaction.id}>
+                  <td>{transaction.title}</td>
+                  <td className={transaction.type}>
+                    {formatValue(transaction.amount)}
+                  </td>
+                  <td>{transaction.category}</td>
+                  <td>
+                    {new Intl.DateTimeFormat('pt-BR')
+                      .format(new Date(transaction.createdAt))
+                    }
+                  </td>
+                  <td id="trash">
+                    <button
+                      type='button'
+                      onClick={() => handleDelete(transaction.id)}
+                    >
+                      <FiTrash2 size={20} />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </Content>
       <DivPages>
         <p>{`${firstLinePage} - ${lastLinePage} de ${transactions.length}`}</p>
         <button
