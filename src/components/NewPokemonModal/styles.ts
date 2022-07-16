@@ -220,4 +220,10 @@ export const CardPokemon = styled.div`
   .none {
     display: none;
   }
+
+  @media(max-width: 428px) {
+    .card {
+      width: 100%;
+    }
+  }
 `;

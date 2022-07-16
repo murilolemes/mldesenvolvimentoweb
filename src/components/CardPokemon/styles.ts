@@ -164,4 +164,8 @@ export const Card = styled.div`
       background: var(--red);
     }
   }
+
+  @media(max-width: 428px) {
+    width: 100%;
+  }
 `;

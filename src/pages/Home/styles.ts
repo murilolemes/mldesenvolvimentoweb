@@ -165,15 +165,16 @@ export const Repos = styled.div`
     transition: 0.2s;
     background: var(--secondary-light);
 
-    h2 {
+    h2, p {
       width: 100%;
       text-align: center;
+    }
+
+    h2 {
       color: var(--background);
     }
 
     p {
-      width: 100%;
-      text-align: center;
       font-size: 0.9rem;
       color: var(--primary-light);
     }

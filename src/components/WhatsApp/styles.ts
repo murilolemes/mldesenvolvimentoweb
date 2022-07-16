@@ -24,4 +24,9 @@ export const ButtonWhatsApp = styled.a`
     background-color: var(--green);
     box-shadow: 0 0 10px 5px var(--green);
   }
+
+  @media(max-width: 1316px) {
+    left: initial;
+    right: 1rem;
+  }
 `;
