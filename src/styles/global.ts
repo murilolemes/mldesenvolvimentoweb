@@ -102,6 +102,10 @@ export default createGlobalStyle`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media(max-width: 600px) {
+      padding: 0.625rem;
+    }
   }
   .react-modal-content{
     width: 100%;
@@ -110,6 +114,10 @@ export default createGlobalStyle`
     padding: 3rem;
     position: relative;
     border-radius: 0.25rem;
+
+    @media(max-width: 600px) {
+      padding: 1rem;
+    }
   }
   .react-modal-close {
     position: absolute;
