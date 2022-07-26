@@ -118,6 +118,11 @@ export default createGlobalStyle`
     @media(max-width: 600px) {
       padding: 1rem;
     }
+
+    @media(max-height: 600px) {
+      overflow-y: scroll;
+      max-height: 90%;
+    }
   }
   .react-modal-close {
     position: absolute;
