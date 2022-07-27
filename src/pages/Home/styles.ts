@@ -168,6 +168,7 @@ export const Repos = styled.div`
     h2, p {
       width: 100%;
       text-align: center;
+      text-transform: capitalize;
     }
 
     h2 {
