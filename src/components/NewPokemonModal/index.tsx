@@ -35,7 +35,6 @@ export function NewPokemonModal({ isOpen, onRequestClose }: NewPokemonModalProps
   const { createPokemon } = usePokemons();
   const [pokemonPath, setPokemonPath] = useState('');
   const [pokemon, setPokemon] = useState<Pokemon>();
-  // const [classCard, setClassCard] = useState('none')
   const typesPokemon = { color: '' };
 
   async function handleCreateNewPokemon(event: FormEvent) {
@@ -45,8 +44,9 @@ export function NewPokemonModal({ isOpen, onRequestClose }: NewPokemonModalProps
       if (!pokemonPath) {
         return toast.error('Insira o nome do Pokemon!');
       }
+      const namePokemon = pokemonPath.toLowerCase().replace(/ /g, '-')
 
-      const response = await pokeApi.get(`/pokemon/${pokemonPath}`);
+      const response = await pokeApi.get(`/pokemon/${namePokemon}`);
       const data = response.data;
 
       const rawTypesBg = data.types;
@@ -117,14 +117,14 @@ export function NewPokemonModal({ isOpen, onRequestClose }: NewPokemonModalProps
     });
 
     setPokemonPath('');
-    setPokemon(undefined)
+    setPokemon(undefined);
     onRequestClose();
   }
 
   function clearPokemon() {
     setPokemonPath('');
     setPokemon(undefined);
-    onRequestClose()
+    onRequestClose();
   }
 
   return (
@@ -174,7 +174,7 @@ export function NewPokemonModal({ isOpen, onRequestClose }: NewPokemonModalProps
               <h4>Stats</h4>
               {pokemon?.stats.map((stat) => (
                 <div key={stat.name}>
-                  <p>{stat.name}:</p>
+                  <p>{stat.name.replace(/-/g, ' ')}:</p>
                   <p>{stat.base_stat}</p>
                 </div>
               ))}
@@ -183,7 +183,7 @@ export function NewPokemonModal({ isOpen, onRequestClose }: NewPokemonModalProps
               <h4>Skills</h4>
               {pokemon?.skills.map((skill) => (
                 <div key={skill}>
-                  <p>{skill}</p>
+                  <p>{skill.replace(/-/g, ' ')}</p>
                 </div>
               ))}
             </div>

@@ -23,9 +23,10 @@ export const Card = styled.div`
     padding: 0.375rem 1rem 0;
 
     h1 {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       text-align: center;
       color: var(--white-100);
+      text-transform: capitalize;
     }
 
     p{
@@ -70,6 +71,7 @@ export const Card = styled.div`
           display: flex;
           align-items: center;
           justify-content: center;
+          text-transform: capitalize;
         }
 
         &+div {
@@ -90,7 +92,7 @@ export const Card = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: flex-start;
+    align-items: flex-end;
     justify-content: space-between;
     background-color: var(--white-100);
 
@@ -99,7 +101,7 @@ export const Card = styled.div`
       height: 100%;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       justify-content: flex-start;
       padding: 3rem 0.75rem 0.25rem;
 
@@ -113,16 +115,19 @@ export const Card = styled.div`
         align-items: center;
         justify-content: space-between;
         padding: 0.25rem;
+        background: #dfdfdf;
+        border-radius: 0.25rem;
+
+        & + div {
+          margin-top: 0.25rem;
+        }
 
         p {
           font-size: 0.75rem;
           color: var(--blue-800);
+          text-transform: capitalize;
         }
       }
-    }
-
-    .skills {
-      border-left: 1px solid var(--blue-800);
     }
   }
 

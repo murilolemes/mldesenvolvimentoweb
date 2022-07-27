@@ -47,7 +47,7 @@ export function CardPokemon() {
               <h4>Stats</h4>
               {pokemon.stats.map((stat) => (
                 <div key={stat.name}>
-                  <p>{stat.name}:</p>
+                  <p>{stat.name.replace(/-/g, ' ')}:</p>
                   <p>{stat.base_stat}</p>
                 </div>
               ))}
@@ -56,7 +56,7 @@ export function CardPokemon() {
               <h4>Skills</h4>
               {pokemon.skills.map((skill) => (
                 <div key={skill}>
-                  <p>{skill}</p>
+                  <p>{skill.replace(/-/g, ' ')}</p>
                 </div>
               ))}
             </div>
