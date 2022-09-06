@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ThemesMode } from '../../components/ThemesMode';
 
-import Logo1 from '../../assets/Logo1.png';
+import Logo1 from '../../assets/LogoPNG2.png';
 
 import { Container, Content, Title, NavBar } from './styles';
 

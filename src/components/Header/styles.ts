@@ -26,30 +26,30 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.div`
-  width: 7.625rem;
-  height: 7.625rem;
+  /* width: 7.625rem;
+  height: 7.625rem; */
   display: flex;
   align-items: center;
   justify-content: flex-start;
 
   a {
-    width: 7.5rem;
+    /* width: 7.5rem;
     height: 7.5rem;
-    border-radius: 50%;
+    border-radius: 50%; */
 
     img {
       width: 100%;
       height: 100%;
-      border-radius: 50%;
+      /* border-radius: 50%; */
       transition: 0.6s;
-      border-top: 0.125rem solid var(--background);
+      /* border-top: 0.125rem solid var(--background);
       border-right: 0.125rem solid var(--background);
       border-bottom: 0.125rem solid var(--secondary-light);
-      border-left: 0.125rem solid var(--secondary-light);
+      border-left: 0.125rem solid var(--secondary-light); */
 
-      &:hover {
+      /* &:hover {
         transform: rotate(360deg);
-      }
+      } */
     }
   }
 `;
