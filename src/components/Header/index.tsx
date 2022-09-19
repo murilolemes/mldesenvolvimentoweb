@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FiMenu, FiX } from 'react-icons/fi';
+
 import { ThemesMode } from '../../components/ThemesMode';
 
 import Logo1 from '../../assets/LogoPNG2.png';
@@ -12,6 +14,7 @@ export function Header() {
   const [calc, setCalc] = useState('inative');
   const [finance, setFinance] = useState('inative');
   const [pokemon, setPokemon] = useState('inative');
+  const [menu, setMenu] = useState('menuInative');
 
   useEffect(() => {
     switch (path) {
@@ -20,24 +23,28 @@ export function Header() {
         setCalc('inative');
         setFinance('inative');
         setPokemon('inative');
+        setMenu('menuInative');
         break;
       case 'calculadora':
         setCalc('active');
         setHome('inative');
         setFinance('inative');
         setPokemon('inative');
+        setMenu('menuInative');
         break;
       case 'financas':
         setFinance('active');
         setHome('inative');
         setCalc('inative');
         setPokemon('inative');
+        setMenu('menuInative');
         break;
       case 'pokemon':
         setPokemon('active');
         setFinance('inative');
         setHome('inative');
         setCalc('inative');
+        setMenu('menuInative');
         break;
 
       default:
@@ -62,6 +69,11 @@ export function Header() {
     }
   }, [path]);
 
+  function handleMenu() {
+    menu === 'menuInative' ? setMenu('menuActive') : setMenu('menuInative');
+    console.log(menu)
+  }
+
   return (
     <Container>
       <Content>
@@ -72,7 +84,11 @@ export function Header() {
           </Link>
         </Title>
         <NavBar>
-          <ul>
+          <button type='button' onClick={handleMenu}>
+            {menu === 'menuActive' ? <FiX size={20} /> : <FiMenu size={20} />}
+          </button>
+
+          <ul id={menu}>
             <li>
               <Link to="/" className={home} onClick={() => setPath('home')}>
                 Home

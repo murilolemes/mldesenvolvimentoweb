@@ -1,20 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
   position: absolute;
   top: 0;
   right: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
 
   .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 32px;
+    width: 2.75rem;
+    height: 1.375rem;
 
     input {
       opacity: 0;
@@ -38,10 +33,10 @@ export const Container = styled.div`
   .slider:before {
     position: absolute;
     content: "";
-    height: 24px;
-    width: 24px;
-    left: 4px;
-    bottom: 4px;
+    height: 1rem;
+    width: 1rem;
+    left: 0.25rem;
+    bottom: 0.2rem;
     background-color: var(--primary-light);
     -webkit-transition: .4s;
     transition: .4s;
@@ -56,13 +51,13 @@ export const Container = styled.div`
   }
 
   input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    -webkit-transform: translateX(1.3rem);
+    -ms-transform: translateX(1.3rem);
+    transform: translateX(1.3rem);
   }
 
   .slider.round {
-    border-radius: 34px;
+    border-radius: 2.125rem;
   }
 
   .slider.round:before {
@@ -71,20 +66,24 @@ export const Container = styled.div`
 
   #darkTheme {
     position: absolute;
-    height: 20px;
-    width: 20px;
-    right: 8px;
-    bottom: 6px;
+    height: 1rem;
+    width: 1rem;
+    right: 0.25rem;
+    bottom: 0.2rem;
     color: var(--primary-light);
   }
 
   #cleanTheme {
     position: absolute;
-    height: 22px;
-    width: 22px;
-    left: 7px;
-    bottom: 5px;
+    height: 1rem;
+    width: 1rem;
+    left: 0.25rem;
+    bottom: 0.2rem;
     color: var(--primary-light);
   }
 
+  @media(max-width: 530px) {
+    top: unset;
+    bottom: 0.5rem;
+  }
 `;
