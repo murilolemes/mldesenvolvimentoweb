@@ -112,6 +112,7 @@ export const NavBar = styled.div`
     position: absolute;
     bottom: 0;
     left: 0;
+    z-index: 1000;
 
     button {
       display: flex;
@@ -126,18 +127,32 @@ export const NavBar = styled.div`
       display: none;
     }
 
+    .menuActive {
+      width: 2rem;
+      height: 100%;
+      background: var(--secondary-light);
+      border-radius: 0.25rem 0 0 0.25rem;
+    }
+
+    .menuInative {
+      width: initial;
+      height: initial;
+      background: none;
+      border-radius: 0;
+    }
+
     #menuActive {
       flex-direction: column;
-      width: 18.75rem;
+      width: 17.5rem;
       height: 12.5rem;
       position: absolute;
       border: none;
       top: 0;
-      left: 1.5rem;
+      left: 2rem;
       align-items: flex-start;
       background: var(--secondary-light);
       padding: 0.5rem;
-      border-radius: 0.25rem;
+      border-radius: 0 0.25rem 0.25rem;
 
       li {
         display: flex;

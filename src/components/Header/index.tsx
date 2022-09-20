@@ -63,6 +63,7 @@ export function Header() {
             setPokemon('active');
             break;
           default:
+            setMenu('menuInative')
             break;
         }
         break;
@@ -70,8 +71,7 @@ export function Header() {
   }, [path]);
 
   function handleMenu() {
-    menu === 'menuInative' ? setMenu('menuActive') : setMenu('menuInative');
-    console.log(menu)
+    menu === 'menuInative' ? setMenu('menuActive') : setMenu('menuInative')
   }
 
   return (
@@ -84,7 +84,11 @@ export function Header() {
           </Link>
         </Title>
         <NavBar>
-          <button type='button' onClick={handleMenu}>
+          <button
+            type='button'
+            className={menu === 'menuActive' ? 'menuActive' : 'menuInative'}
+            onClick={handleMenu}
+          >
             {menu === 'menuActive' ? <FiX size={20} /> : <FiMenu size={20} />}
           </button>
 

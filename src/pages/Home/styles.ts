@@ -138,6 +138,9 @@ export const Perfil = styled.div`
       h1 {
         font-size: 2.5rem;
       }
+      .bio {
+        font-size: 1.25rem;
+      }
     }
   }
 `;

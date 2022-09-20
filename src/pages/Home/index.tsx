@@ -12,7 +12,6 @@ interface GitHubData {
   location: string;
   bio: string;
   html_url: string;
-
 }
 
 interface Repositories {
