@@ -1,10 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { FaGithub } from 'react-icons/fa';
+import {
+  BiGridAlt,
+  BiGridHorizontal,
+  BiListUl,
+  BiChevronLeft,
+  BiChevronRight
+} from 'react-icons/bi';
 
 import { apiGitHub } from '../../services/api';
 import { WhatsApp } from '../../components/WhatsApp';
 
-import { Container, Content, Perfil, Repos } from './styles';
+import js from '../../assets/javascript.svg';
+import ts from '../../assets/typescript.svg';
+import css3 from '../../assets/css3.svg';
+import html5 from '../../assets/html5.svg';
+import node from '../../assets/node.svg';
+
+import { Container, Content, Perfil, Buttons, Repos } from './styles';
 
 interface GitHubData {
   name: string;
@@ -25,11 +38,51 @@ interface Repositories {
 export function Home() {
   const [response, setResponse] = useState<GitHubData>();
   const [responseRepo, setResponseRepo] = useState<Repositories[]>([]);
+  const [selectList, setSelectList] = useState('listCompact')
+  const [page, setPage] = useState(0);
+  const rowsPerPage = 3;
 
   useEffect(() => {
     apiGitHub.get('/users/murilolemes').then(res => setResponse(res.data));
     apiGitHub.get('/users/murilolemes/repos').then(res => setResponseRepo(res.data));
   }, []);
+
+  function handleListAll() {
+    setSelectList('listAll');
+  }
+
+  function handleListGroup() {
+    setSelectList('listGroup');
+  }
+
+  function handleListCompact() {
+    setSelectList('listCompact');
+  }
+
+  const handleNextPage = useCallback(() => {
+    setPage(page + 1);
+  }, [page])
+
+  const handlePreviousPage = useCallback(() => {
+    setPage(page - 1);
+  }, [page])
+
+  function imgLanguage(name: string) {
+    switch (name) {
+      case 'JavaScript':
+        return js;
+      case 'TypeScript':
+        return ts;
+      case 'CSS':
+        return css3;
+      case 'HTML':
+        return html5;
+      case 'NodeJS':
+        return node;
+      default:
+        break
+    }
+  }
 
   return (
     <Container>
@@ -51,21 +104,56 @@ export function Home() {
             </div>
           </div>
         </Perfil>
-        <h3>Acesse meus repositórios</h3>
+        <Buttons>
+          <h3>Acesse meus repositórios</h3>
+          <div>
+            <button type='button' onClick={handleListCompact}>
+              <BiListUl size={20} />
+            </button>
+            <button type='button' onClick={handleListGroup}>
+              <BiGridHorizontal size={20} />
+            </button>
+            <button type='button' onClick={handleListAll}>
+              <BiGridAlt size={20} />
+            </button>
+          </div>
+        </Buttons>
         <Repos>
-          {responseRepo.map(repo => (
-            <a
-              href={repo.html_url}
-              key={repo.id}
-              className="divRepo"
-              target={'_blank'}
-              rel="noreferrer"
-            >
-              <h2>{repo.name.replace(/-/g, ' ')}</h2>
-              <p>{repo.description}</p>
-              <p>{repo.language}</p>
-            </a>
-          ))}
+          <div id={selectList}>
+            {responseRepo
+              .slice(page * rowsPerPage)
+              .map(repo => (
+                <a
+                  href={repo.html_url}
+                  key={repo.id}
+                  className="divRepo"
+                  target={'_blank'}
+                  rel="noreferrer"
+                >
+                  <h2>{repo.name.replace(/-/g, ' ')}</h2>
+                  <p>{repo.description}</p>
+                  <img src={imgLanguage(repo.language)} alt={repo.language} />
+                </a>
+              ))}
+          </div>
+          <button
+            type='button'
+            className={selectList}
+            id='arrowLeft'
+            disabled={page === 0}
+            onClick={handlePreviousPage}
+          >
+            <BiChevronLeft size={30} />
+          </button>
+          <button
+            type='button'
+            className={selectList}
+            id='arrowRight'
+            disabled={page === responseRepo.length / rowsPerPage - 1}
+            onClick={handleNextPage}
+          >
+            <BiChevronRight size={30} />
+          </button>
         </Repos>
         <WhatsApp />
       </Content>
