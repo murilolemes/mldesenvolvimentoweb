@@ -15,7 +15,6 @@ export const Content = styled.div`
 `;
 
 export const Perfil = styled.div`
-  display: none !important;
   width: 100%;
   height: 25rem;
   padding: 1rem;
@@ -180,6 +179,18 @@ export const Buttons = styled.div`
         color: var(--background);
       }
     }
+
+    .listActive {
+      border: 1px solid var(--primary-light);
+      background: var(--primary-light);
+      color: var(--background);
+    }
+
+    .listInative {
+      border: none;
+      background: initial;
+      color: var(--primary-light);
+    }
   }
 `;
 
@@ -191,46 +202,39 @@ export const Repos = styled.div`
   justify-content: center;
   position: relative;
 
-  #listAll {
+  #listCompact{
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
     flex-wrap: wrap;
+    grid-template-columns: auto auto auto;
     gap: 1rem;
 
     a {
-      width: 30rem;
-      height: 10rem;
+      height: 3.5rem;
+      padding: 1rem;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      padding: 0.5rem;
+      background: var(--secondary);
+      border: 1px solid var(--secondary);
       border-radius: 0.25rem;
-      border: 1px solid var(--primary);
-      box-shadow: 0 0 4px 1px var(--primary);
-      transition: 0.2s;
-      background: var(--secondary-light);
+      transition: background 0.2s;
 
-      h2, p {
-        width: 100%;
-        text-align: center;
-        text-transform: capitalize;
+      &:hover {
+        background: var(--background);
       }
 
       h2 {
-        color: var(--background);
+        font-size: 1.2rem;
       }
 
-      p {
-        font-size: 0.9rem;
-        color: var(--primary-light);
+      p{
+        display: none;
       }
 
-      &:hover {
-        border-color: var(--primary-light);
-        box-shadow: 0 0 6px 2px var(--primary-light);
+      img {
+        width: 1.6rem;
+        height: 1.6rem;
       }
     }
   }
@@ -282,39 +286,52 @@ export const Repos = styled.div`
     }
   }
 
-  #listCompact{
+  #listAll {
     width: 100%;
-    display: grid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
-    grid-template-columns: auto auto auto;
     gap: 1rem;
 
     a {
-      height: 3.5rem;
-      padding: 1rem;
+      width: 30rem;
+      height: 10rem;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      background: var(--secondary);
-      border: 1px solid var(--secondary);
+      padding: 0.5rem;
       border-radius: 0.25rem;
-      transition: background 0.2s;
+      border: 1px solid var(--primary);
+      box-shadow: 0 0 4px 1px var(--primary);
+      transition: 0.2s;
+      background: var(--secondary-light);
 
       &:hover {
-        background: var(--background);
+        border-color: var(--primary-light);
+        box-shadow: 0 0 6px 2px var(--primary-light);
+      }
+
+      h2, p {
+        width: 100%;
+        text-align: center;
+        text-transform: capitalize;
       }
 
       h2 {
-        font-size: 1.2rem;
+        font-size: 1.25rem;
+        color: var(--background);
       }
 
-      p{
-        display: none;
+      p {
+        font-size: 0.9rem;
+        color: var(--primary-light);
       }
 
       img {
-        width: 1.6rem;
-        height: 1.6rem;
+        width: 2rem;
+        height: 2rem;
       }
     }
   }
@@ -353,8 +370,33 @@ export const Repos = styled.div`
   }
 
   @media(max-width: 530px) {
-    a {
-      width: 100%;
+    #listCompact {
+      grid-template-columns: auto;
+
+      a {
+        h2 {
+          font-size: 1rem;
+        }
+      }
     }
+
+    #listGroup {
+      overflow-x: scroll;
+
+      a {
+        margin-bottom: 0.25rem;
+      }
+    }
+
+    #listAll {
+      a {
+        height: 13rem;
+      }
+    }
+
+    .listCompact, .listGroup, .listAll {
+      display: none;
+    }
+
   }
 `;

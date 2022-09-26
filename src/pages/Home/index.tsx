@@ -38,7 +38,10 @@ interface Repositories {
 export function Home() {
   const [response, setResponse] = useState<GitHubData>();
   const [responseRepo, setResponseRepo] = useState<Repositories[]>([]);
-  const [selectList, setSelectList] = useState('listCompact')
+  const [selectList, setSelectList] = useState('listCompact');
+  const [compact, setCompact] = useState('active')
+  const [group, setGroup] = useState('inative')
+  const [all, setAll] = useState('inative')
   const [page, setPage] = useState(0);
   const rowsPerPage = 3;
 
@@ -47,16 +50,25 @@ export function Home() {
     apiGitHub.get('/users/murilolemes/repos').then(res => setResponseRepo(res.data));
   }, []);
 
-  function handleListAll() {
-    setSelectList('listAll');
+  function handleListCompact() {
+    setSelectList('listCompact');
+    setCompact('active')
+    setGroup('inative')
+    setAll('inative')
   }
 
   function handleListGroup() {
     setSelectList('listGroup');
+    setGroup('active')
+    setCompact('inative')
+    setAll('inative')
   }
 
-  function handleListCompact() {
-    setSelectList('listCompact');
+  function handleListAll() {
+    setSelectList('listAll');
+    setAll('active')
+    setCompact('inative')
+    setGroup('inative')
   }
 
   const handleNextPage = useCallback(() => {
@@ -107,13 +119,22 @@ export function Home() {
         <Buttons>
           <h3>Acesse meus repositórios</h3>
           <div>
-            <button type='button' onClick={handleListCompact}>
+            <button type='button'
+              className={compact === 'active' ? 'listActive' : 'listInative'}
+              onClick={handleListCompact}
+            >
               <BiListUl size={20} />
             </button>
-            <button type='button' onClick={handleListGroup}>
+            <button type='button'
+              className={group === 'active' ? 'listActive' : 'listInative'}
+              onClick={handleListGroup}
+            >
               <BiGridHorizontal size={20} />
             </button>
-            <button type='button' onClick={handleListAll}>
+            <button type='button'
+              className={all === 'active' ? 'listActive' : 'listInative'}
+              onClick={handleListAll}
+            >
               <BiGridAlt size={20} />
             </button>
           </div>
@@ -121,7 +142,7 @@ export function Home() {
         <Repos>
           <div id={selectList}>
             {responseRepo
-              .slice(page * rowsPerPage)
+              .slice(selectList !== 'listGroup' ? page * 0 : page * rowsPerPage)
               .map(repo => (
                 <a
                   href={repo.html_url}
