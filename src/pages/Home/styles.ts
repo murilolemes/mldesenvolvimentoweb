@@ -206,7 +206,7 @@ export const Repos = styled.div`
     width: 100%;
     display: grid;
     flex-wrap: wrap;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
 
     a {
@@ -369,6 +369,26 @@ export const Repos = styled.div`
     display: none;
   }
 
+  @media(max-width: 930px) {
+    #listGroup {
+      overflow-x: scroll;
+
+      a {
+        margin-bottom: 0.25rem;
+      }
+    }
+
+    .listCompact, .listGroup, .listAll {
+      display: none;
+    }
+  }
+
+  @media(max-width: 768px) {
+    #listCompact {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
   @media(max-width: 530px) {
     #listCompact {
       grid-template-columns: auto;
@@ -380,23 +400,10 @@ export const Repos = styled.div`
       }
     }
 
-    #listGroup {
-      overflow-x: scroll;
-
-      a {
-        margin-bottom: 0.25rem;
-      }
-    }
-
     #listAll {
       a {
         height: 13rem;
       }
     }
-
-    .listCompact, .listGroup, .listAll {
-      display: none;
-    }
-
   }
 `;
