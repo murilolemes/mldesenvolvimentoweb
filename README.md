@@ -1,46 +1,15 @@
-# Getting Started with Create React App
+# Murilo Lemes Desenvolvimento Web
+  Acesse o site [**Murilo Lemes Desenvolvimento Web**](https://mldesenvolvimentoweb.netlify.app/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Sobre meu Portfólio
+  * **Página Home:** a página apresenta um pouco sobre mim "Murilo Lemes", com uma breve descrição, avatar, informações para contato e repositórios. Os dados apresentados são fornecidos através da API do GitHub, ao clicar nos repositórios é realizado a abertura de uma nova guia no navegador direcionando para o GitHub. Os repositórios são exibidos por padrão em uma lista compacta e com a possibilidade de exibição em cards.
 
-## Available Scripts
+  * **Página Calculadora:** a página apresenta uma caluladora simples com as funções de soma, subtração, divisão, multiplicação e porcentagem.
 
-In the project directory, you can run:
+  * **Página Finanças:** a página tem como objetivo apresentar um histôrico de finanças, com um botão para cadastrar uma nova transação, que contém um formulário para ser preenchido com os dados, título, valor da transação, selecionar tipo de entrada ou saída e a categoria. Também é exibido um resumo dos valores de entradas, saídas e total (saldo disponível), e uma tabela com os dados preenchido anteriormente, com a possibilidade de exclusão de uma transação, clicando no icone da lixeira.
 
-### `yarn start`
+  * **Página Pokemon:** a página tem como objetivo apresentar uma lista de Pokemons, com um botão para procuar novo Pokemon, que contem um campo para digitar o nome ou o ID do Pokemon desejado, após procurar o Pokemon e exibido um card com o nome, foto e dados do Pokemon, onde você pode cancelar ou adicionar o Pokemon a sua lista. A lista de Pokemons também é um card contendo o nome, foto e dados do Pokemon, com a possibilidade de exclusão de um card, clicando no botão remover.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  * **Tema Escuro ou Claro:** o site tem a possibilidade de escolher o tema _Escuro_ ou _Claro_, por padrão o site foi construido no tema escuro, mas clicando no botão no canto superior direito, você altera o tema para claro.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+  * **Botão WhatsApp:** ao clicar no icone de WhatsApp é realizado a abertura de uma nova guia no navedador ou o aplicativo do WhatsApp, direcionando para uma nova conversa com uma mensagem de saudações.
