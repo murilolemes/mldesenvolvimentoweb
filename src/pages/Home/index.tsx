@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { FaGithub } from 'react-icons/fa';
 import {
-  BiGridAlt,
   BiGridHorizontal,
   BiListUl,
   BiChevronLeft,
@@ -21,7 +20,7 @@ import { Container, Content, Perfil, Buttons, Repos } from './styles';
 
 interface GitHubData {
   name: string;
-  avatar_url: string
+  avatar_url: string;
   location: string;
   bio: string;
   html_url: string;
@@ -39,9 +38,8 @@ export function Home() {
   const [response, setResponse] = useState<GitHubData>();
   const [responseRepo, setResponseRepo] = useState<Repositories[]>([]);
   const [selectList, setSelectList] = useState('listCompact');
-  const [compact, setCompact] = useState('active')
-  const [group, setGroup] = useState('inative')
-  const [all, setAll] = useState('inative')
+  const [compact, setCompact] = useState('active');
+  const [group, setGroup] = useState('inative');
   const [page, setPage] = useState(0);
   const rowsPerPage = 3;
 
@@ -52,32 +50,23 @@ export function Home() {
 
   function handleListCompact() {
     setSelectList('listCompact');
-    setCompact('active')
-    setGroup('inative')
-    setAll('inative')
+    setCompact('active');
+    setGroup('inative');
   }
 
   function handleListGroup() {
     setSelectList('listGroup');
-    setGroup('active')
-    setCompact('inative')
-    setAll('inative')
-  }
-
-  function handleListAll() {
-    setSelectList('listAll');
-    setAll('active')
-    setCompact('inative')
-    setGroup('inative')
+    setGroup('active');
+    setCompact('inative');
   }
 
   const handleNextPage = useCallback(() => {
     setPage(page + 1);
-  }, [page])
+  }, [page]);
 
   const handlePreviousPage = useCallback(() => {
     setPage(page - 1);
-  }, [page])
+  }, [page]);
 
   function imgLanguage(name: string) {
     switch (name) {
@@ -130,12 +119,6 @@ export function Home() {
               onClick={handleListGroup}
             >
               <BiGridHorizontal size={20} />
-            </button>
-            <button type='button'
-              className={all === 'active' ? 'listActive' : 'listInative'}
-              onClick={handleListAll}
-            >
-              <BiGridAlt size={20} />
             </button>
           </div>
         </Buttons>

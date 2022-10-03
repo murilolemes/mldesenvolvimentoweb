@@ -286,56 +286,6 @@ export const Repos = styled.div`
     }
   }
 
-  #listAll {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-
-    a {
-      width: 30rem;
-      height: 10rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.5rem;
-      border-radius: 0.25rem;
-      border: 1px solid var(--primary);
-      box-shadow: 0 0 4px 1px var(--primary);
-      transition: 0.2s;
-      background: var(--secondary-light);
-
-      &:hover {
-        border-color: var(--primary-light);
-        box-shadow: 0 0 6px 2px var(--primary-light);
-      }
-
-      h2, p {
-        width: 100%;
-        text-align: center;
-        text-transform: capitalize;
-      }
-
-      h2 {
-        font-size: 1.25rem;
-        color: var(--background);
-      }
-
-      p {
-        font-size: 0.9rem;
-        color: var(--primary-light);
-      }
-
-      img {
-        width: 2rem;
-        height: 2rem;
-      }
-    }
-  }
-
   #arrowLeft, #arrowRight {
     width: 2rem;
     height: 2rem;
@@ -347,9 +297,15 @@ export const Repos = styled.div`
     border: none;
     opacity: 0.5;
     transition: 0.2s;
+    background: var(--primary-light);
+    color: var(--background);
 
     &:hover {
       opacity: initial;
+    }
+
+    &:disabled {
+      opacity: 0.1;
     }
   }
 
@@ -365,7 +321,7 @@ export const Repos = styled.div`
     display: flex;
   }
 
-  .listAll, .listCompact {
+  .listCompact {
     display: none;
   }
 
@@ -378,7 +334,7 @@ export const Repos = styled.div`
       }
     }
 
-    .listCompact, .listGroup, .listAll {
+    .listCompact, .listGroup {
       display: none;
     }
   }
@@ -397,12 +353,6 @@ export const Repos = styled.div`
         h2 {
           font-size: 1rem;
         }
-      }
-    }
-
-    #listAll {
-      a {
-        height: 13rem;
       }
     }
   }
