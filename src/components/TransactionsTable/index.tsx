@@ -8,6 +8,15 @@ import { FiTrash2 } from 'react-icons/fi';
 
 import { Container, Content, DivPages } from './styles';
 
+interface Transaction {
+  id: string;
+  title: string;
+  amount: number;
+  type: string;
+  category: string;
+  createdAt: Date;
+}
+
 export function TransactionsTable() {
   const { transactions, deleteTransaction } = useTransactions();
   const [page, setPage] = useState(0);
@@ -37,7 +46,11 @@ export function TransactionsTable() {
     lastPage < page + 1 ? firstLinePage + restPage - 1 : calcLastLinePage;
 
   return (
-    <Container>
+    <Container
+      style={
+        transactions.length <= 0 ? { display: 'none' } : { display: 'initial' }
+      }
+    >
       <Content>
         <table>
           <thead>
@@ -50,7 +63,7 @@ export function TransactionsTable() {
           </thead>
           <tbody>
             {transactions
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .slice(page * rowsPerPage === 0 ? page * 0 : page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map(transaction => (
                 <tr key={transaction.id}>
                   <td>{transaction.title}</td>
@@ -77,7 +90,11 @@ export function TransactionsTable() {
           </tbody>
         </table>
       </Content>
-      <DivPages>
+      <DivPages
+        style={
+          transactions.length <= 6 ? { display: 'none' } : { display: 'flex' }
+        }
+      >
         <p>{`${firstLinePage} - ${lastLinePage} de ${transactions.length}`}</p>
         <button
           type="button"
@@ -97,6 +114,6 @@ export function TransactionsTable() {
           <FiChevronRight />
         </button>
       </DivPages>
-    </Container>
+    </Container >
   )
 }
