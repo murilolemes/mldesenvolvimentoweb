@@ -16,7 +16,7 @@ import css3 from '../../assets/css3.svg';
 import html5 from '../../assets/html5.svg';
 import node from '../../assets/node.svg';
 
-import { Container, Content, Perfil, Buttons, Repos } from './styles';
+import { Container, Content, Perfil, Buttons, Repos, Description } from './styles';
 
 interface GitHubData {
   name: string;
@@ -91,19 +91,23 @@ export function Home() {
         <Perfil>
           <div className="header">
             <h1>{response?.name}</h1>
-            <p className="bio">{response?.bio}</p>
+            {/* <p className="bio">{response?.bio}</p> */}
+            <p>Formado em Ciência da Computação na Universidade Paulista (UNIP) e atualmente estou em busca de aprofundar meus conhecimentos nas tecnologias "ReactJS, JavaScript, TypeScript, HTML e CSS".</p>
+            <p>Estou sempre tentando ser melhor que ontem, gosto de enfrentar novos desafios e meus medos para melhorar a cada dia. Gosto de trabalhar em equipe e estou sempre disposto a aprender e a ajudar as pessoas.</p>
+            <p>Possuo bom relacionamento interpessoal, trabalho em equipe, responsabilidades e dedicação às atividades de trabalho.</p>
+            <p>Meu objetivo é aprender e adquirir experiência para crescimento profissional.</p>
           </div>
-          <div className="description">
+          <Description>
             <img src={response?.avatar_url} alt={response?.name} />
             <div className="data">
               <p>{response?.location}</p>
               <p>murilo.lemes.mhl@gmail.com</p>
               <a href={response?.html_url} target={'_blank'} rel="noreferrer">
-                <FaGithub size={20} />
+                <FaGithub size={18} />
                 Acesse meu Github
               </a>
             </div>
-          </div>
+          </Description>
         </Perfil>
         <Buttons>
           <h3>Acesse meus repositórios</h3>
@@ -112,35 +116,33 @@ export function Home() {
               className={compact === 'active' ? 'listActive' : 'listInative'}
               onClick={handleListCompact}
             >
-              <BiListUl size={20} />
+              <BiListUl size={22} />
             </button>
             <button type='button'
               className={group === 'active' ? 'listActive' : 'listInative'}
               onClick={handleListGroup}
             >
-              <BiGridHorizontal size={20} />
+              <BiGridHorizontal size={22} />
             </button>
           </div>
         </Buttons>
         <Repos>
           <div id={selectList}>
-            {responseRepo
-              .slice(selectList !== 'listGroup' ? page * 0 : page * rowsPerPage)
-              .map(repo => (
-                <a
-                  href={repo.html_url}
-                  key={repo.id}
-                  className="divRepo"
-                  target={'_blank'}
-                  rel="noreferrer"
-                >
-                  <h2>{repo.name.replace(/-/g, ' ')}</h2>
-                  <p>{repo.description}</p>
-                  <img src={imgLanguage(repo.language)} alt={repo.language} />
-                </a>
-              ))}
+            {responseRepo.map(repo => (
+              <a
+                href={repo.html_url}
+                key={repo.id}
+                className="divRepo"
+                target={'_blank'}
+                rel="noreferrer"
+              >
+                <h2>{repo.name.replace(/-/g, ' ')}</h2>
+                <p>{repo.description}</p>
+                <img src={imgLanguage(repo.language)} alt={repo.language} />
+              </a>
+            ))}
           </div>
-          <button
+          {/* <button
             type='button'
             className={selectList}
             id='arrowLeft'
@@ -157,7 +159,7 @@ export function Home() {
             onClick={handleNextPage}
           >
             <BiChevronRight size={30} />
-          </button>
+          </button> */}
         </Repos>
         <WhatsApp />
       </Content>

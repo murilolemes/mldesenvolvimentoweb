@@ -2,10 +2,11 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
+  padding: 1rem;
 `;
 
 export const Content = styled.div`
-  max-width: 1200px;
+  max-width: 1248px;
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -17,7 +18,7 @@ export const Content = styled.div`
 export const Perfil = styled.div`
   width: 100%;
   height: 25rem;
-  padding: 1rem;
+  /* padding: 1rem; */
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -28,15 +29,27 @@ export const Perfil = styled.div`
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
+    justify-content: flex-start;
 
     h1 {
       width: 100%;
-      font-size: 3rem;
+      font-size: 2rem;
+      margin-bottom: 3rem;
     }
 
-    .bio {
+    p {
+      font-size: 1rem;
+      color: var(--primary);
+      text-align: justify;
+      line-height: 1.5rem;
+
+      & + p {
+        margin-top: 1rem;
+      }
+    }
+
+    /* .bio {
       width: 100%;
       height: 12rem;
       font-size: 1.4rem;
@@ -44,53 +57,7 @@ export const Perfil = styled.div`
       padding-right: 1rem;
       line-height: 1.6rem;
       color: var(--primary);
-    }
-  }
-
-  .description {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-
-    img {
-      width: 16rem;
-      height: 16rem;
-      border-radius: 50%;
-    }
-
-    .data {
-      text-align: center;
-
-      p {
-        & + p {
-          margin: 0.375rem 0;
-        }
-      }
-
-      a {
-        height: 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: var(--secondary-light);
-        border: 1px solid var(--secondary-light);
-        color: var(--primary-light);
-        border-radius: 0.25rem;
-        transition: filter 0.2s, color 0.5s;
-        padding: 1rem;
-
-        &:hover {
-          filter: brightness(0.9);
-          color: var(--secondary);
-        }
-
-        svg {
-          margin-right: 0.375rem;
-        }
-      }
-    }
+    } */
   }
 
   @media(max-width: 530px) {
@@ -104,10 +71,10 @@ export const Perfil = styled.div`
         text-align: center;
       }
 
-      .bio {
+      /* .bio {
         height: auto;
         padding-right: 0;
-      }
+      } */
     }
 
     .description {
@@ -132,8 +99,70 @@ export const Perfil = styled.div`
       h1 {
         font-size: 2.5rem;
       }
-      .bio {
+      /* .bio {
         font-size: 1.25rem;
+      } */
+    }
+  }
+`;
+
+export const Description = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  img {
+    width: 16rem;
+    height: 16rem;
+    border-radius: 50%;
+  }
+
+  .data {
+    text-align: center;
+
+    p {
+      & + p {
+        margin: 0.375rem 0;
+      }
+    }
+
+    a {
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--secondary-light);
+      border: 1px solid var(--secondary-light);
+      color: var(--primary-light);
+      border-radius: 0.25rem;
+      transition: filter 0.2s, color 0.5s;
+      padding: 1rem;
+
+      &:hover {
+        filter: brightness(0.9);
+        color: var(--secondary);
+      }
+
+      svg {
+        margin-right: 0.375rem;
+      }
+    }
+  }
+
+  @media(max-width: 530px) {
+    width: 100%;
+
+    img {
+      padding: 1rem;
+    }
+
+    .data {
+      width: 100%;
+
+      a {
+        width: 100%;
       }
     }
   }
@@ -144,10 +173,10 @@ export const Buttons = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 2rem 0;
 
   h3 {
-    padding: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 500;
   }
 
@@ -155,11 +184,10 @@ export const Buttons = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
 
     button {
-      width: 1.625rem;
-      height: 1.625rem;
+      width: 2rem;
+      height: 2rem;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -170,7 +198,7 @@ export const Buttons = styled.div`
       transition: 0.2s;
 
       & + button {
-        margin-left: 0.25rem;
+        margin-left: 0.5rem;
       }
 
       &:hover {
@@ -196,11 +224,9 @@ export const Buttons = styled.div`
 
 export const Repos = styled.div`
   width: 100%;
-  padding: 1rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
+  justify-content: flex-start;
 
   #listCompact{
     width: 100%;
@@ -240,26 +266,29 @@ export const Repos = styled.div`
   }
 
   #listGroup {
-    max-width: 59.5rem;
     display: flex;
-    overflow-x: hidden;
-    padding: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
+    overflow-x: scroll;
 
     a {
-      width: 18.75rem;
-      height: 18.75rem;
+      width: 22rem;
+      height: 25rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
       padding: 1rem;
-      background: var(--secondary-light);
+      background: var(--secondary);
       border-radius: 0.25rem;
+      border: 1px solid orange;
 
-      h2, p {
+      /* h2, p {
         width: calc(18.75rem - 2rem);
+        width: 100%;
+        border: 1px solid red;
         text-align: center;
-      }
+      } */
 
       h2 {
         font-size: 1.25rem;
@@ -270,14 +299,11 @@ export const Repos = styled.div`
       p {
         font-size: 0.875rem;
 
-        svg {
-          color: yellow;
-        }
       }
 
-      & + a {
+      /* & + a {
         margin-left: 1rem;
-      }
+      } */
 
       &:hover {
         border: 1px solid var(--primary-light);
@@ -286,7 +312,7 @@ export const Repos = styled.div`
     }
   }
 
-  #arrowLeft, #arrowRight {
+  /* #arrowLeft, #arrowRight {
     width: 2rem;
     height: 2rem;
     align-items: center;
@@ -307,25 +333,25 @@ export const Repos = styled.div`
     &:disabled {
       opacity: 0.1;
     }
-  }
+  } */
 
-  #arrowLeft {
+  /* #arrowLeft {
     left: 3rem;
-  }
+  } */
 
-  #arrowRight {
+  /* #arrowRight {
     right: 3rem;
-  }
+  } */
 
-  .listGroup {
+  /* .listGroup {
     display: flex;
-  }
+  } */
 
-  .listCompact {
+  /* .listCompact {
     display: none;
-  }
+  } */
 
-  @media(max-width: 930px) {
+  /* @media(max-width: 930px) {
     #listGroup {
       overflow-x: scroll;
 
@@ -355,5 +381,5 @@ export const Repos = styled.div`
         }
       }
     }
-  }
+  } */
 `;
