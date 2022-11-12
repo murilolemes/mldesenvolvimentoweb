@@ -75,7 +75,7 @@ export default createGlobalStyle`
     height: 100vh;
   }
   body, input, textarea, select, button {
-    font-family: 'Roboto';
+    font-family: 'Inter', 'Roboto', sans-serif;
     font-size: 1rem;
   }
   h1, h2, h3, h4, h5, h6 {
