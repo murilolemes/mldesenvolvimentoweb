@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
   height: 9.375rem;
-  padding: 0.625rem;
+  padding: 1rem;
   background: linear-gradient(var(--secondary-light), var(--background));
 
   @media(max-width: 530px) {
@@ -12,7 +12,7 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  max-width: 1200px;
+  max-width: 1248px;
   width: 100%;
   height: 100%;
   display: flex;
@@ -46,7 +46,7 @@ export const Title = styled.div`
 
 export const NavBar = styled.div`
   width: 100%;
-  height: 2.5rem;
+  height: 2rem;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -69,13 +69,14 @@ export const NavBar = styled.div`
       align-items: center;
       justify-content: center;
       height: 100%;
+
       a {
         display: flex;
         align-items: center;
         justify-content: center;
         height: 100%;
         font-size: 1rem;
-        font-weight: 500;
+        font-weight: 600;
         color: var(--blue-900);
         text-decoration: none;
         transition: color 0.2s;
@@ -99,10 +100,10 @@ export const NavBar = styled.div`
   }
 
   .active {
-    border: 1px solid var(--white-100);
     box-shadow: 0px 0px 4px 2px var(--white-100);
     border-radius: 0.25rem;
     margin: 0 0.25rem;
+    font-weight: 700;
   }
 
   @media(max-width: 530px) {
@@ -196,7 +197,6 @@ export const NavBar = styled.div`
       border: 1px solid var(--white-100);
       box-shadow: 0px 0px 2px 2px var(--white-100);
       border-radius: 0.25rem;
-      /* margin: 0 0.25rem; */
     }
   }
 `;
