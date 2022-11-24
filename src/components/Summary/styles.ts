@@ -7,7 +7,7 @@ export const Container = styled.div`
 
   div {
     background: var(--primary-light);
-    padding: 1.5rem 2rem;
+    padding: 1rem;
     border-radius: 0.25rem;
     color: var(--background);
 
@@ -17,15 +17,16 @@ export const Container = styled.div`
       justify-content: space-between;
 
       p {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
+        font-weight: 600;
       }
     }
 
     strong {
       display: block;
       margin-top: 1rem;
-      font-size: 2.3rem;
-      font-weight: 500;
+      font-size: 2rem;
+      font-weight: 700;
       line-height: 3rem;
       text-align: center;
     }
