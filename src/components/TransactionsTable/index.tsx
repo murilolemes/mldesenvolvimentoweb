@@ -8,14 +8,14 @@ import { FiTrash2 } from 'react-icons/fi';
 
 import { Container, Content, DivPages } from './styles';
 
-interface Transaction {
-  id: string;
-  title: string;
-  amount: number;
-  type: string;
-  category: string;
-  createdAt: Date;
-}
+// interface Transaction {
+//   id: string;
+//   title: string;
+//   amount: number;
+//   type: string;
+//   category: string;
+//   createdAt: Date;
+// }
 
 export function TransactionsTable() {
   const { transactions, deleteTransaction } = useTransactions();

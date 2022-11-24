@@ -1,13 +1,14 @@
 import styled from "styled-components";
+import { shade } from 'polished';
 
-export const Container = styled.div`
-  margin-top: 4rem;
-`;
+export const Container = styled.div``;
 
 export const Content = styled.div`
+  padding-top: 1rem;
   table {
     width: 100%;
-    border-spacing: 0.2rem 0.2rem;
+    border-spacing: 0.25rem 0.25rem;
+
     th {
       color: var(--primary);
       font-weight: 400;
@@ -30,13 +31,16 @@ export const Content = styled.div`
       background: var(--primary-light);
       color: var(--secondary);
       border-radius: 0.25rem;
+
       &:first-child {
         color: var(--background);
         font-weight: 500;
       }
+
       &.deposit {
         color: var(--green);
       }
+
       &.withdraw {
         color: var(--red);
       }
@@ -65,12 +69,42 @@ export const Content = styled.div`
     }
   }
 
-  @media(max-width: 768px) {
+  @media(max-width: 1080px) {
     padding-bottom: 0.5rem;
     overflow-x: scroll;
 
+    ::-webkit-scrollbar-track {
+      background-color: ${shade(0.6, '#5a6794')};
+      border-radius: 0.25rem;
+    }
+
+    ::-webkit-scrollbar {
+      height: 6px;
+      border-radius: 0.25rem;
+      background: ${shade(0.6, '#5a6794')};
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--secondary-light);
+      border-radius: 0.25rem;
+    }
+
     table {
-      width: 1200px;
+      width: 1248px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    ::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    ::-webkit-scrollbar {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: transparent;
     }
   }
 `;
