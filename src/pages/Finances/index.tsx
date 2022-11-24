@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FiPlus } from 'react-icons/fi';
 import { TransactionsProvider } from '../../hooks/TransactionsContext';
 
 import { NewTransactionModal } from '../../components/NewTransactionModal';
@@ -22,7 +23,12 @@ export function Finances() {
     <TransactionsProvider>
       <Container>
         <Content>
-          <ButtonNewTransaction type='button' onClick={handleOpenNewTransactionModal}>Cadastrar nova transação</ButtonNewTransaction>
+          <div id='divButton'>
+            <ButtonNewTransaction type='button' onClick={handleOpenNewTransactionModal}>
+              <FiPlus size={24} />
+              Cadastrar nova transação
+            </ButtonNewTransaction>
+          </div>
           <Summary />
           <TransactionsTable />
           <NewTransactionModal isOpen={isNewTransactionModalOpen} onRequestClose={handleCloseNewTransactionModal} />
