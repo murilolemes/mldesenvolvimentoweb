@@ -6,7 +6,7 @@ export const Container = styled.div`
   padding: 1rem;
   background: linear-gradient(var(--secondary-light), var(--background));
 
-  @media(max-width: 530px) {
+  @media(max-width: 768px) {
     height: auto;
   }
 `;
@@ -20,7 +20,7 @@ export const Content = styled.div`
   margin: 0 auto;
   position: relative;
 
-  @media(max-width: 530px) {
+  @media(max-width: 768px) {
     flex-direction: column;
     height: 6.25rem;
   }
@@ -38,7 +38,7 @@ export const Title = styled.div`
     }
   }
 
-  @media(max-width: 530px) {
+  @media(max-width: 768px) {
     width: 12.5rem;
     height: 3.75rem;
   }
@@ -56,29 +56,28 @@ export const NavBar = styled.div`
   }
 
   ul {
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     list-style-type: none;
     margin: 0;
     padding: 0;
-    height: 100%;
 
     li {
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100%;
 
       a {
+        height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 100%;
         font-size: 1rem;
-        font-weight: 600;
+        font-weight: 500;
         color: var(--blue-900);
-        text-decoration: none;
         transition: color 0.2s;
         padding: 0.375rem;
         background: var(--white-100);
@@ -106,10 +105,8 @@ export const NavBar = styled.div`
     font-weight: 700;
   }
 
-  @media(max-width: 530px) {
-    width: initial;
+  @media(max-width: 768px) {
     justify-content: flex-start;
-    margin-top: 1rem;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -124,79 +121,60 @@ export const NavBar = styled.div`
       border: none;
     }
 
-    #menuInative {
-      display: none;
-    }
-
-    .menuActive {
+    .buttonActive {
       width: 2rem;
       height: 100%;
       background: var(--secondary-light);
       border-radius: 0.25rem 0 0 0.25rem;
     }
 
-    .menuInative {
-      width: initial;
-      height: initial;
+    .buttonInative {
+      width: 2rem;
+      height: 100%;
       background: none;
       border-radius: 0;
     }
 
+    #menuInative {
+      display: none;
+    }
+
     #menuActive {
+      width: calc(100% - 2rem);
+      height: auto;
       flex-direction: column;
-      width: 17.5rem;
-      height: 12.5rem;
+      align-items: flex-start;
       position: absolute;
-      border: none;
       top: 0;
       left: 2rem;
-      align-items: flex-start;
+      border: none;
       background: var(--secondary-light);
-      padding: 0.5rem;
+      padding: 0.625rem;
       border-radius: 0 0.25rem 0.25rem;
 
       li {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
         width: 100%;
+        height: 3rem;
 
         a {
-          display: flex;
-          align-items: center;
-          justify-content: center;
           height: 100%;
           width: 100%;
-          font-size: 0.875rem;
-          font-weight: 500;
-          color: var(--blue-900);
-          text-decoration: none;
-          transition: color 0.2s;
-          padding: 0.375rem;
-          background: var(--white-100);
-          border-radius: 0.25rem;
-          border: none;
+          padding: 0;
 
           &:hover {
-            border: 1px solid var(--white-100);
-            box-shadow: 0px 0px 4px 2px var(--white-100);
-            border-radius: 0.25rem;
-            margin: 0 0.25rem;
+            margin: 0;
           }
         }
 
         & + li {
           margin-left: 0;
-          margin-top: 0.5rem;
+          margin-top: 0.625rem;
         }
       }
     }
 
     .active {
-      border: 1px solid var(--white-100);
-      box-shadow: 0px 0px 2px 2px var(--white-100);
-      border-radius: 0.25rem;
+      margin: 0;
     }
   }
 `;

@@ -14,7 +14,7 @@ export function Header() {
   const [calc, setCalc] = useState('inative');
   const [finance, setFinance] = useState('inative');
   const [pokemon, setPokemon] = useState('inative');
-  const [menu, setMenu] = useState('menuInative');
+  const [menu, setMenu] = useState('inative');
 
   useEffect(() => {
     switch (path) {
@@ -23,28 +23,28 @@ export function Header() {
         setCalc('inative');
         setFinance('inative');
         setPokemon('inative');
-        setMenu('menuInative');
+        setMenu('inative');
         break;
       case 'calculadora':
         setCalc('active');
         setHome('inative');
         setFinance('inative');
         setPokemon('inative');
-        setMenu('menuInative');
+        setMenu('inative');
         break;
       case 'financas':
         setFinance('active');
         setHome('inative');
         setCalc('inative');
         setPokemon('inative');
-        setMenu('menuInative');
+        setMenu('inative');
         break;
       case 'pokemon':
         setPokemon('active');
         setFinance('inative');
         setHome('inative');
         setCalc('inative');
-        setMenu('menuInative');
+        setMenu('inative');
         break;
 
       default:
@@ -63,7 +63,7 @@ export function Header() {
             setPokemon('active');
             break;
           default:
-            setMenu('menuInative')
+            setMenu('inative')
             break;
         }
         break;
@@ -71,7 +71,7 @@ export function Header() {
   }, [path]);
 
   function handleMenu() {
-    menu === 'menuInative' ? setMenu('menuActive') : setMenu('menuInative')
+    menu === 'inative' ? setMenu('active') : setMenu('inative')
   }
 
   return (
@@ -86,13 +86,13 @@ export function Header() {
         <NavBar>
           <button
             type='button'
-            className={menu === 'menuActive' ? 'menuActive' : 'menuInative'}
+            className={menu === 'active' ? 'buttonActive' : 'buttonInative'}
             onClick={handleMenu}
           >
-            {menu === 'menuActive' ? <FiX size={20} /> : <FiMenu size={20} />}
+            {menu === 'active' ? <FiX size={24} /> : <FiMenu size={20} />}
           </button>
 
-          <ul id={menu}>
+          <ul id={menu === 'active' ? 'menuActive' : 'menuInative'}>
             <li>
               <Link to="/" className={home} onClick={() => setPath('home')}>
                 Home
