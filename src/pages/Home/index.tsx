@@ -1,11 +1,6 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaGithub } from 'react-icons/fa';
-import {
-  BiGridHorizontal,
-  BiListUl,
-  BiChevronLeft,
-  BiChevronRight
-} from 'react-icons/bi';
+import { BiGridHorizontal, BiListUl } from 'react-icons/bi';
 
 import { apiGitHub } from '../../services/api';
 import { WhatsApp } from '../../components/WhatsApp';
@@ -16,7 +11,7 @@ import css3 from '../../assets/css3.svg';
 import html5 from '../../assets/html5.svg';
 import node from '../../assets/node.svg';
 
-import { Container, Content, Perfil, Buttons, Repos, Description } from './styles';
+import { Container, Content, Perfil, Bio, Description, Buttons, Repos } from './styles';
 
 interface GitHubData {
   name: string;
@@ -40,8 +35,6 @@ export function Home() {
   const [selectList, setSelectList] = useState('listCompact');
   const [compact, setCompact] = useState('active');
   const [group, setGroup] = useState('inative');
-  const [page, setPage] = useState(0);
-  const rowsPerPage = 3;
 
   useEffect(() => {
     apiGitHub.get('/users/murilolemes').then(res => setResponse(res.data));
@@ -59,14 +52,6 @@ export function Home() {
     setGroup('active');
     setCompact('inative');
   }
-
-  const handleNextPage = useCallback(() => {
-    setPage(page + 1);
-  }, [page]);
-
-  const handlePreviousPage = useCallback(() => {
-    setPage(page - 1);
-  }, [page]);
 
   function imgLanguage(name: string) {
     switch (name) {
@@ -89,21 +74,22 @@ export function Home() {
     <Container>
       <Content>
         <Perfil>
-          <div className="header">
+          <Bio>
             <h1>{response?.name}</h1>
-            {/* <p className="bio">{response?.bio}</p> */}
-            <p>Formado em Ciência da Computação na Universidade Paulista (UNIP) e atualmente estou em busca de aprofundar meus conhecimentos nas tecnologias "ReactJS, JavaScript, TypeScript, HTML e CSS".</p>
-            <p>Estou sempre tentando ser melhor que ontem, gosto de enfrentar novos desafios e meus medos para melhorar a cada dia. Gosto de trabalhar em equipe e estou sempre disposto a aprender e a ajudar as pessoas.</p>
-            <p>Possuo bom relacionamento interpessoal, trabalho em equipe, responsabilidades e dedicação às atividades de trabalho.</p>
-            <p>Meu objetivo é aprender e adquirir experiência para crescimento profissional.</p>
-          </div>
+            <div>
+              <p>Formado em Ciência da Computação na Universidade Paulista (UNIP) e atualmente estou em busca de aprofundar meus conhecimentos nas tecnologias "ReactJS, JavaScript, TypeScript, HTML e CSS".</p>
+              <p>Estou sempre tentando ser melhor que ontem, gosto de enfrentar novos desafios e meus medos para melhorar a cada dia. Gosto de trabalhar em equipe e estou sempre disposto a aprender e a ajudar as pessoas.</p>
+              <p>Possuo bom relacionamento interpessoal, trabalho em equipe, responsabilidades e dedicação às atividades de trabalho.</p>
+              <p>Meu objetivo é aprender e adquirir experiência para crescimento profissional.</p>
+            </div>
+          </Bio>
           <Description>
             <img src={response?.avatar_url} alt={response?.name} />
-            <div className="data">
+            <div>
               <p>{response?.location}</p>
               <p>murilo.lemes.mhl@gmail.com</p>
               <a href={response?.html_url} target={'_blank'} rel="noreferrer">
-                <FaGithub size={18} />
+                <FaGithub size={16} />
                 Acesse meu Github
               </a>
             </div>
@@ -142,24 +128,6 @@ export function Home() {
               </a>
             ))}
           </div>
-          {/* <button
-            type='button'
-            className={selectList}
-            id='arrowLeft'
-            disabled={page === 0}
-            onClick={handlePreviousPage}
-          >
-            <BiChevronLeft size={30} />
-          </button>
-          <button
-            type='button'
-            className={selectList}
-            id='arrowRight'
-            disabled={page === responseRepo.length / rowsPerPage - 1}
-            onClick={handleNextPage}
-          >
-            <BiChevronRight size={30} />
-          </button> */}
         </Repos>
         <WhatsApp />
       </Content>
