@@ -81,9 +81,4 @@ export const Container = styled.div`
     bottom: 0.2rem;
     color: var(--primary-light);
   }
-
-  @media(max-width: 530px) {
-    top: unset;
-    bottom: 0.5rem;
-  }
 `;
