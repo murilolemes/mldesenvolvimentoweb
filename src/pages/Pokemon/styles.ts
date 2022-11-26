@@ -5,34 +5,54 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  max-width: 1200px;
+  max-width: 1248px;
   width: 100%;
-  padding: 0.625rem;
   margin: 0 auto;
+  /* border: 1px solid red; */
+
+  #divButton {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 2rem;
+  }
 
   > div {
-    margin-top: 2rem;
-    display: flex;
+    /* display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1rem; */
   }
 
 `;
 
 export const ButtonNewTransaction = styled.button`
-  width: 100%;
-  height: 3rem;
-  border-radius: 0.25rem;
+   display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  border-radius: 2em;
   border: none;
-  color: var(--background);
-  background: var(--secondary-light);
-  font-size: 1.2rem;
-  font-weight: 500;
+  color: var(--white-100);
+  background: var(--green);
+  font-size: 1.25rem;
+  font-weight: 600;
   transition: filter 0.2s;
+
+  svg {
+    background: var(--white-100);
+    color: var(--green);
+    border-radius: 50%;
+    margin-right: 0.5rem;
+  }
 
   &:hover {
     filter: brightness(0.9);
+  }
+
+  @media (max-width: 428px) {
+    width: 100%;
+    border-radius: 0.25rem;
   }
 `;

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FiPlus } from 'react-icons/fi';
 
 import { NewPokemonModal } from '../../components/NewPokemonModal';
 import { CardPokemon } from '../../components/CardPokemon';
@@ -21,9 +22,12 @@ export function Pokemon() {
     <PokemonProvider>
       <Container>
         <Content>
-          <ButtonNewTransaction type='button' onClick={handleOpenNewPokemonModal}>
-            Procurar novo Pokemon
-          </ButtonNewTransaction>
+          <div id="divButton">
+            <ButtonNewTransaction type='button' onClick={handleOpenNewPokemonModal}>
+              <FiPlus size={24} />
+              Adicionar Pokemon
+            </ButtonNewTransaction>
+          </div>
           <CardPokemon />
           <NewPokemonModal isOpen={isNewPokemonModalOpen} onRequestClose={handleCloseNewPokemonModal} />
         </Content>
