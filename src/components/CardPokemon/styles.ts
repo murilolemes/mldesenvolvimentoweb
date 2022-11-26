@@ -1,10 +1,16 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+`;
 
 export const Card = styled.div`
-  width: 20rem;
-  height: 28rem;
+  width: 18.75rem;
+  height: 31.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
