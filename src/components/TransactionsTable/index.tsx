@@ -8,15 +8,6 @@ import { FiTrash2 } from 'react-icons/fi';
 
 import { Container, Content, DivPages } from './styles';
 
-// interface Transaction {
-//   id: string;
-//   title: string;
-//   amount: number;
-//   type: string;
-//   category: string;
-//   createdAt: Date;
-// }
-
 export function TransactionsTable() {
   const { transactions, deleteTransaction } = useTransactions();
   const [page, setPage] = useState(0);
@@ -45,6 +36,8 @@ export function TransactionsTable() {
   const lastLinePage =
     lastPage < page + 1 ? firstLinePage + restPage - 1 : calcLastLinePage;
 
+  const conditionPagination = page * rowsPerPage === 0 ? page * 0 : page * rowsPerPage;
+  const conditionRowsPerPage = page * rowsPerPage + rowsPerPage;
   return (
     <Container
       style={
@@ -63,7 +56,7 @@ export function TransactionsTable() {
           </thead>
           <tbody>
             {transactions
-              .slice(page * rowsPerPage === 0 ? page * 0 : page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .slice(conditionPagination, conditionRowsPerPage)
               .map(transaction => (
                 <tr key={transaction.id}>
                   <td>{transaction.title}</td>

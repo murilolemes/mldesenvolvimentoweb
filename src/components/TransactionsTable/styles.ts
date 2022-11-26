@@ -4,15 +4,15 @@ import { shade } from 'polished';
 export const Container = styled.div``;
 
 export const Content = styled.div`
-  padding-top: 1rem;
+  padding-top: 2rem;
+
   table {
     width: 100%;
-    border-spacing: 0.25rem 0.25rem;
+    border-spacing: 0.25rem;
 
     th {
       color: var(--primary);
-      font-weight: 400;
-      padding: 1rem 1rem;
+      padding: 0.5rem;
       text-align: left;
       line-height: 1.5rem;
 
@@ -22,11 +22,11 @@ export const Content = styled.div`
     }
 
     #valueId {
-        width: 20rem;
-      }
+      width: 20rem;
+    }
 
     td {
-      padding: 0.5rem 2rem;
+      padding: 0.5rem;
       border: 0;
       background: var(--primary-light);
       color: var(--secondary);
@@ -34,24 +34,24 @@ export const Content = styled.div`
 
       &:first-child {
         color: var(--background);
-        font-weight: 500;
+        font-weight: 600;
       }
 
       &.deposit {
         color: var(--green);
+        font-weight: 600;
       }
 
       &.withdraw {
         color: var(--red);
+        font-weight: 600;
       }
 
     }
 
     #trash {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.5rem 0;
+      width: 2rem;
+      height: 100%;
 
       button {
         display: flex;
