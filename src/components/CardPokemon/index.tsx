@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { usePokemons } from '../../hooks/PokemonsContext';
-import { FiX } from "react-icons/fi";
+import { FiTrash2 } from "react-icons/fi";
 
-import { Container, Card } from "./styles";
+import { Container, Card, Title, ImgPokemon, Descriptions, BtnRemove } from "./styles";
 
 export function CardPokemon() {
   const { pokemons, deletePokemon } = usePokemons();
@@ -28,11 +28,11 @@ export function CardPokemon() {
           key={pokemon.id}
           id={pokemon.name}
         >
-          <div id="title">
+          <Title>
             <h1>{pokemon.name.replace(/-/g, ' ')}</h1>
             <p>#{pokemon.id}</p>
-          </div>
-          <div id="imgPokemon">
+          </Title>
+          <ImgPokemon>
             <div className="type">
               {pokemon.type.typePokemon.map((type) => (
                 <div key={type}>
@@ -41,8 +41,8 @@ export function CardPokemon() {
               ))}
             </div>
             <img src={pokemon.img} alt={pokemon.name} />
-          </div>
-          <div className='descriptions'>
+          </ImgPokemon>
+          <Descriptions>
             <div className="stats">
               <h4>Stats</h4>
               {pokemon.stats.map((stat) => (
@@ -60,16 +60,16 @@ export function CardPokemon() {
                 </div>
               ))}
             </div>
-          </div>
-          <div className="btnRemove">
+          </Descriptions>
+          <BtnRemove>
             <button
               type='button'
               id='remove'
               onClick={() => deletePokemon(pokemon.id)}
             >
-              <FiX /> Remover
+              <FiTrash2 />
             </button>
-          </div>
+          </BtnRemove>
         </Card>
       ))
       }
