@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
+  padding: 1rem;
 `;
 
 export const Content = styled.div`
   max-width: 1248px;
   width: 100%;
   margin: 0 auto;
-  /* border: 1px solid red; */
 
   #divButton {
     display: flex;
@@ -16,15 +16,6 @@ export const Content = styled.div`
     justify-content: flex-end;
     padding-bottom: 2rem;
   }
-
-  > div {
-    /* display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem; */
-  }
-
 `;
 
 export const ButtonNewTransaction = styled.button`
