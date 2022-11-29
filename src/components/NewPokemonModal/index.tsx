@@ -1,5 +1,5 @@
 import { useState, FormEvent } from 'react';
-import { FiCheck, FiX } from 'react-icons/fi';
+import { FiPlus, FiX } from 'react-icons/fi';
 import Modal from 'react-modal';
 import { toast } from 'react-toastify';
 
@@ -7,7 +7,7 @@ import { pokeApi } from '../../services/api';
 import CloseImg from '../../assets/close.svg';
 import { usePokemons } from '../../hooks/PokemonsContext';
 
-import { Container, CardPokemon } from './styles';
+import { Container, CardPokemon, Title, ImgPokemon, Descriptions, Buttons } from './styles';
 
 interface NewPokemonModalProps {
   isOpen: boolean;
@@ -155,11 +155,11 @@ export function NewPokemonModal({ isOpen, onRequestClose }: NewPokemonModalProps
           className={pokemon ? 'card' : 'none'}
           id='colorBg'
         >
-          <div id="title">
+          <Title>
             <h1>{pokemon?.name.replace(/-/g, ' ')}</h1>
             <p>#{pokemon?.id}</p>
-          </div>
-          <div id="imgPokemon">
+          </Title>
+          <ImgPokemon>
             <div className="type">
               {pokemon?.type.typePokemon.map((type) => (
                 <div key={type}>
@@ -168,8 +168,8 @@ export function NewPokemonModal({ isOpen, onRequestClose }: NewPokemonModalProps
               ))}
             </div>
             <img src={pokemon?.img} alt={pokemon?.name} />
-          </div>
-          <div className='descriptions'>
+          </ImgPokemon>
+          <Descriptions>
             <div className="stats">
               <h4>Stats</h4>
               {pokemon?.stats.map((stat) => (
@@ -187,21 +187,21 @@ export function NewPokemonModal({ isOpen, onRequestClose }: NewPokemonModalProps
                 </div>
               ))}
             </div>
-          </div>
-          <div className="btnAddRemove">
+          </Descriptions>
+          <Buttons>
             <button
               type='button'
               id='remove'
               onClick={clearPokemon}
             >
               <FiX />
-              Cancelar
+              <span>Cancelar</span>
             </button>
             <button type='submit' id='btnAdd' onClick={handleAddPokemon}>
-              <FiCheck />
-              Adicionar
+              <FiPlus />
+              <span>Adinionar</span>
             </button>
-          </div>
+          </Buttons>
         </div>
       </CardPokemon>
     </Modal>
