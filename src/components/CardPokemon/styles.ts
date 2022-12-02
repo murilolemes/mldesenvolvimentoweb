@@ -23,6 +23,7 @@ export const Card = styled.div`
   background: var(--white-100);
   transition: 0.2s;
   position: relative;
+  border: 1px solid var(--primary-light);
 
   &:hover {
     border-color: var(--primary-light);
