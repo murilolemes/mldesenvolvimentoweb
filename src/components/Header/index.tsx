@@ -14,6 +14,7 @@ export function Header() {
   const [calc, setCalc] = useState('inative');
   const [finance, setFinance] = useState('inative');
   const [pokemon, setPokemon] = useState('inative');
+  const [shop, setShop] = useState('inative');
   const [menu, setMenu] = useState('inative');
 
   useEffect(() => {
@@ -24,6 +25,7 @@ export function Header() {
         setFinance('inative');
         setPokemon('inative');
         setMenu('inative');
+        setShop('inative');
         break;
       case 'calculadora':
         setCalc('active');
@@ -31,6 +33,7 @@ export function Header() {
         setFinance('inative');
         setPokemon('inative');
         setMenu('inative');
+        setShop('inative');
         break;
       case 'financas':
         setFinance('active');
@@ -38,9 +41,19 @@ export function Header() {
         setCalc('inative');
         setPokemon('inative');
         setMenu('inative');
+        setShop('inative');
         break;
       case 'pokemon':
         setPokemon('active');
+        setFinance('inative');
+        setHome('inative');
+        setCalc('inative');
+        setMenu('inative');
+        setShop('inative');
+        break;
+      case 'shop':
+        setShop('active');
+        setPokemon('inative');
         setFinance('inative');
         setHome('inative');
         setCalc('inative');
@@ -61,6 +74,9 @@ export function Header() {
             break;
           case '/pokemon':
             setPokemon('active');
+            break;
+          case '/shop':
+            setShop('active');
             break;
           default:
             setMenu('inative')
@@ -114,6 +130,12 @@ export function Header() {
             <li>
               <Link to="/pokemon" className={pokemon} onClick={() => setPath('pokemon')}>
                 Pokemon
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/shop" className={shop} onClick={() => setPath('shop')}>
+                Shop
               </Link>
             </li>
           </ul>

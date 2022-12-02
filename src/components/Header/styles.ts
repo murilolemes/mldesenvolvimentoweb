@@ -110,7 +110,7 @@ export const NavBar = styled.div`
     position: absolute;
     bottom: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 1;
 
     button {
       display: flex;
