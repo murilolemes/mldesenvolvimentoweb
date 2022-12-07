@@ -6,14 +6,16 @@ export default createGlobalStyle`
   :root {
     --background: #080C25;
     --secondary: #161E35;
-    --secondary-light: #3071E7;
     --primary: #A6B2EC;
     --primary-light: #F5F5F5;
 
+    --secondary-light: #3071E7;
     --blue-900: #080C25;
     --blue-800: #161E35;
+    --blue-700: #212f57;
     --blue-200: #A6B2EC;
     --white-100: #F5F5F5;
+    --white-50: #FFFFFF;
     --red: #E52E4D;
     --green: #33CC95;
 
@@ -35,6 +37,12 @@ export default createGlobalStyle`
     --dark: #705848;
     --steel: #B8B8D0;
     --fairy: #ee99ac;
+  }
+  [data-theme = 'lightTheme'] {
+    --background: #f5f5f5;
+    --secondary: #FFFFFF;
+    --primary: #212f57;
+    --primary-light: #080C25;
   }
 
   * {

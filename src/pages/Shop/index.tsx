@@ -1,9 +1,11 @@
 import { FiShoppingBag } from 'react-icons/fi'
-import { FaMinus, FaPlus, FaSearch } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { FaSearch } from 'react-icons/fa';
 
-import cocaSvg from '../../assets/coca.png';
 
-import { Container, Content, MyShopHeader, DivCards, Description } from './styles';
+
+import { Container, Content, MyShopHeader } from './styles';
+import { CardShop } from '../../components/CardShop';
 
 export function Shop() {
   return (
@@ -12,10 +14,10 @@ export function Shop() {
         <MyShopHeader>
           <div id="title">
             <h1>Minha loja</h1>
-            <button type='button' id="buttonCart">
+            <Link to='/shop/carrinho' id="buttonCart">
               <FiShoppingBag size={24} />
               <span>2</span>
-            </button>
+            </Link>
           </div>
           <div id="inputSearch">
             <input name="search" placeholder='Pesquisar' />
@@ -24,232 +26,7 @@ export function Shop() {
             </button>
           </div>
         </MyShopHeader>
-        <DivCards>
-          <div className="card">
-            <div className="img">
-              <img src={cocaSvg} alt="Coca Cola" />
-            </div>
-            <Description>
-              <div className="inf">
-                <p>Refrigerante Coca-Cola 350ml</p>
-                <p>De R$ <span className='firstValue'>4,99</span></p>
-                <p>Por R$ <span>4,50</span></p>
-              </div>
-              <div className="quantidade">
-                <button className='btnMinus' type='button'>
-                  <FaMinus />
-                </button>
-                <p>1</p>
-                <button className='btnPlus' type='button'>
-                  <FaPlus />
-                </button>
-              </div>
-              <div className="total">
-                <p>Total</p>
-                <p>R$ <span>4,50</span></p>
-              </div>
-              <button type='button' className='btnComprar'>
-                Comprar
-              </button>
-            </Description>
-          </div>
-          <div className="card">
-            <div className="img">
-              <img src={cocaSvg} alt="Coca Cola" />
-            </div>
-            <Description>
-              <div className="inf">
-                <p>Refrigerante Coca-Cola 350ml</p>
-                <p>De R$ <span className='firstValue'>4,99</span></p>
-                <p>Por R$ <span>4,50</span></p>
-              </div>
-              <div className="quantidade">
-                <button className='btnMinus' type='button'>
-                  <FaMinus />
-                </button>
-                <p>1</p>
-                <button className='btnPlus' type='button'>
-                  <FaPlus />
-                </button>
-              </div>
-              <div className="total">
-                <p>Total</p>
-                <p>R$ <span>4,50</span></p>
-              </div>
-              <button type='button' className='btnComprar'>
-                Comprar
-              </button>
-            </Description>
-          </div>
-          <div className="card">
-            <div className="img">
-              <img src={cocaSvg} alt="Coca Cola" />
-            </div>
-            <Description>
-              <div className="inf">
-                <p>Refrigerante Coca-Cola 350ml</p>
-                <p>De R$ <span className='firstValue'>4,99</span></p>
-                <p>Por R$ <span>4,50</span></p>
-              </div>
-              <div className="quantidade">
-                <button className='btnMinus' type='button'>
-                  <FaMinus />
-                </button>
-                <p>1</p>
-                <button className='btnPlus' type='button'>
-                  <FaPlus />
-                </button>
-              </div>
-              <div className="total">
-                <p>Total</p>
-                <p>R$ <span>4,50</span></p>
-              </div>
-              <button type='button' className='btnComprar'>
-                Comprar
-              </button>
-            </Description>
-          </div>
-          <div className="card">
-            <div className="img">
-              <img src={cocaSvg} alt="Coca Cola" />
-            </div>
-            <Description>
-              <div className="inf">
-                <p>Refrigerante Coca-Cola 350ml</p>
-                <p>De R$ <span className='firstValue'>4,99</span></p>
-                <p>Por R$ <span>4,50</span></p>
-              </div>
-              <div className="quantidade">
-                <button className='btnMinus' type='button'>
-                  <FaMinus />
-                </button>
-                <p>1</p>
-                <button className='btnPlus' type='button'>
-                  <FaPlus />
-                </button>
-              </div>
-              <div className="total">
-                <p>Total</p>
-                <p>R$ <span>4,50</span></p>
-              </div>
-              <button type='button' className='btnComprar'>
-                Comprar
-              </button>
-            </Description>
-          </div>
-          <div className="card">
-            <div className="img">
-              <img src={cocaSvg} alt="Coca Cola" />
-            </div>
-            <Description>
-              <div className="inf">
-                <p>Refrigerante Coca-Cola 350ml</p>
-                <p>De R$ <span className='firstValue'>4,99</span></p>
-                <p>Por R$ <span>4,50</span></p>
-              </div>
-              <div className="quantidade">
-                <button className='btnMinus' type='button'>
-                  <FaMinus />
-                </button>
-                <p>1</p>
-                <button className='btnPlus' type='button'>
-                  <FaPlus />
-                </button>
-              </div>
-              <div className="total">
-                <p>Total</p>
-                <p>R$ <span>4,50</span></p>
-              </div>
-              <button type='button' className='btnComprar'>
-                Comprar
-              </button>
-            </Description>
-          </div>
-          <div className="card">
-            <div className="img">
-              <img src={cocaSvg} alt="Coca Cola" />
-            </div>
-            <Description>
-              <div className="inf">
-                <p>Refrigerante Coca-Cola 350ml</p>
-                <p>De R$ <span className='firstValue'>4,99</span></p>
-                <p>Por R$ <span>4,50</span></p>
-              </div>
-              <div className="quantidade">
-                <button className='btnMinus' type='button'>
-                  <FaMinus />
-                </button>
-                <p>1</p>
-                <button className='btnPlus' type='button'>
-                  <FaPlus />
-                </button>
-              </div>
-              <div className="total">
-                <p>Total</p>
-                <p>R$ <span>4,50</span></p>
-              </div>
-              <button type='button' className='btnComprar'>
-                Comprar
-              </button>
-            </Description>
-          </div>
-          <div className="card">
-            <div className="img">
-              <img src={cocaSvg} alt="Coca Cola" />
-            </div>
-            <Description>
-              <div className="inf">
-                <p>Refrigerante Coca-Cola 350ml</p>
-                <p>De R$ <span className='firstValue'>4,99</span></p>
-                <p>Por R$ <span>4,50</span></p>
-              </div>
-              <div className="quantidade">
-                <button className='btnMinus' type='button'>
-                  <FaMinus />
-                </button>
-                <p>1</p>
-                <button className='btnPlus' type='button'>
-                  <FaPlus />
-                </button>
-              </div>
-              <div className="total">
-                <p>Total</p>
-                <p>R$ <span>4,50</span></p>
-              </div>
-              <button type='button' className='btnComprar'>
-                Comprar
-              </button>
-            </Description>
-          </div>
-          <div className="card">
-            <div className="img">
-              <img src={cocaSvg} alt="Coca Cola" />
-            </div>
-            <Description>
-              <div className="inf">
-                <p>Refrigerante Coca-Cola 350ml</p>
-                <p>De R$ <span className='firstValue'>4,99</span></p>
-                <p>Por R$ <span>4,50</span></p>
-              </div>
-              <div className="quantidade">
-                <button className='btnMinus' type='button'>
-                  <FaMinus />
-                </button>
-                <p>1</p>
-                <button className='btnPlus' type='button'>
-                  <FaPlus />
-                </button>
-              </div>
-              <div className="total">
-                <p>Total</p>
-                <p>R$ <span>4,50</span></p>
-              </div>
-              <button type='button' className='btnComprar'>
-                Comprar
-              </button>
-            </Description>
-          </div>
-        </DivCards>
+        <CardShop />
       </Content>
     </Container>
   )

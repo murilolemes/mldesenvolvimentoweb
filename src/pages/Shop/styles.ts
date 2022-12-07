@@ -73,20 +73,20 @@ export const MyShopHeader = styled.div`
     align-items: center;
     justify-content: center;
     gap: 0.25rem;
-    background: var(--white-100);
-    border: 1px solid var(--blue-800);
+    background: var(--secondary);
+    box-shadow: 0 0 2px var(--primary);
     border-radius: 0.25rem;
 
     input {
       width: 100%;
       background: transparent;
       border: none;
-      color: var(--blue-900);
+      color: var(--primary-light);
       font-weight: 500;
       padding: 0.5rem;
 
       &::placeholder {
-        color: var(--blue-800);
+        color: var(--primary);
         font-weight: 400;
       }
     }
@@ -103,139 +103,13 @@ export const MyShopHeader = styled.div`
       transition: 0.2s;
 
       svg {
-        color: var(--blue-800);
+        color: var(--primary-light);
       }
 
       &:hover {
-        background: var(--white-100);
-        filter: brightness(0.95);
+        background: var(--background);
       }
     }
   }
 `;
 
-export const DivCards = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1rem;
-  padding: 1rem 0;
-
-  .card {
-    width: 18.75rem;
-    height: 31rem;
-    background: var(--white-100);
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: stretch;
-    border-radius: 0.25rem;
-    transition: 0.2s;
-
-    .img {
-      height: 15.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.5rem;
-    }
-
-    &:hover {
-      box-shadow: 0 0 4px 1px var(--white-100);
-    }
-  }
-`;
-
-export const Description = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: space-between;
-  padding: 1rem;
-  color: var(--blue-900);
-  box-shadow: 0 0 8px 1px var(--blue-800);
-
-  .inf {
-    p {
-      font-size: 0.875rem;
-
-      &:first-child {
-        font-size: 1rem;
-        font-weight: 600;
-      }
-
-      span {
-        font-size: 1rem;
-        font-weight: 700;
-        color: var(--red);
-      }
-
-      .firstValue {
-        text-decoration: line-through;
-      }
-    }
-  }
-
-  .quantidade {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-
-    p {
-      font-size: 2rem;
-      margin: 0 1rem;
-      font-weight: 500;
-    }
-
-    button {
-      width: 2rem;
-      height: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--white-100);
-      border: none;
-      border-radius: 0.25rem;
-      transition: 0.1s;
-
-      &:hover {
-        filter: brightness(0.9);
-      }
-    }
-
-    .btnMinus {
-      background: var(--red);
-    }
-
-    .btnPlus {
-      background: var(--green);
-    }
-  }
-
-  .total {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    p {
-      font-size: 1.25rem;
-      font-weight: 700;
-
-      span {
-        color: var(--red);
-      }
-    }
-  }
-
-  .btnComprar {
-    width: 100%;
-    font-size: 1.25rem;
-    font-weight: 600;
-    padding: 0.25rem;
-    border: none;
-    border-radius: 0.25rem;
-    background: var(--green);
-    color: var(--white-100);
-  }
-`;
