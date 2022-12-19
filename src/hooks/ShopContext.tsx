@@ -27,7 +27,6 @@ interface ShopContexData {
   decrementItemCart: (itensProduct: number) => Promise<void>;
   addCart: (addProduct: Products) => Promise<void>;
   removeItemCart: (removeProduct: number) => Promise<void>;
-  searchProduct: (nameProduct: string) => Promise<void>;
 }
 
 const ShopContext = createContext<ShopContexData>(
@@ -317,10 +316,6 @@ export function ShopProvider({ children }: ShopProviderProps) {
     }
   }
 
-  async function searchProduct(nameProduct: string) {
-    console.log(nameProduct)
-  }
-
   return (
     <ShopContext.Provider value={{
       products,
@@ -330,8 +325,7 @@ export function ShopProvider({ children }: ShopProviderProps) {
       incrementItemCart,
       decrementItemCart,
       addCart,
-      removeItemCart,
-      searchProduct
+      removeItemCart
     }}>
       {children}
     </ShopContext.Provider>
