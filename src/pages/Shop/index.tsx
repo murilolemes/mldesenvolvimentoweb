@@ -3,7 +3,6 @@ import { CardShop } from '../../components/ShopComponent/CardShop';
 import { ButtonCart } from '../../components/ShopComponent/ButtonCart';
 
 import { Container, Content, MyShopHeader } from './styles';
-import { DivSearchProduct } from '../../components/ShopComponent/ComponentsCart';
 
 export function Shop() {
   return (
@@ -15,7 +14,6 @@ export function Shop() {
               <h1>Minha loja</h1>
               <ButtonCart />
             </div>
-            <DivSearchProduct />
           </MyShopHeader>
           <CardShop />
         </Content>

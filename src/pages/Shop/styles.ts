@@ -23,7 +23,6 @@ export const MyShopHeader = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-right: 1rem;
 
     h1 {
       font-size: 2rem;
