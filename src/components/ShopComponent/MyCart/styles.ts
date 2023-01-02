@@ -32,6 +32,28 @@ export const Content = styled.div`
   &:hover {
     box-shadow: 0 0 6px 2px var(--primary);
   }
+
+  @media (max-width: 768px) {
+    height: 12.5rem;
+
+    .img {
+      width: 12.5rem;
+
+      img {
+        height: 10rem;
+      }
+    }
+  }
+
+  @media (max-width: 428px) {
+    .img {
+      width: 6rem;
+
+      img {
+        height: 5rem;
+      }
+    }
+  }
 `;
 
 export const Description = styled.div`
@@ -164,6 +186,77 @@ export const Description = styled.div`
 
     &:hover {
       filter: brightness(0.9);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .inf {
+      p {
+        font-size: 0.75rem;
+
+        &:first-child {
+          font-size: 1rem;
+        }
+
+        span {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .qntTotal {
+      .qnt {
+        p {
+          font-size: 1rem;
+        }
+
+        .btnQntd {
+          p {
+            font-size: 1.5rem;
+          }
+
+          button {
+            width: 1.5rem;
+            height: 1.5rem;
+
+            svg {
+              width: 0.75rem;
+              height: 0.75rem;
+            }
+          }
+        }
+      }
+    }
+
+    .total {
+      p {
+        font-size: 1rem;
+
+        span {
+          font-size: 1.25rem;
+        }
+      }
+    }
+
+    .btnTrash {
+      width: 3rem;
+    }
+  }
+
+  @media (max-width: 428px) {
+    .infTotal {
+      flex-direction: column;
+    }
+
+    .qntTotal {
+      width: 100%;
+      align-items: flex-start;
+
+      .qnt {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+      }
     }
   }
 `;
