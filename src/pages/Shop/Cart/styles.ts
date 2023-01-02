@@ -44,12 +44,11 @@ export const MyShopHeader = styled.div`
     }
   }
 
-  p {
-    font-size: 2rem;
-    font-weight: 700;
-
-    span {
-      color: var(--red);
+  @media (max-width: 768px) {
+    .title {
+      h1 {
+        font-size: 1.5rem;
+      }
     }
   }
 `;
@@ -66,6 +65,10 @@ export const BtnBuy = styled.button`
 
   &:hover {
     filter: brightness(0.9);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
   }
 `;
 
@@ -94,6 +97,32 @@ export const Total = styled.div`
         font-size: 2rem;
         font-weight: 700;
         color: var(--red);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .itens {
+      p {
+        font-size: 1rem;
+
+        span {
+          font-size: 1.25rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 428px) {
+    .itens {
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      p {
+        & + p {
+          margin-top: 1rem;
+        }
       }
     }
   }
