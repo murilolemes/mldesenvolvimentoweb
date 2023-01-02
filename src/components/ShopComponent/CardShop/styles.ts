@@ -6,6 +6,10 @@ export const Container = styled.div`
   gap: 1rem;
   margin-top: 1rem;
   padding: 1rem 0;
+
+  @media (max-width: 1279px) {
+    justify-content: center;
+  }
 `;
 
 export const Content = styled.div`
