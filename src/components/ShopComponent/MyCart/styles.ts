@@ -27,6 +27,11 @@ export const Content = styled.div`
     align-items: center;
     justify-content: center;
     box-shadow: 0 0 1px var(--primary);
+
+    img {
+      max-width: 16.75rem;
+      max-height: 13.5rem;
+    }
   }
 
   &:hover {
@@ -40,7 +45,8 @@ export const Content = styled.div`
       width: 12.5rem;
 
       img {
-        height: 10rem;
+        max-width: 11.5rem;
+        max-height: 11.5rem;
       }
     }
   }
@@ -50,7 +56,8 @@ export const Content = styled.div`
       width: 6rem;
 
       img {
-        height: 5rem;
+        max-width: 5rem;
+        max-height: 5rem;
       }
     }
   }
@@ -248,13 +255,30 @@ export const Description = styled.div`
       flex-direction: column;
     }
 
+    .inf {
+      width: 100%;
+    }
+
     .qntTotal {
       width: 100%;
+      height: auto;
       align-items: flex-start;
 
       .qnt {
         width: 100%;
         flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    .total {
+      width: 100%;
+      margin-top: 0.25rem;
+
+      p {
+        width: 100%;
+        display: flex;
+        align-items: center;
         justify-content: space-between;
       }
     }
