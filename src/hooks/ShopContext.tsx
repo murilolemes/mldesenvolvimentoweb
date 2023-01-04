@@ -1,7 +1,15 @@
 import { createContext, ReactNode, useContext, useState } from 'react';
 import { toast } from 'react-toastify';
 
-import cocaPng from '../assets/coca.png';
+import antarctica350Png from '../assets/imgShop/antarctica350.png';
+import brahma350Png from '../assets/imgShop/brahma350.png';
+import coca2lPng from '../assets/imgShop/coca2l.png';
+import coca350Png from '../assets/imgShop/coca350.png';
+import fanta2lPng from '../assets/imgShop/fanta2l.png';
+import fanta350Png from '../assets/imgShop/fanta350.png';
+import guarana350Png from '../assets/imgShop/guarana350.png';
+import sprite2lPng from '../assets/imgShop/sprite2l.png';
+
 
 interface Products {
   id: number;
@@ -36,7 +44,7 @@ const ShopContext = createContext<ShopContexData>(
 const arrayProducts = [
   {
     id: 1,
-    imgProduct: cocaPng,
+    imgProduct: coca350Png,
     name: 'Refrigerante Coca-Cola 350ml',
     firstValue: 4.99,
     lastValue: 4.49,
@@ -46,7 +54,7 @@ const arrayProducts = [
   },
   {
     id: 2,
-    imgProduct: cocaPng,
+    imgProduct: fanta350Png,
     name: 'Refrigerante Fanta 350ml',
     firstValue: 5.99,
     lastValue: 5.59,
@@ -56,8 +64,8 @@ const arrayProducts = [
   },
   {
     id: 3,
-    imgProduct: cocaPng,
-    name: 'Refrigerante Guaraná Antartica 350ml',
+    imgProduct: guarana350Png,
+    name: 'Refrigerante Guaraná Antarctica 350ml',
     firstValue: 3.99,
     lastValue: 3.55,
     qntd: 0,
@@ -66,8 +74,8 @@ const arrayProducts = [
   },
   {
     id: 4,
-    imgProduct: cocaPng,
-    name: 'Cerveja Bramha 350ml',
+    imgProduct: brahma350Png,
+    name: 'Cerveja Brahma 350ml',
     firstValue: 4.49,
     lastValue: 3.09,
     qntd: 0,
@@ -76,8 +84,8 @@ const arrayProducts = [
   },
   {
     id: 5,
-    imgProduct: cocaPng,
-    name: 'Cerveja Antartica 350ml',
+    imgProduct: antarctica350Png,
+    name: 'Cerveja Antarctica 350ml',
     firstValue: 4.79,
     lastValue: 4.35,
     qntd: 0,
@@ -86,7 +94,7 @@ const arrayProducts = [
   },
   {
     id: 6,
-    imgProduct: cocaPng,
+    imgProduct: coca2lPng,
     name: 'Refrigerante Coca-Cola 2 litros',
     firstValue: 4.65,
     lastValue: 4.28,
@@ -96,7 +104,7 @@ const arrayProducts = [
   },
   {
     id: 7,
-    imgProduct: cocaPng,
+    imgProduct: fanta2lPng,
     name: 'Refrigerante Fanta 2 litros',
     firstValue: 4.99,
     lastValue: 4.65,
@@ -106,54 +114,14 @@ const arrayProducts = [
   },
   {
     id: 8,
-    imgProduct: cocaPng,
+    imgProduct: sprite2lPng,
     name: 'Refrigerante Sprite 2 litros',
     firstValue: 4.99,
     lastValue: 3.59,
     qntd: 0,
     qntdTotal: 6,
     total: 0,
-  },
-  {
-    id: 9,
-    imgProduct: cocaPng,
-    name: 'Refrigerante Sprite 2 litros',
-    firstValue: 4.99,
-    lastValue: 4.00,
-    qntd: 0,
-    qntdTotal: 3,
-    total: 0,
-  },
-  {
-    id: 10,
-    imgProduct: cocaPng,
-    name: 'Refrigerante Sprite 2 litros',
-    firstValue: 4.99,
-    lastValue: 3.59,
-    qntd: 0,
-    qntdTotal: 6,
-    total: 0,
-  },
-  {
-    id: 11,
-    imgProduct: cocaPng,
-    name: 'Refrigerante Sprite 2 litros',
-    firstValue: 4.99,
-    lastValue: 3.59,
-    qntd: 0,
-    qntdTotal: 6,
-    total: 0,
-  },
-  {
-    id: 12,
-    imgProduct: cocaPng,
-    name: 'Refrigerante Sprite 2 litros',
-    firstValue: 4.99,
-    lastValue: 3.59,
-    qntd: 0,
-    qntdTotal: 6,
-    total: 0,
-  },
+  }
 ];
 
 export function ShopProvider({ children }: ShopProviderProps) {
