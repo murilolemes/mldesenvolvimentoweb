@@ -101,6 +101,13 @@ export const Total = styled.div`
     }
   }
 
+  @media (max-width: 900px) {
+    .itens {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
   @media (max-width: 768px) {
     .itens {
       p {
@@ -114,6 +121,9 @@ export const Total = styled.div`
   }
 
   @media (max-width: 428px) {
+    flex-direction: column;
+    align-items: flex-start;
+
     .itens {
       flex-direction: column;
       justify-content: center;
@@ -121,9 +131,13 @@ export const Total = styled.div`
 
       p {
         & + p {
-          margin-top: 1rem;
+          margin-top: 0.25rem;
         }
       }
+    }
+
+    button {
+      width: 100%;
     }
   }
 `;
