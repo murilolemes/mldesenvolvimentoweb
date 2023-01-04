@@ -32,6 +32,11 @@ export const Content = styled.div`
     padding: 0.5rem;
     border-radius: 0.25rem 0.25rem 0 0;
     box-shadow: 0 0 1px var(--primary);
+
+    img {
+      max-width: 17.75rem;
+      max-height: 14.5rem;
+    }
   }
 
   &:hover {
@@ -40,7 +45,7 @@ export const Content = styled.div`
 `;
 
 export const Description = styled.div`
-  height: 100%;
+  height: 15.5rem;
   display: flex;
   flex-direction: column;
   align-items: stretch;
