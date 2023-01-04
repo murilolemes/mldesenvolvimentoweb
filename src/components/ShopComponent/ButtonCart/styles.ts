@@ -22,8 +22,8 @@ export const Container = styled.div`
       align-items: center;
       justify-content: center;
       position: absolute;
-      top: -1px;
-      right: 8px;
+      top: -0.063rem;
+      right: 0.5rem;
       color: var(--white-100);
     }
 
