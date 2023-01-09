@@ -28,12 +28,13 @@ export const Content = styled.div`
     td {
       padding: 0.5rem;
       border: 0;
-      background: var(--primary-light);
-      color: var(--secondary);
+      background: var(--white-50);
+      color: var(--blue-800);
+      box-shadow: 0 0 4px var(--blue-800);
       border-radius: 0.25rem;
 
       &:first-child {
-        color: var(--background);
+        color: var(--blue-900);
         font-weight: 600;
       }
 
@@ -58,8 +59,8 @@ export const Content = styled.div`
         align-items: center;
         justify-content: center;
         border: none;
-        background: var(--primary-light);
-        color: var(--secondary);
+        background: transparent;
+        color: var(--blue-900);
         transition: color 0.2s;
 
         &:hover {

@@ -6,10 +6,11 @@ export const Container = styled.div`
   gap: 2rem;
 
   div {
-    background: var(--primary-light);
+    background: var(--white-50);
     padding: 1rem;
     border-radius: 0.25rem;
-    color: var(--background);
+    color: var(--blue-900);
+    box-shadow: 0 0 4px var(--blue-800);
 
     header {
       display: flex;
