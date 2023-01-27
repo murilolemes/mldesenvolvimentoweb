@@ -10,6 +10,7 @@ import ts from '../../assets/typescript.svg';
 import css3 from '../../assets/css3.svg';
 import html5 from '../../assets/html5.svg';
 import node from '../../assets/node.svg';
+import markdown from '../../assets/markdown.svg';
 
 import { Container, Content, Perfil, Bio, Description, Buttons, Repos } from './styles';
 
@@ -66,7 +67,7 @@ export function Home() {
       case 'NodeJS':
         return node;
       default:
-        break
+        return markdown;
     }
   }
 
