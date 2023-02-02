@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  padding: 1rem;
+  padding: 2rem 1rem 1rem;
 `;
 
 export const Content = styled.div`
@@ -92,6 +92,10 @@ export const Total = styled.div`
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--blue-900);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
 
       span {
         font-size: 2rem;

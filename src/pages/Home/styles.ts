@@ -3,7 +3,7 @@ import { shade } from 'polished';
 
 export const Container = styled.div`
   width: 100%;
-  padding: 1rem;
+  padding: 2rem 1rem 1rem;
 `;
 
 export const Content = styled.div`
@@ -200,6 +200,10 @@ export const Repos = styled.div`
   align-items: center;
   justify-content: flex-start;
   overflow-x: auto;
+
+  h2 {
+    text-transform: capitalize;
+  }
 
   ::-webkit-scrollbar-track {
     background-color: ${shade(0.6, '#5a6794')};
