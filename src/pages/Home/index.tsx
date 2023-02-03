@@ -3,7 +3,7 @@ import { FaGithub } from 'react-icons/fa';
 import { BiGridHorizontal, BiListUl } from 'react-icons/bi';
 
 import { apiGitHub } from '../../services/api';
-import { WhatsApp } from '../../components/WhatsApp';
+import { WhatsApp } from '../../components/GlobalComponents/WhatsApp';
 
 import js from '../../assets/javascript.svg';
 import ts from '../../assets/typescript.svg';

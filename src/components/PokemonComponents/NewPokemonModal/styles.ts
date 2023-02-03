@@ -205,55 +205,67 @@ export const Buttons = styled.div`
   bottom: 0.5rem;
   right: 0.5rem;
 
-  button {
-    width: 2rem;
-    height: 2rem;
-    border: none;
+  div {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    color: var(--white-100);
-    font-weight: 600;
-    transition: 0.2s;
-    margin: 0;
+    position: relative;
 
-    span {
-      display: none;
+    button {
+      width: 2rem;
+      height: 2rem;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: var(--white-100);
+      font-weight: 600;
+
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
     }
 
-    & + button {
+    span {
+      color: var(--white-100);
+      border-radius: 0.25rem;
+      position: absolute;
+      top: -32px;
+      padding: 0.25rem;
+      transition: visibility 0.1s, opacity 1s;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    span::after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      position: absolute;
+      bottom: -3px;
+      transform: rotate(45deg);
+      left: calc(50% - 3px);
+    }
+
+    & + div {
       margin-left: 0.25rem;
     }
 
-    svg {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
-
     &:hover {
-      width: 8.25rem;
-      border-radius: 0.25rem;
-      filter: brightness(0.9);
-
       span {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: 0.25rem;
-      }
-
-      svg {
-        display: none;
+        visibility: initial;
+        opacity: 1;
       }
     }
   }
 
-  #remove {
+  .remove, .remove::after {
     background: var(--red);
   }
 
-  #btnAdd {
+  .add, .add::after {
     background: var(--green);
   }
 `;

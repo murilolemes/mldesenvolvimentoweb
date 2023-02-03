@@ -3,9 +3,9 @@ import { FiPlus, FiX } from 'react-icons/fi';
 import Modal from 'react-modal';
 import { toast } from 'react-toastify';
 
-import { pokeApi } from '../../services/api';
-import CloseImg from '../../assets/close.svg';
-import { usePokemons } from '../../hooks/PokemonsContext';
+import { pokeApi } from '../../../services/api';
+import CloseImg from '../../../assets/close.svg';
+import { usePokemons } from '../../../hooks/PokemonsContext';
 
 import { Container, CardPokemon, Title, ImgPokemon, Descriptions, Buttons } from './styles';
 
@@ -189,18 +189,18 @@ export function NewPokemonModal({ isOpen, onRequestClose }: NewPokemonModalProps
             </div>
           </Descriptions>
           <Buttons>
-            <button
-              type='button'
-              id='remove'
-              onClick={clearPokemon}
-            >
-              <FiX />
-              <span>Cancelar</span>
-            </button>
-            <button type='submit' id='btnAdd' onClick={handleAddPokemon}>
-              <FiPlus />
-              <span>Adinionar</span>
-            </button>
+            <div>
+              <button type='button' className='remove' onClick={clearPokemon}>
+                <FiX />
+              </button>
+              <span className='remove'>Cancelar</span>
+            </div>
+            <div>
+              <button type='submit' className='add' onClick={handleAddPokemon}>
+                <FiPlus />
+              </button>
+              <span className='add'>Adicionar</span>
+            </div>
           </Buttons>
         </div>
       </CardPokemon>

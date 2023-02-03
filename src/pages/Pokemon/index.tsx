@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { FiPlus } from 'react-icons/fi';
 
-import { NewPokemonModal } from '../../components/NewPokemonModal';
-import { CardPokemon } from '../../components/CardPokemon';
+import { NewPokemonModal } from '../../components/PokemonComponents/NewPokemonModal';
+import { CardPokemon } from '../../components/PokemonComponents/CardPokemon';
 import { PokemonProvider } from '../../hooks/PokemonsContext';
 
 import { Container, Content, ButtonNewTransaction } from './styles';

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { useTransactions } from '../../hooks/TransactionsContext'
+import { useTransactions } from '../../../hooks/TransactionsContext'
 
-import incomeImg from '../../assets/income.svg';
-import outcomeImg from '../../assets/outcome.svg';
-import totalImg from '../../assets/total.svg';
+import incomeImg from '../../../assets/income.svg';
+import outcomeImg from '../../../assets/outcome.svg';
+import totalImg from '../../../assets/total.svg';
 
-import { getBalance } from '../../utils/getBalance';
-import { formatValue } from '../../utils/formatValue';
+import { getBalance } from '../../../utils/getBalance';
+import { formatValue } from '../../../utils/formatValue';
 
 import { Container } from './styles';
 

@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
 
-import { ThemesMode } from '../../components/ThemesMode';
+import { ThemesMode } from '../ThemesMode';
 
-import Logo1 from '../../assets/LogoPNG2.png';
+import Logo1 from '../../../assets/LogoPNG.png';
 
 import { Container, Content, Title, NavBar } from './styles';
 

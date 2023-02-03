@@ -1,10 +1,10 @@
 import { useState, FormEvent } from 'react';
 import Modal from 'react-modal';
-import { useTransactions } from '../../hooks/TransactionsContext';
+import { useTransactions } from '../../../hooks/TransactionsContext';
 
-import CloseImg from '../../assets/close.svg';
-import incomeImg from '../../assets/income.svg';
-import outcomeImg from '../../assets/outcome.svg';
+import CloseImg from '../../../assets/close.svg';
+import incomeImg from '../../../assets/income.svg';
+import outcomeImg from '../../../assets/outcome.svg';
 
 import { Container, TransactionTypeContainer, RadioBox } from './styles';
 

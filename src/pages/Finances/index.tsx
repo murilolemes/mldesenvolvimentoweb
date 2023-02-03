@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { FiPlus } from 'react-icons/fi';
 import { TransactionsProvider } from '../../hooks/TransactionsContext';
 
-import { NewTransactionModal } from '../../components/NewTransactionModal';
-import { Summary } from '../../components/Summary';
-import { TransactionsTable } from '../../components/TransactionsTable';
+import { NewTransactionModal } from '../../components/FinancesComponents/NewTransactionModal';
+import { Summary } from '../../components/FinancesComponents/Summary';
+import { TransactionsTable } from '../../components/FinancesComponents/TransactionsTable';
 
 import { Container, Content, ButtonNewTransaction } from './styles';
 
