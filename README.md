@@ -10,6 +10,8 @@
 
   * **Página Pokemon:** a página tem como objetivo apresentar uma lista de Pokemons, com um botão para procurar novo Pokemon, que contém um campo para digitar o nome ou o ID do Pokemon desejado, após procurar o Pokemon e exibido um card com o nome, foto e dados do Pokemon, onde você pode cancelar ou adicionar o Pokemon a sua lista. A lista de Pokemons também é um card contendo o nome, foto e dados do Pokemon, com a possibilidade de exclusão de um card, clicando no botão remover.
 
+  * **Página Shop:** a página tem como objetivo sumular um e-commerce que pode apresentar vários tipos de produtos, com as seguintes informações de cada produto: imagem, título, valor sem desconto, valor com desconto, quantidade a ser adicionada no carrinho e total de cada produto selecionado. Você também pode consultar os produtos selecionados clicando no ícone da sacola, onde é informado os dados dos produtos selecionados e o valor total.
+
   * **Tema Escuro ou Claro:** o site tem a possibilidade de escolher o tema _Escuro_ ou _Claro_, por padrão o site foi construído no tema escuro, mas clicando no botão no canto superior direito, você altera o tema para claro.
 
   * **Botão WhatsApp:** ao clicar no ícone de WhatsApp é realizado a abertura de uma nova guia no navegador ou o aplicativo do WhatsApp, direcionando para uma nova conversa com uma mensagem de saudações.
