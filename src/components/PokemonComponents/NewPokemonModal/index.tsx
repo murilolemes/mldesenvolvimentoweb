@@ -101,13 +101,15 @@ export function NewPokemonModal({ isOpen, onRequestClose }: NewPokemonModalProps
 
   async function handleAddPokemon() {
     if (!pokemon) {
-      return toast.error('Insira o nome do Pokemon!')
+      return toast.error('Insira o nome do Psokemon!')
     }
 
     await createPokemon({
       id: Number(pokemon.id),
       name: pokemon.name,
       img: pokemon.img,
+      favorite: false,
+      url: '',
       type: {
         color: pokemon.type.color,
         typePokemon: pokemon.type.typePokemon

@@ -16,6 +16,18 @@ export const Content = styled.div`
     justify-content: flex-end;
     padding-bottom: 2rem;
   }
+
+  .cards {
+    width: 100%;
+    border: 1px solid red;
+    padding: 1rem 0;
+
+    .card {
+      width: 10rem;
+      height: 13rem;
+      border: 1px solid orange;
+    }
+  }
 `;
 
 export const ButtonNewTransaction = styled.button`
