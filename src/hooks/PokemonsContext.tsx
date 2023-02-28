@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useState } from 'react';
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { pokeApi } from '../services/api';
 
@@ -12,7 +12,6 @@ interface Pokemon {
   name: string;
   img: string;
   favorite: boolean;
-  url: string;
   type: {
     color: string;
     typePokemon: string[];
@@ -21,15 +20,29 @@ interface Pokemon {
   skills: string[];
 }
 
+interface ResponseProps {
+  count: number;
+  next: string;
+  previous: string;
+  results: [
+    {
+      name: string
+      url: string;
+    }
+  ]
+}
+
 interface PokemonsProviderProps {
   children: ReactNode
 }
 
 interface PokemonContexData {
   pokemons: Pokemon[];
+  listPokemons: Pokemon[];
   createPokemon: (pokemonPath: Pokemon) => Promise<void>;
-  deletePokemon: (id: number) => Promise<void>;
-  listPokemon: () => Promise<void>;
+  favorite: (id: number) => Promise<void>;
+  PagePrevious: () => Promise<void>;
+  PageNext: () => Promise<void>;
 }
 
 const PokemonsContext = createContext<PokemonContexData>(
@@ -37,6 +50,9 @@ const PokemonsContext = createContext<PokemonContexData>(
 )
 
 export function PokemonProvider({ children }: PokemonsProviderProps) {
+  const [isResponse, setIsResponse] = useState<ResponseProps>();
+  const [isPath, setIsPath] = useState(`/pokemon/?offset=0&limit=28`);
+  const [listPokemons, setListPokemons] = useState<Pokemon[]>([])
   const [pokemons, setPokemons] = useState<Pokemon[]>(() => {
     const storagePokemon = localStorage.getItem('@Pokemons:poke');
 
@@ -45,6 +61,80 @@ export function PokemonProvider({ children }: PokemonsProviderProps) {
     }
     return [];
   });
+
+
+  useEffect(() => {
+    async function apiPokemon() {
+      const response = await pokeApi.get(isPath)
+      setIsResponse(response.data)
+    }
+    apiPokemon();
+  }, [isPath]);
+
+  useEffect(() => {
+    async function listPokemon() {
+      const resultsApi = isResponse?.results;
+
+      const typesPokemon = { color: '' };
+      const updatePokemon = [];
+
+      if (!resultsApi) return [];
+
+      for (let i = 0; i < resultsApi.length; i++) {
+        let poke = await pokeApi.get(resultsApi[i].url.split('v2')[1]);
+        let pokeData = poke.data;
+        let rawTypesBg = poke.data.types;
+        let typesBg = [];
+        let cardBg = document.getElementById('colorBg');
+        let pokeImg = poke.data.sprites.other.home.front_default;
+        let skills = [];
+        let status: Stats[] = [];
+
+        for (let i = 0; i < rawTypesBg.length; i++) {
+          let typesValueBg = rawTypesBg[i].type.name;
+          typesBg.push(typesValueBg);
+        }
+
+        if (typesBg.length === 1) {
+          typesPokemon.color = `linear-gradient(90deg, var(--${typesBg}), var(--${typesBg}))`;
+          if (cardBg) {
+            cardBg.style.background = typesPokemon.color;
+          }
+        } else {
+          typesPokemon.color = `linear-gradient(90deg, var(--${typesBg[0]}), var(--${typesBg[1]}))`;
+          if (cardBg) {
+            cardBg.style.background = typesPokemon.color;
+          }
+        }
+
+        for (let i = 0; i < pokeData.stats.length; i++) {
+          let { base_stat } = pokeData.stats[i];
+          let { name } = pokeData.stats[i].stat;
+          status.push({ name, base_stat })
+        };
+
+        for (let i = 0; i < pokeData.abilities.length; i++) {
+          let { name } = pokeData.abilities[i].ability;
+          skills.push(name)
+        };
+
+        updatePokemon.push({
+          id: pokeData.id,
+          name: pokeData.name,
+          img: pokeImg,
+          favorite: false,
+          type: {
+            color: typesPokemon.color,
+            typePokemon: typesBg,
+          },
+          stats: status,
+          skills,
+        })
+      }
+      setListPokemons(updatePokemon)
+    }
+    listPokemon();
+  }, [isResponse]);
 
   async function createPokemon(pokemonPath: Pokemon) {
     try {
@@ -65,79 +155,69 @@ export function PokemonProvider({ children }: PokemonsProviderProps) {
     }
   }
 
-  async function deletePokemon(id: number) {
-    const updatePokemon = [...pokemons];
+  async function favorite(id: number) {
+    try {
+      const pokemon = listPokemons.find(p => p.id === id);
+      const updatePokemon = [...pokemons];
+      const pokemonIsFavorite = pokemons.find(p => p.id === id);
 
-    const pokemonIndex = updatePokemon.findIndex(pokemon => pokemon.id === id);
+      if (pokemonIsFavorite) {
+        const pokemonIndex = updatePokemon.findIndex(pokemon => pokemon.id === id);
 
-    updatePokemon.splice(pokemonIndex, 1);
+        updatePokemon.splice(pokemonIndex, 1);
 
-    setPokemons(updatePokemon);
+        setPokemons(updatePokemon);
 
-    localStorage.setItem('@Pokemons:poke', JSON.stringify(updatePokemon));
-    toast.success('Pokemon removido com sucesso! 😀')
-  }
+        localStorage.setItem('@Pokemons:poke', JSON.stringify(updatePokemon));
+        toast.success('Pokemon removido dos favoritos, com sucesso! 😀');
+        return;
+      }
 
-  async function listPokemon() {
-    if (pokemons.length === 0) {
-      const response = await pokeApi.get(`/pokemon/?offset=0&limit=2000`);
-      const resultsApi = response.data.results;
-
-      const typesPokemon = { color: '' };
-      const updatePokemon = [];
-
-      for (let i = 0; i < resultsApi.length; i++) {
-        let poke = await pokeApi.get(resultsApi[i].url.split('v2')[1]);
-        let pokeData: Pokemon = poke.data;
-        let rawTypesBg = poke.data.types;
-        let typesBg = [];
-        let cardBg = document.getElementById('colorBg');
-        let pokeImg = poke.data.sprites.other.home.front_default;
-
-        for (let i = 0; i < rawTypesBg.length; i++) {
-          let typesValueBg = rawTypesBg[i].type.name;
-          typesBg.push(typesValueBg);
-        }
-
-        if (typesBg.length === 1) {
-          typesPokemon.color = `linear-gradient(90deg, var(--${typesBg}), var(--${typesBg}))`;
-          if (cardBg) {
-            cardBg.style.background = typesPokemon.color;
-          }
-        } else {
-          typesPokemon.color = `linear-gradient(90deg, var(--${typesBg[0]}), var(--${typesBg[1]}))`;
-          if (cardBg) {
-            cardBg.style.background = typesPokemon.color;
-          }
-        }
-
+      if (pokemon) {
         updatePokemon.push({
-          id: pokeData.id,
-          name: pokeData.name,
-          img: pokeImg,
-          favorite: false,
-          url: pokeData.url,
+          id: pokemon.id,
+          name: pokemon.name,
+          img: pokemon.img,
+          favorite: true,
           type: {
-            color: typesPokemon.color,
-            typePokemon: typesBg,
+            color: pokemon.type.color,
+            typePokemon: pokemon.type.typePokemon,
           },
-          stats: pokeData.stats,
-          skills: pokeData.skills,
+          stats: pokemon.stats,
+          skills: pokemon.skills
         })
       }
       setPokemons(updatePokemon)
-
       localStorage.setItem('@Pokemons:poke', JSON.stringify(updatePokemon));
-      // resultsApi.map(async (p: any) => (
-      //   // setPath(p.url.split('v2')[1])
-      //   await pokeApi.get(p.url.split('v2')[1])
+      toast.success('Pokemon adicionado como favorito, com sucesso! 😀');
+    } catch (error) {
+      toast.error('Desculpe mas o Pokemon não foi encontrado! 😕');
+    }
+  }
 
-      // ))
+  async function PagePrevious() {
+    if (isResponse?.previous !== null) {
+      let pathPrevious = isResponse?.previous.split('v2')[1];
+      if (pathPrevious) setIsPath(pathPrevious)
+    }
+  }
+
+  async function PageNext() {
+    if (isResponse?.next !== null) {
+      let pathNext = isResponse?.next.split('v2')[1];
+      if (pathNext) setIsPath(pathNext)
     }
   }
 
   return (
-    <PokemonsContext.Provider value={{ pokemons, createPokemon, deletePokemon, listPokemon }}>
+    <PokemonsContext.Provider value={{
+      pokemons,
+      listPokemons,
+      createPokemon,
+      favorite,
+      PagePrevious,
+      PageNext
+    }}>
       {children}
     </PokemonsContext.Provider>
   )

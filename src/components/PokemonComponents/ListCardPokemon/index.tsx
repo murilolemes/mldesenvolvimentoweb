@@ -1,45 +1,77 @@
-import { useEffect } from 'react';
-import { FaStar } from 'react-icons/fa';
+import { useState } from 'react';
+import { FaStar, FaInfo } from 'react-icons/fa';
 
 import { usePokemons } from '../../../hooks/PokemonsContext';
+import { NewPokemonModal } from '../NewPokemonModal';
 
-import { Container, ListCard } from "./styles";
+import { Container, ListCard, Pages } from "./styles";
 
 export function ListCardPokemon() {
-  const { pokemons, listPokemon } = usePokemons();
-  listPokemon();
-  console.log('--> ', pokemons)
+  const { pokemons, listPokemons, PagePrevious, PageNext, favorite } = usePokemons();
+  const [isNewPokemonModalOpen, setIsNewPokemonModalOpen] = useState(false);
+  const [isPokemonId, setIsPokemonId] = useState(0)
 
-  useEffect(() => {
-    if (pokemons) {
-      pokemons.map(poke => {
-        let colorbg = document.getElementById(`${poke.name}`)
+  function handleOpenNewPokemonModal(id: number) {
+    setIsNewPokemonModalOpen(true);
+    setIsPokemonId(id)
+  }
 
-        if (colorbg) {
-          colorbg.style.background = poke.type.color;
-        }
-        return '';
-      });
-    }
-  }, [pokemons])
+  function handleCloseNewPokemonModal() {
+    setIsNewPokemonModalOpen(false);
+    setIsPokemonId(0)
+  }
 
   return (
     <Container>
-      {pokemons.map(pokemon => (
+      {listPokemons.map(pokemon => (
         <ListCard
           key={pokemon.id}
-          id={pokemon.img === null ? 'ImgNull' : pokemon.name}
+          style={{ background: pokemon?.type.color }}
         >
           <h1>{pokemon.name.replace(/-/g, ' ')}</h1>
-          <button>
-            <FaStar id='fundo' size={20} />
-            <FaStar size={16} />
+          <button
+            className='buttonFavorite'
+            type='button'
+            onClick={() => favorite(pokemon.id)}
+          >
+            <FaStar
+              className={pokemons.find(p => p.id === pokemon.id) ? 'pokeFavoriteBorder' : ''}
+              size={20}
+            />
+            <FaStar
+              className={pokemons.find(p => p.id === pokemon.id) ? 'pokeFavorite' : ''}
+              size={16}
+            />
           </button>
           <span />
+          <button
+            className='buttonInfo'
+            type='button'
+            onClick={() => handleOpenNewPokemonModal(pokemon.id)}
+          >
+            <FaInfo size={10} />
+          </button>
           <img src={pokemon.img} alt={pokemon.name} />
         </ListCard>
       ))
       }
+      <Pages>
+        <button
+          type='button'
+          onClick={PagePrevious}
+          id='previous'
+        >
+          Previous
+        </button>
+        <button type='button' onClick={PageNext}>
+          Next
+        </button>
+      </Pages>
+      <NewPokemonModal
+        isOpen={isNewPokemonModalOpen}
+        onRequestClose={handleCloseNewPokemonModal}
+        id={isPokemonId}
+      />
     </Container >
   )
 }

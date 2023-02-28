@@ -30,24 +30,42 @@ export const Content = styled.div`
   }
 `;
 
-export const ButtonNewTransaction = styled.button`
-   display: flex;
+export const ButtonNewTransaction = styled.div`
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem;
-  border-radius: 2em;
-  border: none;
+  width: 20rem;
+  height: 2rem;
+  /* padding: 0.75rem; */
+  border-radius: 0.25rem;
+  border: 1px solid var(--white-100);
   color: var(--white-100);
-  background: var(--green);
+  background: none;
   font-size: 1.25rem;
   font-weight: 600;
   transition: filter 0.2s;
 
-  svg {
-    background: var(--white-100);
-    color: var(--green);
-    border-radius: 50%;
-    margin-right: 0.5rem;
+  input {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    padding: 0.5rem 0.25rem;
+  }
+
+  button {
+    width: 2rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+
+    svg {
+      background: none;
+      color: var(--white-100);
+    }
   }
 
   &:hover {

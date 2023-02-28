@@ -5,7 +5,7 @@ import { FiTrash2 } from "react-icons/fi";
 import { Container, Card, Title, ImgPokemon, Descriptions, BtnRemove } from "./styles";
 
 export function CardPokemon() {
-  const { pokemons, deletePokemon } = usePokemons();
+  const { pokemons } = usePokemons();
 
   useEffect(() => {
     if (pokemons) {
@@ -65,7 +65,7 @@ export function CardPokemon() {
             <button
               type='button'
               id='remove'
-              onClick={() => deletePokemon(pokemon.id)}
+            // onClick={() => deletePokemon(pokemon.id)}
             >
               <FiTrash2 />
             </button>
