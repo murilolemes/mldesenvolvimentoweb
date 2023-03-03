@@ -4,7 +4,7 @@ import { FaStar } from 'react-icons/fa';
 import CloseImg from '../../../assets/close.svg';
 import { usePokemons } from '../../../hooks/PokemonsContext';
 
-import { Container, Title, ImgPokemon, Descriptions } from './styles';
+import { Container, Title, ImgPokemon, Descriptions, ButtonFavorite } from './styles';
 
 interface NewPokemonModalProps {
   isOpen: boolean;
@@ -66,8 +66,7 @@ export function NewPokemonModal({ isOpen, onRequestClose, id }: NewPokemonModalP
             ))}
           </div>
         </Descriptions>
-        <button
-          className='buttonFavorite'
+        <ButtonFavorite
           type='button'
           onClick={() => favorite(Number(pokemon?.id))}
         >
@@ -84,7 +83,7 @@ export function NewPokemonModal({ isOpen, onRequestClose, id }: NewPokemonModalP
               size={16}
             />
           </div>
-        </button>
+        </ButtonFavorite>
       </Container>
     </Modal>
   )

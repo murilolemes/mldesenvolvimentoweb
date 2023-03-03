@@ -11,58 +11,6 @@ export const Container = styled.div`
   background: var(--white-100);
   transition: 0.2s;
   position: relative;
-
-  .buttonFavorite {
-    width: 8.5rem;
-    height: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    bottom: 0.875rem;
-    right: 0.5rem;
-    background: none;
-    border: none;
-    transition: 0.2s;
-    border: 1px solid var(--white-100);
-    border-radius: 4px;
-    box-shadow: 0 0 3px 1px var(--white-100);
-    padding: 0.5rem;
-
-    span {
-      font-size: 0.875rem;
-      color: var(--white-100);
-      font-weight: 500;
-    }
-
-    div {
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    svg {
-      color: var(--white-100);
-      position: absolute;
-    }
-
-    .pokeFavorite {
-      color: var(--electric);
-      display: flex;
-    }
-
-    .pokeFavoriteBorder {
-      color: var(--blue-900);
-      display: flex;
-    }
-
-    &:hover {
-      filter: brightness(0.8);
-    }
-  }
 `;
 
 export const Title = styled.div`
@@ -207,75 +155,54 @@ export const Descriptions = styled.div`
   }
 `;
 
-export const Buttons = styled.div`
+export const ButtonFavorite = styled.button`
+  width: 8.5rem;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  bottom: 0.5rem;
+  bottom: 0.875rem;
   right: 0.5rem;
+  background: none;
+  border: none;
+  transition: 0.2s;
+  border: 0px solid var(--blue-800);
+  border-radius: 4px;
+  box-shadow: 0 0 4px 1px var(--blue-800);
+  padding: 0.5rem;
+
+  span {
+    font-size: 0.875rem;
+    color: var(--blue-900);
+    font-weight: 600;
+  }
 
   div {
+    width: 24px;
+    height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-
-    button {
-      width: 2rem;
-      height: 2rem;
-      border: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      color: var(--white-100);
-      font-weight: 600;
-
-      svg {
-        width: 1.5rem;
-        height: 1.5rem;
-      }
-    }
-
-    span {
-      color: var(--white-100);
-      border-radius: 0.25rem;
-      position: absolute;
-      top: -32px;
-      padding: 0.25rem;
-      transition: visibility 0.1s, opacity 1s;
-      visibility: hidden;
-      opacity: 0;
-    }
-
-    span::after {
-      content: '';
-      width: 6px;
-      height: 6px;
-      position: absolute;
-      bottom: -3px;
-      transform: rotate(45deg);
-      left: calc(50% - 3px);
-    }
-
-    & + div {
-      margin-left: 0.25rem;
-    }
-
-    &:hover {
-      span {
-        visibility: initial;
-        opacity: 1;
-      }
-    }
   }
 
-  .remove, .remove::after {
-    background: var(--red);
+  svg {
+    color: var(--white-100);
+    position: absolute;
   }
 
-  .add, .add::after {
-    background: var(--green);
+  .pokeFavorite {
+    color: var(--electric);
+    display: flex;
+  }
+
+  .pokeFavoriteBorder {
+    color: var(--blue-900);
+    display: flex;
+  }
+
+  &:hover {
+    border: 1px solid var(--blue-800);
   }
 `;

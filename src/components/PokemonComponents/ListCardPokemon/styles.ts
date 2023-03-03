@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-// interface ListCardProps {
-//   backgroundColor: string;
-// }
-
 export const Container = styled.div`
   display: flex;
   align-items: flex-start;
@@ -141,7 +137,8 @@ export const Pages = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--white-100);
+    border: 0px solid var(--white-100);
+    box-shadow: 0 0 4px 1px var(--white-100);
     color: var(--white-100);
     border-radius: 0.25rem;
     font-weight: 600;
@@ -153,8 +150,7 @@ export const Pages = styled.div`
     }
 
     &:hover {
-      border-color: var(--secondary-light);
-      color: var(--secondary-light);
+      border: 1px solid var(--white-100);
     }
   }
 `;
