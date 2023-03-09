@@ -9,13 +9,33 @@ import { Container, Title, ImgPokemon, Descriptions, ButtonFavorite } from './st
 interface NewPokemonModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
-  id: number;
+  id?: number;
+  poke?: Pokemon;
 }
 
-export function NewPokemonModal({ isOpen, onRequestClose, id }: NewPokemonModalProps) {
+interface Stats {
+  name: string;
+  base_stat: number;
+}
+
+interface Pokemon {
+  id: number;
+  name: string;
+  img: string;
+  favorite: boolean;
+  type: {
+    color: string;
+    typePokemon: string[];
+  };
+  stats: Stats[];
+  skills: string[];
+}
+
+
+export function NewPokemonModal({ isOpen, onRequestClose, id, poke }: NewPokemonModalProps) {
   const { listPokemons, pokemons, favorite } = usePokemons();
 
-  const pokemon = listPokemons.find(poke => poke.id === id)
+  const pokemon = id !== undefined ? listPokemons.find(poke => poke.id === id) : poke;
 
   return (
     <Modal
