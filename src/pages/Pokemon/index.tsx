@@ -1,7 +1,8 @@
-import { PokemonProvider } from '../../hooks/PokemonsContext';
+import { Link } from 'react-router-dom';
 
+import { PokemonProvider } from '../../hooks/PokemonsContext';
 import { ListCardPokemon } from '../../components/PokemonComponents/ListCardPokemon';
-import { InputSearch } from '../../components/PokemonComponents/InputSearch';
+import { SearchPokemon } from '../../components/PokemonComponents/SearchPokemon';
 
 import { Container, Content } from './styles';
 
@@ -10,7 +11,10 @@ export function Pokemon() {
     <PokemonProvider>
       <Container>
         <Content>
-          <InputSearch />
+          <div className="divHeader">
+            <SearchPokemon />
+            <Link to={'/pokemons/favoritos'}>Favoritos</Link>
+          </div>
           <ListCardPokemon />
         </Content>
       </Container >
