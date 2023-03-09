@@ -39,7 +39,8 @@ interface PokemonsProviderProps {
 interface PokemonContexData {
   pokemons: Pokemon[];
   listPokemons: Pokemon[];
-  createPokemon: (pokemonPath: Pokemon) => Promise<void>;
+  createPokemon: (pokemonPath: Pokemon) => Promise<Pokemon>;
+  searchPokemon: (pokemonName: Pokemon) => Promise<Pokemon>;
   favorite: (id: number) => Promise<void>;
   PagePrevious: () => Promise<void>;
   PageNext: () => Promise<void>;
@@ -52,7 +53,8 @@ const PokemonsContext = createContext<PokemonContexData>(
 export function PokemonProvider({ children }: PokemonsProviderProps) {
   const [isResponse, setIsResponse] = useState<ResponseProps>();
   const [isPath, setIsPath] = useState(`/pokemon/?offset=0&limit=28`);
-  const [listPokemons, setListPokemons] = useState<Pokemon[]>([])
+  const [listPokemons, setListPokemons] = useState<Pokemon[]>([]);
+
   const [pokemons, setPokemons] = useState<Pokemon[]>(() => {
     const storagePokemon = localStorage.getItem('@Pokemons:poke');
 
@@ -61,7 +63,6 @@ export function PokemonProvider({ children }: PokemonsProviderProps) {
     }
     return [];
   });
-
 
   useEffect(() => {
     async function apiPokemon() {
@@ -137,44 +138,138 @@ export function PokemonProvider({ children }: PokemonsProviderProps) {
   }, [isResponse]);
 
   async function createPokemon(pokemonPath: Pokemon) {
-    try {
-      const pokemonExists = pokemons.find(poke => poke.id === pokemonPath.id);
-      if (!pokemonExists) {
-        const updatePokemon = [...pokemons];
+    const response = await pokeApi.get(`/pokemon/${pokemonPath}`);
+    const pokeData = response.data;
+    const typesPokemon = { color: '' };
 
-        updatePokemon.push(pokemonPath)
+    let rawTypesBg = response.data.types;
+    let typesBg = [];
+    let cardBg = document.getElementById('colorBg');
+    let pokeImg = response.data.sprites.other.home.front_default;
+    let skills = [];
+    let status: Stats[] = [];
 
-        setPokemons(updatePokemon)
-        localStorage.setItem('@Pokemons:poke', JSON.stringify(updatePokemon));
-        toast.success('Pokemon adicionado com sucesso! 😀');
-      } else {
-        throw Error();
-      }
-    } catch (error) {
-      toast.error('Este pokemon já existe em sua lista de Pokemons! 😕');
+    for (let i = 0; i < rawTypesBg.length; i++) {
+      let typesValueBg = rawTypesBg[i].type.name;
+      typesBg.push(typesValueBg);
     }
+
+    if (typesBg.length === 1) {
+      typesPokemon.color = `linear-gradient(90deg, var(--${typesBg}), var(--${typesBg}))`;
+      if (cardBg) {
+        cardBg.style.background = typesPokemon.color;
+      }
+    } else {
+      typesPokemon.color = `linear-gradient(90deg, var(--${typesBg[0]}), var(--${typesBg[1]}))`;
+      if (cardBg) {
+        cardBg.style.background = typesPokemon.color;
+      }
+    }
+
+    for (let i = 0; i < pokeData.stats.length; i++) {
+      let { base_stat } = pokeData.stats[i];
+      let { name } = pokeData.stats[i].stat;
+      status.push({ name, base_stat })
+    };
+
+    for (let i = 0; i < pokeData.abilities.length; i++) {
+      let { name } = pokeData.abilities[i].ability;
+      skills.push(name)
+    };
+
+    const searchPoke = {
+      id: pokeData.id,
+      name: pokeData.name,
+      img: pokeImg,
+      favorite: false,
+      type: {
+        color: typesPokemon.color,
+        typePokemon: typesBg,
+      },
+      stats: status,
+      skills,
+    }
+    return searchPoke;
   }
 
-  async function favorite(id: number) {
+  async function searchPokemon(pokemonName: any) {
+    const { idPokemon } = pokemonName;
+    const namePokemon = idPokemon.toLowerCase().replace(/ /g, '-');
+
+    const searchPoke = createPokemon(namePokemon);
+    // const response = await pokeApi.get(`/pokemon/${namePokemon}`);
+    // const pokeData = response.data;
+    // const typesPokemon = { color: '' };
+
+    // let rawTypesBg = response.data.types;
+    // let typesBg = [];
+    // let cardBg = document.getElementById('colorBg');
+    // let pokeImg = response.data.sprites.other.home.front_default;
+    // let skills = [];
+    // let status: Stats[] = [];
+
+    // for (let i = 0; i < rawTypesBg.length; i++) {
+    //   let typesValueBg = rawTypesBg[i].type.name;
+    //   typesBg.push(typesValueBg);
+    // }
+
+    // if (typesBg.length === 1) {
+    //   typesPokemon.color = `linear-gradient(90deg, var(--${typesBg}), var(--${typesBg}))`;
+    //   if (cardBg) {
+    //     cardBg.style.background = typesPokemon.color;
+    //   }
+    // } else {
+    //   typesPokemon.color = `linear-gradient(90deg, var(--${typesBg[0]}), var(--${typesBg[1]}))`;
+    //   if (cardBg) {
+    //     cardBg.style.background = typesPokemon.color;
+    //   }
+    // }
+
+    // for (let i = 0; i < pokeData.stats.length; i++) {
+    //   let { base_stat } = pokeData.stats[i];
+    //   let { name } = pokeData.stats[i].stat;
+    //   status.push({ name, base_stat })
+    // };
+
+    // for (let i = 0; i < pokeData.abilities.length; i++) {
+    //   let { name } = pokeData.abilities[i].ability;
+    //   skills.push(name)
+    // };
+
+    // const searchPoke = {
+    //   id: pokeData.id,
+    //   name: pokeData.name,
+    //   img: pokeImg,
+    //   favorite: false,
+    //   type: {
+    //     color: typesPokemon.color,
+    //     typePokemon: typesBg,
+    //   },
+    //   stats: status,
+    //   skills,
+    // }
+    // setIsPoke(searchPoke)
+    return searchPoke;
+  }
+
+  async function favorite(id: any) {
     try {
-      const pokemon = listPokemons.find(p => p.id === id);
-      const updatePokemon = [...pokemons];
-      const pokemonIsFavorite = pokemons.find(p => p.id === id);
+      const updatePokemons = [...pokemons];
+      const pokemon = await createPokemon(id);
+      const pokemonExists = updatePokemons.find(p => p.id === pokemon.id);
 
-      if (pokemonIsFavorite) {
-        const pokemonIndex = updatePokemon.findIndex(pokemon => pokemon.id === id);
+      if (pokemonExists) {
+        const pokemonIndex = updatePokemons.findIndex(p => p.id === pokemon.id)
 
-        updatePokemon.splice(pokemonIndex, 1);
-
-        setPokemons(updatePokemon);
-
-        localStorage.setItem('@Pokemons:poke', JSON.stringify(updatePokemon));
+        updatePokemons.splice(pokemonIndex, 1);
+        localStorage.setItem('@Pokemons:poke', JSON.stringify(updatePokemons));
+        setPokemons(updatePokemons);
         toast.success('Pokemon removido dos favoritos, com sucesso! 😀');
-        return;
+        return
       }
 
       if (pokemon) {
-        updatePokemon.push({
+        updatePokemons.push({
           id: pokemon.id,
           name: pokemon.name,
           img: pokemon.img,
@@ -187,11 +282,12 @@ export function PokemonProvider({ children }: PokemonsProviderProps) {
           skills: pokemon.skills
         })
       }
-      setPokemons(updatePokemon)
-      localStorage.setItem('@Pokemons:poke', JSON.stringify(updatePokemon));
+
+      setPokemons(updatePokemons);
+      localStorage.setItem('@Pokemons:poke', JSON.stringify(updatePokemons));
       toast.success('Pokemon adicionado como favorito, com sucesso! 😀');
     } catch (error) {
-      toast.error('Desculpe mas o Pokemon não foi encontrado! 😕');
+      toast.error(`${error}`)
     }
   }
 
@@ -214,6 +310,7 @@ export function PokemonProvider({ children }: PokemonsProviderProps) {
       pokemons,
       listPokemons,
       createPokemon,
+      searchPokemon,
       favorite,
       PagePrevious,
       PageNext
