@@ -72,7 +72,7 @@ export function Header() {
           case '/financas':
             setFinance('active');
             break;
-          case '/pokemon':
+          case '/pokemons':
             setPokemon('active');
             break;
           case '/shop':
@@ -128,7 +128,7 @@ export function Header() {
             </li>
 
             <li>
-              <Link to="/pokemon" className={pokemon} onClick={() => setPath('pokemon')}>
+              <Link to="/pokemons" className={pokemon} onClick={() => setPath('pokemon')}>
                 Pokemon
               </Link>
             </li>
