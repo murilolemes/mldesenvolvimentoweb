@@ -20,10 +20,9 @@ export const ListCard = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 0.25rem;
-  background: var(--white-100);
   transition: 0.2s;
   position: relative;
-  border: 1px solid var(--primary-light);
+  border: 1px solid var(--purple-400);
 
   h1 {
     max-width: 8rem;
@@ -31,8 +30,8 @@ export const ListCard = styled.div`
     position: absolute;
     top: 0.25rem;
     left: 0.25rem;
-    color: var(--white-100);
-    text-shadow: 1px 1px var(--blue-900);
+    color: var(--gray-100);
+    text-shadow: 1px 1px var(--gray-900);
     text-transform: capitalize;
     font-weight: 700;
   }
@@ -52,7 +51,7 @@ export const ListCard = styled.div`
 
     svg {
       position: absolute;
-      color: var(--white-100);
+      color: var(--gray-100);
       display: none;
     }
 
@@ -62,7 +61,7 @@ export const ListCard = styled.div`
     }
 
     .pokeFavoriteBorder {
-      color: var(--blue-900);
+      color: var(--gray-700);
       display: flex;
     }
 
@@ -81,23 +80,23 @@ export const ListCard = styled.div`
     bottom: 0.25rem;
     right: 0.25rem;
     border-radius: 50%;
-    border: 1px solid var(--blue-900);
+    border: 1px solid var(--gray-900);
     transition: 0.2s;
     background: transparent;
 
     svg {
-      color: var(--blue-900);
+      color: var(--gray-900);
     }
 
     &:hover {
-      background: var(--white-100);
+      background: var(--gray-100);
     }
   }
 
   span {
     width: 9rem;
     height: 3rem;
-    background: var(--white-100);
+    background: var(--gray-100);
     border-radius: 50%;
     position: absolute;
     bottom: 0.75rem;
@@ -112,8 +111,8 @@ export const ListCard = styled.div`
   }
 
   &:hover {
-    border-color: var(--primary-light);
-    box-shadow: 0 0 4px 2px var(--primary-light);
+    border-color: var(--green-300);
+    box-shadow: 0 0 8px 1px var(--green-300);
 
     svg {
       display: flex;
@@ -137,12 +136,11 @@ export const Pages = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 0px solid var(--white-100);
-    box-shadow: 0 0 4px 1px var(--white-100);
-    color: var(--white-100);
+    border: 1px solid var(--purple-400);
+    color: var(--gray-100);
     border-radius: 0.25rem;
     font-weight: 600;
-    background: transparent;
+    background: var(--purple-400);
     transition: 0.2s;
 
     & + button {
@@ -150,7 +148,8 @@ export const Pages = styled.div`
     }
 
     &:hover {
-      border: 1px solid var(--white-100);
+      border-color: var(--green-300);
+      box-shadow: 0 0 8px var(--green-300);
     }
   }
 `;

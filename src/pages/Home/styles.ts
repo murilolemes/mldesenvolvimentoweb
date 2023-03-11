@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { shade } from 'polished';
 
 export const Container = styled.div`
   width: 100%;
@@ -41,6 +40,7 @@ export const Bio = styled.div`
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 3rem;
+    color: var(--purple-400);
   }
 
   div {
@@ -49,7 +49,6 @@ export const Bio = styled.div`
 
     p {
       font-size: 1rem;
-      color: var(--primary);
       line-height: 1.5rem;
       text-align: justify;
 
@@ -97,11 +96,11 @@ export const Description = styled.div`
 
     p {
       font-size: 1rem;
-      color: var(--primary);
+      color: var(--white);
 
       & + p {
         margin-top: 0.25rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
       }
     }
 
@@ -111,17 +110,19 @@ export const Description = styled.div`
       align-items: center;
       justify-content: center;
       padding: 0.5rem;
-      border: 1px solid var(--secondary-light);
+      border: 1px solid var(--purple-400);
       border-radius: 0.25rem;
-      background: var(--secondary-light);
-      transition: filter 0.2s;
+      background: var(--purple-400);
+      transition: 0.2s;
+      color: var(--gray-100);
 
       svg {
         margin-right: 0.5rem;
       }
 
       &:hover {
-        filter: brightness(0.9);
+        border-color: var(--green-300);
+        box-shadow: 0 0 8px var(--green-300);
       }
     }
   }
@@ -149,7 +150,8 @@ export const Buttons = styled.div`
 
   h3 {
     font-size: 1.25rem;
-    font-weight: 500;
+    font-weight: 600;
+    color: var(--title);
   }
 
   div {
@@ -166,7 +168,6 @@ export const Buttons = styled.div`
       justify-content: center;
       background: none;
       border: none;
-      color: var(--primary-light);
       transition: 0.2s;
 
       & + button {
@@ -174,22 +175,24 @@ export const Buttons = styled.div`
       }
 
       &:hover {
-        border: 1px solid var(--primary-light);
-        background: var(--primary-light);
-        color: var(--background);
+        border-color: var(--green-300);
+        box-shadow: 0 0 8px var(--green-300);
+        background: var(--purple-400);
+        color: var(--white-100);
       }
     }
 
     .listActive {
-      border: 1px solid var(--primary-light);
-      background: var(--primary-light);
-      color: var(--background);
+      border: 1px solid var(--green-300);
+      box-shadow: 0 0 8px var(--green-300);
+      background: var(--purple-400);
+      color: var(--green-300);
     }
 
     .listInative {
-      border: none;
-      background: initial;
-      color: var(--primary-light);
+      border: 1px solid var(--gray-700);
+      background: var(--gray-700);
+      color: var(--gray-600);
     }
   }
 `;
@@ -203,21 +206,30 @@ export const Repos = styled.div`
 
   h2 {
     text-transform: capitalize;
+    color: var(--green-300);
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--gray-700);
+    border: 1px solid var(--purple-400);
   }
 
   ::-webkit-scrollbar-track {
-    background-color: ${shade(0.6, '#5a6794')};
+    background-color: var(--gray-700);
     border-radius: 0.25rem;
   }
 
   ::-webkit-scrollbar {
     height: 6px;
     border-radius: 0.25rem;
-    background: ${shade(0.6, '#5a6794')};
+    background: var(--gray-700);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--secondary-light);
+    background: var(--purple-400);
     border-radius: 0.25rem;
   }
 
@@ -231,13 +243,9 @@ export const Repos = styled.div`
     a {
       height: 3.5rem;
       padding: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--secondary);
-      border: 1px solid var(--secondary);
+
       border-radius: 0.25rem;
-      transition: background 0.2s;
+      transition: 0.2s;
 
       &:hover {
         background: var(--background);
@@ -269,23 +277,18 @@ export const Repos = styled.div`
       height: 25rem;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
       padding: 1rem;
-      background: var(--secondary);
-      border: 1px solid var(--secondary);
       border-radius: 0.25rem;
 
       h2 {
         font-size: 1.25rem;
         font-weight: 700;
-        color: var(--primary-light);
       }
 
       p {
         font-size: 1rem;
         text-align: center;
-        color: var(--primary);
+        color: var(--text);
       }
 
       img {

@@ -18,7 +18,7 @@ export const Container = styled.div`
       width: 1rem;
       height: 1rem;
       border-radius: 50%;
-      background: var(--primary-light);
+      background: var(--text);
       position: absolute;
       transition: 1s;
     }
@@ -44,7 +44,7 @@ export const Container = styled.div`
     width: 1rem;
     right: 0.25rem;
     bottom: 0.2rem;
-    color: var(--primary-light);
+    color: var(--text);
   }
 
   #lightTheme {
@@ -53,6 +53,6 @@ export const Container = styled.div`
     width: 1rem;
     left: 0.25rem;
     bottom: 0.2rem;
-    color: var(--primary-light);
+    color: var(--gray-900);
   }
 `;

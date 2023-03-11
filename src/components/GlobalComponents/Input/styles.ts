@@ -11,11 +11,11 @@ interface ContainerProps {
 export const Container = styled.div<ContainerProps>`
   width: 100%;
   height: 100%;
-  background: var(--blue-900);
+  background: var(--gray-700);
   border-radius: 0.25rem;
-  border: 1px solid var(--blue-800);
+  border: 1px solid var(--gray-700);
   padding: 0.5rem;
-  color: var(--blue-200);
+  color: var(--gray-500);
   display: flex;
   align-items: center;
 
@@ -26,27 +26,31 @@ export const Container = styled.div<ContainerProps>`
   ${(props) =>
     props.isErrored &&
     css`
-      border-color: var(--red);
+      border-color: var(--red-300);
     `}
 
   ${(props) =>
     props.isFocused &&
     css`
-      color: var(--secondary-light);
-      border-color: var(--secondary-light);
+      color: var(--green-300);
+      border-color: var(--green-300);
+      box-shadow: 0 0 4px var(--green-300);
     `}
+
   ${(props) =>
     props.isField &&
     css`
-      color: var(--secondary-light);
+      color: var(--green-300);
     `}
+
   input {
     flex: 1;
     background: transparent;
     border: 0;
-    color: var(--white-100);
+    color: var(--gray-100);
+
     &::placeholder {
-      color: var(--blue-200);
+      color: var(--gray-500);
     }
   }
   svg {
@@ -61,10 +65,10 @@ export const Error = styled(Tooltip)`
     margin: 0;
   }
   span {
-    background: var(--red);
-    color: var(--white-100);
+    background: var(--red-300);
+    color: var(--gray-100);
     &::before {
-      border-color: var(--red) transparent;
+      border-color: var(--red-300) transparent;
     }
   }
 `;

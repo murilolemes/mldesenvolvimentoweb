@@ -20,7 +20,7 @@ export const Body = styled.div`
   height: 31.25rem;
   padding: 0 1.5rem;
   border-radius: 0.5rem;
-  background: var(--secondary-light);
+  background: var(--purple-400);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,9 +31,7 @@ export const Log = styled.div`
   height: 9.375rem;
   margin-top: 0.625rem;
   border-radius: 0.5rem;
-  border: 1px solid var(--background);
-  box-shadow: 0 0 8px 2px var(--background);
-  background: var(--secondary-light);
+  background: var(--background);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,6 +43,7 @@ export const Log = styled.div`
     text-align: center;
     font-size: 1.1rem;
     font-weight: 500;
+    color: var(--text);
 
     & + p {
       margin-top: 0.375rem;
@@ -52,7 +51,7 @@ export const Log = styled.div`
   }
 
   #result {
-    color: var(--red)
+    color: var(--red-300)
   }
 `;
 
@@ -70,23 +69,20 @@ export const Keyboard = styled.div`
     justify-content: center;
 
     button {
-      width: 3.75rem;
-      height: 3.125rem;
-      background: var(--background);
-      border: 1px solid var(--background );
-      color: var(--primary-light);
-      border-radius: 0.5rem;
+      width: 3.25rem;
+      height: 3.25rem;
+      background: transparent;
+      border: 1px solid var(--green-300);
+      color: var(--green-300);
+      border-radius: 50%;
       transition: 0.5s;
       font-size: 1.2rem;
       font-weight: 700;
       transition: 0.5s;
 
       &:hover {
-        transform: translateY(-0.313rem);
-        background: var(--secondary-light);
-        color: var(--background);
-        border: 1px solid var(--background);
-        box-shadow: 0 0 12px 6px var(--background);
+        border: 1px solid var(--green-300);
+        box-shadow: 0 0 8px var(--green-300);
         font-size: 1.5rem;
       }
 
@@ -106,6 +102,7 @@ export const Keyboard = styled.div`
     }
 
     #equal {
+      border-radius: 0.25rem;
       flex: 1;
     }
   }

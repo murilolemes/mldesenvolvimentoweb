@@ -7,22 +7,23 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
 
     button {
       height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--background);
+      background: var(--purple-400);
       border-radius: 0.25rem;
-      border: 1px solid var(--blue-800);
-      color: var(--primary-light);
+      border: 1px solid var(--purple-400);
+      color: var(--gray-100);
       padding: 0.5rem 1rem;
       transition: 0.2s;
-      margin-left: 0.25rem;
 
       &:hover {
-        background: var(--blue-800);
+        border-color: var(--green-300);
+        box-shadow: 0 0 8px var(--green-300);
       }
     }
   }

@@ -13,7 +13,7 @@ export function Pokemon() {
         <Content>
           <div className="divHeader">
             <SearchPokemon />
-            <Link to={'/pokemons/favoritos'}>Favoritos</Link>
+            <Link to={'/pokemons/favoritos'}>Pokemons Favoritos</Link>
           </div>
           <ListCardPokemon />
         </Content>

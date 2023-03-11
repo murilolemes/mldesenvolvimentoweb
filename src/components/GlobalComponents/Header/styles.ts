@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 100%;
   height: 9.375rem;
   padding: 1rem;
-  background: linear-gradient(var(--secondary-light), var(--background));
+  background: linear-gradient(var(--gray-700), var(--background));
 
   @media(max-width: 768px) {
     height: auto;
@@ -77,16 +77,15 @@ export const NavBar = styled.div`
         justify-content: center;
         font-size: 1rem;
         font-weight: 500;
-        color: var(--blue-900);
-        transition: color 0.2s;
+        color: var(--purple-400);
+        transition: 0.2s;
         padding: 0.375rem;
-        background: var(--white-100);
+        background: transparent;
         border-radius: 0.25rem;
         border: none;
 
         &:hover {
-          border: 1px solid var(--white-100);
-          box-shadow: 0px 0px 4px 2px var(--white-100);
+          color: var(--green-300);
           border-radius: 0.25rem;
           margin: 0 0.25rem;
         }
@@ -99,7 +98,7 @@ export const NavBar = styled.div`
   }
 
   .active {
-    box-shadow: 0px 0px 4px 2px var(--white-100);
+    color: var(--green-300);
     border-radius: 0.25rem;
     margin: 0 0.25rem;
     font-weight: 700;
@@ -117,14 +116,14 @@ export const NavBar = styled.div`
       align-items: center;
       justify-content: center;
       background: none;
-      color: var(--white-100);
+      color: var(--green-300);
       border: none;
     }
 
     .buttonActive {
       width: 2rem;
       height: 100%;
-      background: var(--secondary-light);
+      background: var(--gray-700);
       border-radius: 0.25rem 0 0 0.25rem;
     }
 
@@ -148,7 +147,7 @@ export const NavBar = styled.div`
       top: 0;
       left: 2rem;
       border: none;
-      background: var(--secondary-light);
+      background: var(--gray-700);
       padding: 0.625rem;
       border-radius: 0 0.25rem 0.25rem;
 
@@ -175,6 +174,9 @@ export const NavBar = styled.div`
 
     .active {
       margin: 0;
+      box-shadow: 0px 0px 4px 2px var(--green-300);
+      border: 1px solid var(--green-300);
+      color: var(--green-300);
     }
   }
 `;

@@ -23,11 +23,14 @@ export const Container = styled.div<DisplayButtonProps>`
     justify-content: center;
 
     svg {
-      color: var(--primary-light);
+      transition: 0.2s;
+      color: var(--text);
     }
 
     &:hover {
-      filter: brightness(0.7);
+      svg {
+        color: var(--red-300);
+      }
     }
   }
 
@@ -41,7 +44,7 @@ export const ButtonWhatsApp = styled.a`
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background: var(--green);
+  background: var(--green-300);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,12 +53,12 @@ export const ButtonWhatsApp = styled.a`
   svg {
     width: 1.875rem;
     height: 1.875rem;
-    color: #f5f5f5;
+    color: var(--white);
     transition: color 0.2s;
   }
 
   &:hover {
-    background-color: var(--green);
-    box-shadow: 0 0 10px 5px var(--green);
+    background-color: var(--green-300);
+    box-shadow: 0 0 10px 5px var(--green-300);
   }
 `;

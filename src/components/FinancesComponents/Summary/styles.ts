@@ -6,11 +6,11 @@ export const Container = styled.div`
   gap: 2rem;
 
   div {
-    background: var(--white-50);
+    background: var(--white);
     padding: 1rem;
     border-radius: 0.25rem;
-    color: var(--blue-900);
-    box-shadow: 0 0 4px var(--blue-800);
+    color: var(--gray-900);
+    box-shadow: 0 0 4px var(--purple-400);
 
     header {
       display: flex;
@@ -33,21 +33,21 @@ export const Container = styled.div`
     }
 
     #valueDeposit {
-      color: var(--green);
+      color: var(--green-300);
     }
 
     #valueWithdraw {
-      color: var(--red);
+      color: var(--red-300);
     }
   }
   .positive {
-    background: var(--green);
-    color: var(--blue-900);
+    background: var(--green-300);
+    color: var(--gray-900);
   }
 
   .negative {
-    background: var(--red);
-    color: var(--blue-900);
+    background: var(--red-300);
+    color: var(--gray-900);
   }
 
   @media(max-width: 768px) {

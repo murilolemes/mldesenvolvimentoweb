@@ -22,24 +22,30 @@ export const ButtonNewTransaction = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem;
-  border-radius: 2em;
+  padding: 0.25rem;
   border: none;
-  color: var(--white-100);
-  background: var(--green);
+  color: var(--purple-400);
+  background: none;
+  border-bottom: 1px solid var(--purple-400);
   font-size: 1.25rem;
   font-weight: 600;
-  transition: filter 0.2s;
+  transition: 0.2s;
 
   svg {
-    background: var(--white-100);
-    color: var(--green);
+    background: var(--purple-400);
+    color: var(--gray-900);
     border-radius: 50%;
     margin-right: 0.5rem;
+    transition: 0.2s;
   }
 
   &:hover {
-    filter: brightness(0.9);
+    border-bottom: 1px solid var(--green-300);
+    color: var(--green-300);
+
+    svg {
+      background: var(--green-300);
+    }
   }
 
   @media (max-width: 428px) {

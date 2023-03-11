@@ -21,20 +21,24 @@ export const Content = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    /* border: 1px solid red; */
 
     a {
       width: 15rem;
       height: 100%;
+      font-weight: 600;
+      color: var(--gray-100);
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 0.25rem;
-      border: 1px solid var(--blue-800);
-      background: var(--blue-800);
+      border: 1px solid var(--purple-400);
+      background: var(--purple-400);
       transition: 0.2s;
 
       &:hover {
-        background: var(--blue-900);
+        box-shadow: 0 0 8px var(--green-300);
+        border-color: var(--green-300);
       }
     }
   }

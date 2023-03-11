@@ -1,21 +1,36 @@
 import { createGlobalStyle } from 'styled-components';
 import 'react-toastify/dist/ReactToastify.css';
-import { shade } from 'polished';
+// import { shade } from 'polished';
 
 export default createGlobalStyle`
   :root {
-    --background: #080C25;
-    --secondary: #161E35;
-    --primary: #A6B2EC;
-    --primary-light: #F5F5F5;
+    /* --background: #080C25; */
+    --background: var(--gray-900);
+    --text: var(--gray-100);
+    --title: var(--purple-400);
 
-    --secondary-light: #3071E7;
+
+    /* --secondary: #161E35;
+    --primary: #A6B2EC;
+    --primary-light: #F5F5F5; */
+
+
+
+    --gray-900: #0b0a0d;
+    --gray-700: #2c2c2e;
+    --gray-600: #707070;
+    --gray-500: #aeaeb2;
+    --gray-100: #F5F5F5;
+    --red-300: #ff3b30;
+    --purple-400: #7159c1;
+    --green-300: #30d158;
+
+    /* --secondary-light: #3071E7; */
     --blue-900: #080C25;
     --blue-800: #161E35;
     --blue-700: #212f57;
     --blue-200: #A6B2EC;
-    --white-100: #F5F5F5;
-    --white-50: #FFFFFF;
+    --white: #FFFFFF;
     --red: #E52E4D;
     --green: #33CC95;
 
@@ -63,20 +78,20 @@ export default createGlobalStyle`
   }
   body {
     background: var(--background);
-    color: var(--primary-light);
+    color: var(--text);
     -webkit-font-smoothing: antialiased !important;
     text-rendering: optimizeLegibility !important;
     overflow-y: auto;
     scrollbar-width: 1px;
     ::-webkit-scrollbar-track {
-      background-color: ${shade(0.6, '#5a6794')};
+      background-color: var(--gray-700);
     }
     ::-webkit-scrollbar {
       width: 6px;
-      background: ${shade(0.6, '#5a6794')};
+      background: var(--gray-700);
     }
     ::-webkit-scrollbar-thumb {
-      background: var(--secondary-light);
+      background: var(--purple-400);
     }
   }
   html, body {
@@ -119,7 +134,7 @@ export default createGlobalStyle`
   .react-modal-content{
     width: 100%;
     max-width: 576px;
-    background: var(--blue-800);
+    background: var(--gray-700);
     padding: 3rem;
     position: relative;
     border-radius: 0.25rem;

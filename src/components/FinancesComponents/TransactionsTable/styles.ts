@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { shade } from 'polished';
 
 export const Container = styled.div``;
 
@@ -11,7 +10,7 @@ export const Content = styled.div`
     border-spacing: 0.25rem;
 
     th {
-      color: var(--primary);
+      color: var(--text);
       padding: 0.5rem;
       text-align: left;
       line-height: 1.5rem;
@@ -28,23 +27,23 @@ export const Content = styled.div`
     td {
       padding: 0.5rem;
       border: 0;
-      background: var(--white-50);
-      color: var(--blue-800);
-      box-shadow: 0 0 4px var(--blue-800);
+      background: var(--gray-700);
+      color: var(--gray-500);
+      box-shadow: 0 0 2px var(--green-300);
       border-radius: 0.25rem;
 
       &:first-child {
-        color: var(--blue-900);
+        color: var(--gray-100);
         font-weight: 600;
       }
 
       &.deposit {
-        color: var(--green);
+        color: var(--green-300);
         font-weight: 600;
       }
 
       &.withdraw {
-        color: var(--red);
+        color: var(--red-300);
         font-weight: 600;
       }
 
@@ -60,11 +59,11 @@ export const Content = styled.div`
         justify-content: center;
         border: none;
         background: transparent;
-        color: var(--blue-900);
+        color: var(--gray-100);
         transition: color 0.2s;
 
         &:hover {
-          color: var(--red);
+          color: var(--red-300);
         }
       }
     }
@@ -75,18 +74,18 @@ export const Content = styled.div`
     overflow-x: scroll;
 
     ::-webkit-scrollbar-track {
-      background-color: ${shade(0.6, '#5a6794')};
+      background-color: var(--gray-700);
       border-radius: 0.25rem;
     }
 
     ::-webkit-scrollbar {
       height: 6px;
       border-radius: 0.25rem;
-      background: ${shade(0.6, '#5a6794')};
+      background-color: var(--gray-700);
     }
 
     ::-webkit-scrollbar-thumb {
-      background: var(--secondary-light);
+      background: var(--purple-400);
       border-radius: 0.25rem;
     }
 
@@ -115,7 +114,7 @@ export const DivPages = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 0.25rem 0;
+  padding: 0.5rem 0;
 
   p {
     margin: 0 1rem;
@@ -127,7 +126,7 @@ export const DivPages = styled.div`
     background-color: transparent;
     border-radius: 50%;
     border: none;
-    color: var(--primary-light);
+    color: var(--text);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -143,7 +142,8 @@ export const DivPages = styled.div`
     }
 
     :hover {
-      background: var(--secondary);
+      border: 1px solid var(--green-300);
+      box-shadow: 0 0 8px var(--green-300);
     }
   }
 `;
