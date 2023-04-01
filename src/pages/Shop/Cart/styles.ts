@@ -39,7 +39,7 @@ export const MyShopHeader = styled.div`
       transition: 0.2s;
 
       &:hover {
-        color: var(--red);
+        color: var(--red-300);
       }
     }
   }
@@ -57,8 +57,9 @@ export const BtnBuy = styled.button`
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 0.25rem;
-  background: var(--green);
-  color: var(--white-100);
+  background: var(--green-300);
+  color: var(--gray-100);
+  text-shadow: 1px 1px var(--gray-700);
   font-size: 1.5rem;
   font-weight: 600;
   transition: filter 0.2s;
@@ -78,7 +79,8 @@ export const Total = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  background: var(--white-50);
+  background: var(--gray-100);
+  border: 1px solid var(--gray-700);
   padding: 1rem;
   border-radius: 0.25rem;
 
@@ -91,7 +93,7 @@ export const Total = styled.div`
     p {
       font-size: 1.5rem;
       font-weight: 700;
-      color: var(--blue-900);
+      color: var(--gray-900);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -100,7 +102,7 @@ export const Total = styled.div`
       span {
         font-size: 2rem;
         font-weight: 700;
-        color: var(--red);
+        color: var(--red-300);
       }
     }
   }

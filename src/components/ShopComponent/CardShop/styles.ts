@@ -15,14 +15,15 @@ export const Container = styled.div`
 export const Content = styled.div`
   width: 18.75rem;
   height: 31rem;
-  background: var(--white-50);
+  background: var(--gray-100);
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: stretch;
   border-radius: 0.25rem;
   transition: 0.2s;
-  box-shadow: 0 0 4px var(--primary);
+  border: 1px solid var(--gray-600);
+  box-shadow: 0 0 4px var(--gray-600);
 
   .img {
     height: 15.5rem;
@@ -31,7 +32,7 @@ export const Content = styled.div`
     justify-content: center;
     padding: 0.5rem;
     border-radius: 0.25rem 0.25rem 0 0;
-    box-shadow: 0 0 1px var(--primary);
+    border-bottom: 1px solid var(--gray-500);
 
     img {
       max-width: 17.75rem;
@@ -40,7 +41,8 @@ export const Content = styled.div`
   }
 
   &:hover {
-    box-shadow: 0 0 6px 2px var(--primary);
+    box-shadow: 0 0 6px var(--green-300);
+    border-color: var(--green-300);
   }
 `;
 
@@ -51,7 +53,7 @@ export const Description = styled.div`
   align-items: stretch;
   justify-content: space-between;
   padding: 1rem;
-  color: var(--blue-900);
+  color: var(--gray-900);
 
   .inf {
     p {
@@ -65,7 +67,7 @@ export const Description = styled.div`
       span {
         font-size: 1rem;
         font-weight: 700;
-        color: var(--red);
+        color: var(--red-300);
       }
 
       .firstValue {
@@ -96,7 +98,7 @@ export const Description = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--white-100);
+      color: var(--gray-100);
       border: none;
       border-radius: 0.25rem;
       transition: filter 0.2s;
@@ -107,11 +109,11 @@ export const Description = styled.div`
     }
 
     .btnMinus {
-      background: var(--red);
+      background: var(--red-300);
     }
 
     .btnPlus {
-      background: var(--green);
+      background: var(--green-300);
     }
   }
 
@@ -125,7 +127,7 @@ export const Description = styled.div`
       font-weight: 700;
 
       span {
-        color: var(--red);
+        color: var(--red-300);
       }
     }
   }
@@ -137,8 +139,9 @@ export const Description = styled.div`
     padding: 0.25rem;
     border: none;
     border-radius: 0.25rem;
-    background: var(--green);
-    color: var(--white-100);
+    background: var(--purple-400);
+    border: 1px solid var(--purple-400);
+    color: var(--gray-100);
     transition: filter 0.2s;
 
     &:hover {

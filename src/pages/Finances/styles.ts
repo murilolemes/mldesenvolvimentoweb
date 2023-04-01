@@ -33,7 +33,7 @@ export const ButtonNewTransaction = styled.button`
 
   svg {
     background: var(--purple-400);
-    color: var(--gray-900);
+    color: var(--background);
     border-radius: 50%;
     margin-right: 0.5rem;
     transition: 0.2s;

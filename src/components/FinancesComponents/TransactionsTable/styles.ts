@@ -27,13 +27,13 @@ export const Content = styled.div`
     td {
       padding: 0.5rem;
       border: 0;
-      background: var(--gray-700);
-      color: var(--gray-500);
+      background: var(--secondary);
+      color: var(--gray-600);
       box-shadow: 0 0 2px var(--green-300);
       border-radius: 0.25rem;
 
       &:first-child {
-        color: var(--gray-100);
+        color: var(--text);
         font-weight: 600;
       }
 

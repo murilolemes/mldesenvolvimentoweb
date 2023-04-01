@@ -1,10 +1,13 @@
-import { useState, FormEvent } from 'react';
+import { useState } from 'react';
 import Modal from 'react-modal';
 import { useTransactions } from '../../../hooks/TransactionsContext';
+import { Form } from '@unform/web';
+import { toast } from 'react-toastify';
 
 import CloseImg from '../../../assets/close.svg';
 import incomeImg from '../../../assets/income.svg';
 import outcomeImg from '../../../assets/outcome.svg';
+import { Input } from '../../GlobalComponents/Input';
 
 import { Container, TransactionTypeContainer, RadioBox } from './styles';
 
@@ -15,27 +18,24 @@ interface NewTransactionModalProps {
 
 export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionModalProps) {
   const { createTransaction } = useTransactions();
-
-  const [title, setTitle] = useState('');
-  const [amount, setAmount] = useState(0);
-  const [category, setCategory] = useState('');
   const [type, setType] = useState('deposit');
 
-  async function handleCreateNewTransaction(event: FormEvent) {
-    event.preventDefault();
+  async function handleCreateNewTransaction(data: any, { reset }: any) {
+    try {
+      const { title, amount, category } = data;
+      await createTransaction({
+        title,
+        amount: Number(amount),
+        category,
+        type
+      });
 
-    await createTransaction({
-      title,
-      amount,
-      category,
-      type
-    });
-
-    setTitle('');
-    setAmount(0);
-    setCategory('');
-    setType('deposit');
-    onRequestClose();
+      setType('deposit');
+      onRequestClose();
+      reset();
+    } catch (error) {
+      toast.error('Erro ao cadastrar uma nova transação! 😕');
+    }
   };
 
   return (
@@ -52,48 +52,47 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
       >
         <img src={CloseImg} alt='Fechar Modal' />
       </button>
-      <Container onSubmit={handleCreateNewTransaction}>
-        <h2>Cadastrar Transação</h2>
+      <Container>
+        <Form onSubmit={handleCreateNewTransaction}>
+          <h2>Cadastrar Transação</h2>
 
-        <input
-          placeholder='Titulo'
-          value={title}
-          onChange={e => setTitle(e.target.value)}
-        />
+          <Input
+            name='title'
+            placeholder='Titulo'
+          />
 
-        <input
-          type='number'
-          placeholder='Valor'
-          value={amount}
-          onChange={e => setAmount(Number(e.target.value))}
-        />
-        <TransactionTypeContainer>
-          <RadioBox
-            type='button'
-            onClick={() => { setType('deposit') }}
-            isActive={type === 'deposit'}
-            activeColor='green'
-          >
-            <img src={incomeImg} alt='Entrada' />
-            <span>Entrada</span>
-          </RadioBox>
-          <RadioBox
-            type='button'
-            onClick={() => { setType('withdraw') }}
-            isActive={type === 'withdraw'}
-            activeColor='red'
-          >
-            <img src={outcomeImg} alt='Saída' />
-            <span>Saída</span>
-          </RadioBox>
-        </TransactionTypeContainer>
+          <Input
+            name='amount'
+            type='number'
+            placeholder='Valor'
+          />
+          <TransactionTypeContainer>
+            <RadioBox
+              type='button'
+              onClick={() => { setType('deposit') }}
+              isActive={type === 'deposit'}
+              activeColor='green'
+            >
+              <img src={incomeImg} alt='Entrada' />
+              <span>Entrada</span>
+            </RadioBox>
+            <RadioBox
+              type='button'
+              onClick={() => { setType('withdraw') }}
+              isActive={type === 'withdraw'}
+              activeColor='red'
+            >
+              <img src={outcomeImg} alt='Saída' />
+              <span>Saída</span>
+            </RadioBox>
+          </TransactionTypeContainer>
 
-        <input
-          placeholder='Categoria'
-          value={category}
-          onChange={e => setCategory(e.target.value)}
-        />
-        <button type='submit'>Cadastar</button>
+          <Input
+            name='category'
+            placeholder='Categoria'
+          />
+          <button type='submit'>Cadastar</button>
+        </Form>
       </Container>
     </Modal>
   )

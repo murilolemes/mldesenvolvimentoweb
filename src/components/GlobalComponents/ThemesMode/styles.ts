@@ -4,6 +4,7 @@ export const Container = styled.div`
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 1000;
 
   button {
     width: 2.75rem;

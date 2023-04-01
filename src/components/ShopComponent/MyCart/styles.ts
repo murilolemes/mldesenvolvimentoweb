@@ -15,10 +15,11 @@ export const Content = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background: var(--white-50);
-  border-radius: 0.25rem;
+  background: var(--gray-100);
+  border-radius: 4px;
   transition: 0.2s;
-  box-shadow: 0 0 4px var(--primary);
+  border: 1px solid var(--gray-600);
+  box-shadow: 0 0 4px var(--gray-600);
 
   .img {
     width: 18.75rem;
@@ -26,7 +27,7 @@ export const Content = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 1px var(--primary);
+    border-right: 1px solid var(--gray-500);
 
     img {
       max-width: 16.75rem;
@@ -35,7 +36,8 @@ export const Content = styled.div`
   }
 
   &:hover {
-    box-shadow: 0 0 6px 2px var(--primary);
+    border: 1px solid var(--green-300);
+    box-shadow: 0 0 6px var(--green-300);
   }
 
   @media (max-width: 768px) {
@@ -69,7 +71,7 @@ export const Description = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: var(--blue-900);
+  color: var(--gray-900);
 
   .infTotal {
     width: 100%;
@@ -92,7 +94,7 @@ export const Description = styled.div`
       span {
         font-size: 1.125rem;
         font-weight: 700;
-        color: var(--red);
+        color: var(--red-300);
       }
 
       .firstValue {
@@ -142,7 +144,7 @@ export const Description = styled.div`
           display: flex;
           align-items: center;
           justify-content: center;
-          color: var(--white-100);
+          color: var(--gray-100);
           border: none;
           border-radius: 0.25rem;
           transition: filter 0.2s;
@@ -153,11 +155,11 @@ export const Description = styled.div`
         }
 
         .btnMinus {
-          background: var(--red);
+          background: var(--red-300);
         }
 
         .btnPlus {
-          background: var(--green);
+          background: var(--green-300);
         }
       }
     }
@@ -173,7 +175,7 @@ export const Description = styled.div`
       font-weight: 700;
 
       span {
-        color: var(--red);
+        color: var(--red-300);
         font-size: 1.5rem;
       }
     }
@@ -182,10 +184,10 @@ export const Description = styled.div`
   .btnTrash {
     width: 5.5rem;
     height: 100%;
-    background: var(--red);
-    color: var(--white-100);
+    background: var(--red-300);
+    color: var(--gray-100);
     border: none;
-    border-radius: 0 0.25rem 0.25rem 0;
+    border-radius: 0 2px 2px 0;
     display: flex;
     align-items: center;
     justify-content: center;

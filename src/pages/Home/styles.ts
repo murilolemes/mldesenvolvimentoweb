@@ -40,7 +40,7 @@ export const Bio = styled.div`
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 3rem;
-    color: var(--purple-400);
+    color: var(--title);
   }
 
   div {
@@ -96,7 +96,6 @@ export const Description = styled.div`
 
     p {
       font-size: 1rem;
-      color: var(--white);
 
       & + p {
         margin-top: 0.25rem;
@@ -206,15 +205,15 @@ export const Repos = styled.div`
 
   h2 {
     text-transform: capitalize;
-    color: var(--green-300);
+    color: var(--text);
   }
 
   a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--gray-700);
-    border: 1px solid var(--purple-400);
+    background: var(--secondary);
+    border: 1px solid var(--gray-600);
   }
 
   ::-webkit-scrollbar-track {
@@ -248,7 +247,7 @@ export const Repos = styled.div`
       transition: 0.2s;
 
       &:hover {
-        background: var(--background);
+        border-color: var(--green-300);
       }
 
       h2 {

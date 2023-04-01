@@ -11,11 +11,11 @@ interface ContainerProps {
 export const Container = styled.div<ContainerProps>`
   width: 100%;
   height: 100%;
-  background: var(--gray-700);
+  background: var(--secondary);
   border-radius: 0.25rem;
-  border: 1px solid var(--gray-700);
+  border: 1px solid var(--gray-600);
   padding: 0.5rem;
-  color: var(--gray-500);
+  color: var(--gray-600);
   display: flex;
   align-items: center;
 
@@ -34,23 +34,24 @@ export const Container = styled.div<ContainerProps>`
     css`
       color: var(--green-300);
       border-color: var(--green-300);
-      box-shadow: 0 0 4px var(--green-300);
+      box-shadow: 0 0 4px 1px var(--green-300);
     `}
 
   ${(props) =>
     props.isField &&
     css`
       color: var(--green-300);
+      border-color: var(--green-300);
     `}
 
   input {
     flex: 1;
     background: transparent;
     border: 0;
-    color: var(--gray-100);
+    color: var(--text);
 
     &::placeholder {
-      color: var(--gray-500);
+      color: var(--gray-600);
     }
   }
   svg {

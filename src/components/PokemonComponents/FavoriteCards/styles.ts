@@ -9,6 +9,41 @@ export const Container = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
+  padding-top: 3rem;
+  position: relative;
+
+  a {
+    font-weight: 700;
+    color: var(--purple-400);
+    border-bottom: 1px solid var(--purple-400);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: 0.2s;
+
+    &:hover {
+      color: var(--green-300);
+      border-color: var(--green-300);
+    }
+  }
+
+  h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .notExistsPokemon {
+    display: none;
+  }
+
+  .existsPokemon {
+    display: none;
+  }
 `;
 
 export const Content = styled.div`
@@ -19,9 +54,12 @@ export const Content = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 0.25rem;
-  background: var(--white-100);
   transition: 0.2s;
   position: relative;
+
+  &:hover {
+    box-shadow: 0 0 4px 2px var(--green-300);
+  }
 `;
 
 export const Title = styled.div`
@@ -36,16 +74,16 @@ export const Title = styled.div`
   h1 {
     max-width: 15rem;
     font-size: 1.25rem;
-    color: var(--white-100);
-    text-shadow: 1px 1px var(--blue-900);
+    color: var(--gray-100);
+    text-shadow: 1px 1px var(--gray-900);
     text-transform: capitalize;
     font-weight: 700;
   }
 
   p {
     font-size: 0.75rem;
-    background: var(--white-100);
-    color: var(--blue-900);
+    background: var(--gray-100);
+    color: var(--gray-900);
     filter: opacity(0.4);
     padding: 0.25rem;
     border-radius: 0.25rem;
@@ -53,7 +91,7 @@ export const Title = styled.div`
 `;
 
 export const ImgPokemon = styled.div`
-  height: 16rem;
+  height: 15.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,8 +114,8 @@ export const ImgPokemon = styled.div`
       align-items: center;
       justify-content: center;
       padding: 0.25rem;
-      background: var(--white-100);
-      color: var(--blue-800);
+      background: var(--gray-100);
+      color: var(--gray-900);
       border-radius: 0.25rem;
 
       p {
@@ -104,7 +142,7 @@ export const ImgPokemon = styled.div`
   span {
     width: 13rem;
     height: 4.625rem;
-    background: var(--white-100);
+    background: var(--gray-100);
     border-radius: 50%;
     position: absolute;
     bottom: 0;
@@ -113,7 +151,7 @@ export const ImgPokemon = styled.div`
 `;
 
 export const Descriptions = styled.div`
-  height: 12rem;
+  height: 12.5rem;
   position: absolute;
   bottom: 0.5rem;
   left: 0.5rem;
@@ -125,9 +163,9 @@ export const Descriptions = styled.div`
 
     h4 {
       font-size: 1rem;
-      color: var(--blue-900);
+      color: var(--gray-900);
       font-weight: 600;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
     }
 
     div {
@@ -136,7 +174,7 @@ export const Descriptions = styled.div`
       align-items: center;
       justify-content: space-between;
       padding: 0.25rem;
-      background: #D9D9D9;
+      background: var(--gray-100);
       border-radius: 0.25rem;
 
       & + div {
@@ -145,7 +183,7 @@ export const Descriptions = styled.div`
 
       p {
         font-size: 0.75rem;
-        color: var(--blue-900);
+        color: var(--gray-900);
         text-transform: capitalize;
 
         &:first-child {
@@ -173,19 +211,19 @@ export const ButtonFavorite = styled.button`
   align-items: center;
   justify-content: center;
   position: absolute;
-  bottom: 0.875rem;
+  bottom: 0.5rem;
   right: 0.5rem;
   background: none;
   border: none;
   transition: 0.2s;
-  border: 0px solid var(--blue-800);
+  border: 1px solid var(--gray-700);
+  box-shadow: 0 0 4px var(--gray-700);
   border-radius: 4px;
-  box-shadow: 0 0 4px 1px var(--blue-800);
   padding: 0.5rem;
 
   span {
     font-size: 0.875rem;
-    color: var(--blue-900);
+    color: var(--gray-900);
     font-weight: 600;
   }
 
@@ -199,7 +237,7 @@ export const ButtonFavorite = styled.button`
   }
 
   svg {
-    color: var(--white-100);
+    color: var(--gray-100);
     position: absolute;
   }
 
@@ -209,11 +247,11 @@ export const ButtonFavorite = styled.button`
   }
 
   .pokeFavoriteBorder {
-    color: var(--blue-900);
+    color: var(--gray-700);
     display: flex;
   }
 
   &:hover {
-    border: 1px solid var(--blue-800);
+    box-shadow: 0 0 6px 1px var(--gray-900);
   }
 `;

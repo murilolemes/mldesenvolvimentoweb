@@ -1,38 +1,24 @@
 import { createGlobalStyle } from 'styled-components';
 import 'react-toastify/dist/ReactToastify.css';
-// import { shade } from 'polished';
 
 export default createGlobalStyle`
   :root {
-    /* --background: #080C25; */
     --background: var(--gray-900);
+    --secondary: var(--gray-700);
+
     --text: var(--gray-100);
     --title: var(--purple-400);
-
-
-    /* --secondary: #161E35;
-    --primary: #A6B2EC;
-    --primary-light: #F5F5F5; */
-
-
 
     --gray-900: #0b0a0d;
     --gray-700: #2c2c2e;
     --gray-600: #707070;
     --gray-500: #aeaeb2;
     --gray-100: #F5F5F5;
+
     --red-300: #ff3b30;
     --purple-400: #7159c1;
     --green-300: #30d158;
-
-    /* --secondary-light: #3071E7; */
-    --blue-900: #080C25;
-    --blue-800: #161E35;
-    --blue-700: #212f57;
-    --blue-200: #A6B2EC;
     --white: #FFFFFF;
-    --red: #E52E4D;
-    --green: #33CC95;
 
     --electric: #f8d030;
     --grass: #49d0b0;
@@ -54,10 +40,9 @@ export default createGlobalStyle`
     --fairy: #ee99ac;
   }
   [data-theme = 'lightTheme'] {
-    --background: #f5f5f5;
-    --secondary: #FFFFFF;
-    --primary: #212f57;
-    --primary-light: #080C25;
+    --background: var(--gray-100);
+    --text: var(--gray-900);
+    --secondary: var(--gray-500);
   }
 
   * {
@@ -115,6 +100,9 @@ export default createGlobalStyle`
     opacity: 0.6;
     cursor: not-allowed;
   }
+  p, span, a, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
   .react-modal-overlay{
     background: rgba(0, 0, 0, 0.5);
     position: fixed;
@@ -134,7 +122,7 @@ export default createGlobalStyle`
   .react-modal-content{
     width: 100%;
     max-width: 576px;
-    background: var(--gray-700);
+    background: var(--secondary);
     padding: 3rem;
     position: relative;
     border-radius: 0.25rem;

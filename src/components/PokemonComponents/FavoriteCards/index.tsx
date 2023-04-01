@@ -1,4 +1,5 @@
-import { FaStar } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+import { FaStar, FaArrowLeft } from "react-icons/fa";
 
 import { usePokemons } from '../../../hooks/PokemonsContext';
 
@@ -16,8 +17,16 @@ export function FavoriteCards() {
 
   return (
     <Container>
+      <Link to='/pokemons'><FaArrowLeft size={14} />Voltar para página pokemons</Link>
+      <h3 className={pokemons.length !== 0 ? 'notExistsPokemon' : ''}>
+        Você ainda não possui nenhum pokemon favorito!
+      </h3>
       {pokemons.map((pokemon) => (
-        <Content key={pokemon?.id} style={{ background: pokemon.type.color }} >
+        <Content
+          key={pokemon?.id}
+          style={{ background: pokemon.type.color }}
+          className={pokemons.length === 0 ? 'existsPokemon' : ''}
+        >
           <Title>
             <h1>{pokemon.name}</h1>
             <p>#{pokemon.id}</p>

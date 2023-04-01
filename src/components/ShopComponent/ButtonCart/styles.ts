@@ -16,7 +16,7 @@ export const Container = styled.div`
       width: 1rem;
       height: 1rem;
       font-size: 0.625rem;
-      background: var(--red);
+      background: var(--red-300);
       border-radius: 0.25rem 0.25rem 0 0;
       display: flex;
       align-items: center;
@@ -24,11 +24,11 @@ export const Container = styled.div`
       position: absolute;
       top: -0.063rem;
       right: 0.5rem;
-      color: var(--white-100);
+      color: var(--gray-100);
     }
 
     svg {
-      color: var(--green);
+      color: var(--green-300);
     }
 
     &:hover {
