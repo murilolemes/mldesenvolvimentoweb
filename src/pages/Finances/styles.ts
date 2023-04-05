@@ -50,6 +50,22 @@ export const ButtonNewTransaction = styled.button`
 
   @media (max-width: 428px) {
     width: 100%;
+    background: var(--purple-400);
+    color: var(--gray-100);
     border-radius: 0.25rem;
+    border: 1px solid var(--purple-400);
+
+    svg {
+      color: var(--gray-100);
+    }
+
+    &:hover {
+      border: 1px solid var(--green-300);
+      color: var(--gray-100);
+
+      svg {
+        background: var(--purple-400);
+      }
+    }
   }
 `;

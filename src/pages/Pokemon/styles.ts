@@ -21,7 +21,6 @@ export const Content = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* border: 1px solid red; */
 
     a {
       width: 15rem;
@@ -39,6 +38,19 @@ export const Content = styled.div`
       &:hover {
         box-shadow: 0 0 8px var(--green-300);
         border-color: var(--green-300);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .divHeader {
+      flex-direction: column;
+      height: auto;
+      gap: 1rem;
+
+      a {
+        width: 100%;
+        height: 2.5rem;
       }
     }
   }

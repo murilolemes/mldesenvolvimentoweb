@@ -8,6 +8,7 @@ export const Content = styled.div`
   table {
     width: 100%;
     border-spacing: 0.25rem;
+    border-collapse: initial;
 
     th {
       color: var(--text);

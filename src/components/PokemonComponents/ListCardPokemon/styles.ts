@@ -152,4 +152,8 @@ export const Pages = styled.div`
       box-shadow: 0 0 8px var(--green-300);
     }
   }
+
+  @media (max-width: 428px) {
+    justify-content: center;
+  }
 `;
