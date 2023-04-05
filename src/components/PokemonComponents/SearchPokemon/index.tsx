@@ -3,9 +3,9 @@ import { FiSearch } from 'react-icons/fi';
 import { Form } from '@unform/web';
 import { toast } from 'react-toastify';
 
-import { NewPokemonModal } from '../NewPokemonModal';
-import { Input } from '../../GlobalComponents/Input';
-import { usePokemons } from '../../../hooks/PokemonsContext';
+import { NewPokemonModal } from 'components/PokemonComponents/NewPokemonModal';
+import { Input } from 'components/GlobalComponents/Input';
+import { usePokemons } from 'hooks/PokemonsContext';
 
 import { Container } from './styles';
 

@@ -1,8 +1,8 @@
 import Modal from 'react-modal';
 import { FaStar } from 'react-icons/fa';
 
-import CloseImg from '../../../assets/close.svg';
-import { usePokemons } from '../../../hooks/PokemonsContext';
+import CloseImg from 'assets/close.svg';
+import { usePokemons } from 'hooks/PokemonsContext';
 
 import { Container, Title, ImgPokemon, Descriptions, ButtonFavorite } from './styles';
 

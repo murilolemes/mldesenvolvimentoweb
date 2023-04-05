@@ -1,6 +1,6 @@
-import { ShopProvider } from '../../hooks/ShopContext';
-import { CardShop } from '../../components/ShopComponent/CardShop';
-import { ButtonCart } from '../../components/ShopComponent/ButtonCart';
+import { ShopProvider } from 'hooks/ShopContext';
+import { CardShop } from 'components/ShopComponent/CardShop';
+import { ButtonCart } from 'components/ShopComponent/ButtonCart';
 
 import { Container, Content, MyShopHeader } from './styles';
 

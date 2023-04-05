@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import Modal from 'react-modal';
-import { useTransactions } from '../../../hooks/TransactionsContext';
 import { Form } from '@unform/web';
 import { toast } from 'react-toastify';
 
-import CloseImg from '../../../assets/close.svg';
-import incomeImg from '../../../assets/income.svg';
-import outcomeImg from '../../../assets/outcome.svg';
-import { Input } from '../../GlobalComponents/Input';
+import { useTransactions } from 'hooks/TransactionsContext';
+
+import CloseImg from 'assets/close.svg';
+import incomeImg from 'assets/income.svg';
+import outcomeImg from 'assets/outcome.svg';
+import { Input } from 'components/GlobalComponents/Input';
 
 import { Container, TransactionTypeContainer, RadioBox } from './styles';
 

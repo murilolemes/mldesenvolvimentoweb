@@ -1,7 +1,7 @@
 import { FaMinus, FaPlus } from 'react-icons/fa';
 
-import { useShop } from '../../../hooks/ShopContext';
-import { formatValue } from '../../../utils/formatValue';
+import { useShop } from 'hooks/ShopContext';
+import { formatValue } from 'utils/formatValue';
 
 import { Container, Content, Description } from './styles';
 

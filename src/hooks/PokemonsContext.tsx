@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { pokeApi } from '../services/api';
+import { pokeApi } from 'services/api';
 
 interface Stats {
   name: string;

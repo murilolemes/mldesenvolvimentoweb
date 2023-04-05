@@ -1,5 +1,5 @@
-import { useShop } from "../../../hooks/ShopContext"
-import { formatValue } from "../../../utils/formatValue";
+import { useShop } from "hooks/ShopContext"
+import { formatValue } from "utils/formatValue";
 
 export function ValueTotal() {
   const { cartProducts } = useShop();

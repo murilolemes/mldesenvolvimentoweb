@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { FaStar, FaInfo } from 'react-icons/fa';
 
-import { usePokemons } from '../../../hooks/PokemonsContext';
-import { NewPokemonModal } from '../NewPokemonModal';
+import { usePokemons } from 'hooks/PokemonsContext';
+import { NewPokemonModal } from 'components/PokemonComponents/NewPokemonModal';
 
 import { Container, ListCard, Pages } from "./styles";
 

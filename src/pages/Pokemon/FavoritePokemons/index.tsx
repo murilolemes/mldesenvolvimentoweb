@@ -1,5 +1,5 @@
-import { FavoriteCards } from '../../../components/PokemonComponents/FavoriteCards';
-import { PokemonProvider } from '../../../hooks/PokemonsContext';
+import { FavoriteCards } from 'components/PokemonComponents/FavoriteCards';
+import { PokemonProvider } from 'hooks/PokemonsContext';
 
 import { Container } from "./styles";
 

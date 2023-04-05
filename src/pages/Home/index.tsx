@@ -2,15 +2,15 @@ import { useEffect, useState } from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { BiGridHorizontal, BiListUl } from 'react-icons/bi';
 
-import { apiGitHub } from '../../services/api';
-import { WhatsApp } from '../../components/GlobalComponents/WhatsApp';
+import { apiGitHub } from 'services/api';
+import { WhatsApp } from 'components/GlobalComponents/WhatsApp';
 
-import js from '../../assets/javascript.svg';
-import ts from '../../assets/typescript.svg';
-import css3 from '../../assets/css3.svg';
-import html5 from '../../assets/html5.svg';
-import node from '../../assets/node.svg';
-import markdown from '../../assets/markdown.svg';
+import js from 'assets/javascript.svg';
+import ts from 'assets/typescript.svg';
+import css3 from 'assets/css3.svg';
+import html5 from 'assets/html5.svg';
+import node from 'assets/node.svg';
+import markdown from 'assets/markdown.svg';
 
 import { Container, Content, Perfil, Bio, Description, Buttons, Repos } from './styles';
 

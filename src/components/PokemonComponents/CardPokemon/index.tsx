@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
-import { usePokemons } from '../../../hooks/PokemonsContext';
 import { FiTrash2 } from "react-icons/fi";
+
+import { usePokemons } from 'hooks/PokemonsContext';
 
 import { Container, Card, Title, ImgPokemon, Descriptions, BtnRemove } from "./styles";
 

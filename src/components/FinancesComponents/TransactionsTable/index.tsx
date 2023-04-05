@@ -1,10 +1,9 @@
 import { useCallback, useState } from 'react';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-
-import { useTransactions } from '../../../hooks/TransactionsContext';
-import { formatValue } from '../../../utils/formatValue';
-
 import { FiTrash2 } from 'react-icons/fi';
+
+import { useTransactions } from 'hooks/TransactionsContext';
+import { formatValue } from 'utils/formatValue';
 
 import { Container, Content, DivPages } from './styles';
 

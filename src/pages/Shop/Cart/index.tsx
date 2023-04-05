@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { TiArrowLeftThick } from 'react-icons/ti';
 
-import { MyCart } from '../../../components/ShopComponent/MyCart';
-import { ShopProvider } from '../../../hooks/ShopContext';
-import { ModalCart } from '../../../components/ShopComponent/ModalCart';
-import { QntdItens, ValueTotal } from '../../../components/ShopComponent/ComponentsCart';
+import { MyCart } from 'components/ShopComponent/MyCart';
+import { ShopProvider } from 'hooks/ShopContext';
+import { ModalCart } from 'components/ShopComponent/ModalCart';
+import { QntdItens, ValueTotal } from 'components/ShopComponent/ComponentsCart';
 
 import { Container, Content, MyShopHeader, BtnBuy, Total } from './styles';
 

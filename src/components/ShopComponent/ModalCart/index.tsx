@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Modal from 'react-modal';
 
-import CloseImg from '../../../assets/close.svg';
+import CloseImg from 'assets/close.svg';
 
 import { Container } from './styles';
-import { toast } from 'react-toastify';
 
 interface ModalCartProps {
   isOpen: boolean;

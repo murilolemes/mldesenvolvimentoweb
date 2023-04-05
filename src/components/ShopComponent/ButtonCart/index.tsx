@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { FiShoppingBag } from 'react-icons/fi'
 
-import { Container } from './styles';
+import { useShop } from 'hooks/ShopContext';
 
-import { useShop } from '../../../hooks/ShopContext';
+import { Container } from './styles';
 
 export function ButtonCart() {
   const { cartProducts } = useShop();

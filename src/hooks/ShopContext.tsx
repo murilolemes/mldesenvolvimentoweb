@@ -1,14 +1,14 @@
 import { createContext, ReactNode, useContext, useState } from 'react';
 import { toast } from 'react-toastify';
 
-import antarctica350Png from '../assets/imgShop/antarctica350.png';
-import brahma350Png from '../assets/imgShop/brahma350.png';
-import coca2lPng from '../assets/imgShop/coca2l.png';
-import coca350Png from '../assets/imgShop/coca350.png';
-import fanta2lPng from '../assets/imgShop/fanta2l.png';
-import fanta350Png from '../assets/imgShop/fanta350.png';
-import guarana350Png from '../assets/imgShop/guarana350.png';
-import sprite2lPng from '../assets/imgShop/sprite2l.png';
+import antarctica350Png from 'assets/imgShop/antarctica350.png';
+import brahma350Png from 'assets/imgShop/brahma350.png';
+import coca2lPng from 'assets/imgShop/coca2l.png';
+import coca350Png from 'assets/imgShop/coca350.png';
+import fanta2lPng from 'assets/imgShop/fanta2l.png';
+import fanta350Png from 'assets/imgShop/fanta350.png';
+import guarana350Png from 'assets/imgShop/guarana350.png';
+import sprite2lPng from 'assets/imgShop/sprite2l.png';
 
 
 interface Products {

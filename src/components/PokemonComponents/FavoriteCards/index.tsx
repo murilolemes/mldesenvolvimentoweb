@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FaStar, FaArrowLeft } from "react-icons/fa";
 
-import { usePokemons } from '../../../hooks/PokemonsContext';
+import { usePokemons } from 'hooks/PokemonsContext';
 
 import {
   Container,
