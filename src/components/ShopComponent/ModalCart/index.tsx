@@ -1,8 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Modal from 'react-modal';
-
-import CloseImg from 'assets/close.svg';
+import { FiX } from 'react-icons/fi';
 
 import { Container } from './styles';
 
@@ -33,7 +32,7 @@ export function ModalCart({ isOpen, onRequestClose }: ModalCartProps) {
         onClick={handleClose}
         className='react-modal-close'
       >
-        <img src={CloseImg} alt='Fechar Modal' />
+        <FiX size={20} />
       </button>
       <Container>
         <h2>Sua compra foi realizada com sucesso!</h2>

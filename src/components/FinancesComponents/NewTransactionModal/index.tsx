@@ -2,10 +2,10 @@ import { useState } from 'react';
 import Modal from 'react-modal';
 import { Form } from '@unform/web';
 import { toast } from 'react-toastify';
+import { FiX } from 'react-icons/fi'
 
 import { useTransactions } from 'hooks/TransactionsContext';
 
-import CloseImg from 'assets/close.svg';
 import incomeImg from 'assets/income.svg';
 import outcomeImg from 'assets/outcome.svg';
 import { Input } from 'components/GlobalComponents/Input';
@@ -51,7 +51,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
         onClick={onRequestClose}
         className='react-modal-close'
       >
-        <img src={CloseImg} alt='Fechar Modal' />
+        <FiX size={20} />
       </button>
       <Container>
         <Form onSubmit={handleCreateNewTransaction}>

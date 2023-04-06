@@ -115,8 +115,9 @@ export default createGlobalStyle`
     justify-content: center;
     z-index: 1000;
 
+
     @media(max-width: 600px) {
-      padding: 0.625rem;
+      padding: 1rem;
     }
   }
   .react-modal-content{
@@ -146,8 +147,17 @@ export default createGlobalStyle`
     border: 0;
     background: transparent;
     transition: filter 0.2s;
+
+    svg {
+      color: var(--text);
+      transition: 0.2s;
+    }
+
     &:hover {
-      filter: brightness(0.8);
+      svg {
+        color: var(--red-300);
+        filter: opacity(0.5);
+      }
     }
   }
 `;

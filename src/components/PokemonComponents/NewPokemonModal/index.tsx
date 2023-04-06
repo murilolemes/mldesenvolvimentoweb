@@ -1,7 +1,7 @@
 import Modal from 'react-modal';
 import { FaStar } from 'react-icons/fa';
+import { FiX } from 'react-icons/fi';
 
-import CloseImg from 'assets/close.svg';
 import { usePokemons } from 'hooks/PokemonsContext';
 
 import { Container, Title, ImgPokemon, Descriptions, ButtonFavorite } from './styles';
@@ -49,7 +49,7 @@ export function NewPokemonModal({ isOpen, onRequestClose, id, poke }: NewPokemon
         className='react-modal-close'
         onClick={onRequestClose}
       >
-        <img src={CloseImg} alt='Fechar Modal' />
+        <FiX size={20} />
       </button>
       <Container style={{ background: pokemon?.type.color }} >
         <Title>

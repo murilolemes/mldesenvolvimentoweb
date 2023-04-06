@@ -5,7 +5,11 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: var(--gray-100);
+  color: var(--text);
+
+  h2 {
+    font-weight: 700;
+  }
 
   p {
     margin-top: 1rem;

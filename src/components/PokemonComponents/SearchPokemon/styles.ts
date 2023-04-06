@@ -1,8 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  width: 100%;
+  max-width: 32rem;
+
   form {
-    width: 32rem;
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -36,4 +39,5 @@ export const Container = styled.div`
       flex-direction: column;
     }
   }
+
 `;
