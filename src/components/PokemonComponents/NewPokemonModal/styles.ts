@@ -124,7 +124,7 @@ export const Descriptions = styled.div`
       align-items: center;
       justify-content: space-between;
       padding: 0.25rem;
-      background: var(--gray-500);
+      background: var(--gray-100);
       border-radius: 0.25rem;
 
       & + div {
