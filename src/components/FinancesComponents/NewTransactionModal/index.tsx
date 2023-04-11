@@ -6,8 +6,8 @@ import { FiX } from 'react-icons/fi'
 
 import { useTransactions } from 'hooks/TransactionsContext';
 
-import incomeImg from 'assets/income.svg';
-import outcomeImg from 'assets/outcome.svg';
+import incomeImg from 'assets/Icons/income.svg';
+import outcomeImg from 'assets/Icons/outcome.svg';
 import { Input } from 'components/GlobalComponents/Input';
 
 import { Container, TransactionTypeContainer, RadioBox } from './styles';

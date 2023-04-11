@@ -4,9 +4,9 @@ import { useTransactions } from 'hooks/TransactionsContext'
 import { getBalance } from 'utils/getBalance';
 import { formatValue } from 'utils/formatValue';
 
-import incomeImg from 'assets/income.svg';
-import outcomeImg from 'assets/outcome.svg';
-import totalImg from 'assets/total.svg';
+import incomeImg from 'assets/Icons/income.svg';
+import outcomeImg from 'assets/Icons/outcome.svg';
+import totalImg from 'assets/Icons/total.svg';
 
 import { Container } from './styles';
 
