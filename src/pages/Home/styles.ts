@@ -189,9 +189,9 @@ export const Buttons = styled.div`
     }
 
     .listInative {
-      border: 1px solid var(--gray-700);
-      background: var(--gray-700);
-      color: var(--gray-600);
+      border: 1px solid var(--secondary);
+      background: var(--secondary);
+      color: var(--gray-900);
     }
   }
 `;
@@ -296,7 +296,7 @@ export const Repos = styled.div`
       }
 
       &:hover {
-        background: var(--background);
+        border-color: var(--green-300);
       }
 
       & + a {
