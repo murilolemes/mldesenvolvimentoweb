@@ -197,58 +197,7 @@ export function PokemonProvider({ children }: PokemonsProviderProps) {
     const namePokemon = idPokemon.toLowerCase().replace(/ /g, '-');
 
     const searchPoke = createPokemon(namePokemon);
-    // const response = await pokeApi.get(`/pokemon/${namePokemon}`);
-    // const pokeData = response.data;
-    // const typesPokemon = { color: '' };
 
-    // let rawTypesBg = response.data.types;
-    // let typesBg = [];
-    // let cardBg = document.getElementById('colorBg');
-    // let pokeImg = response.data.sprites.other.home.front_default;
-    // let skills = [];
-    // let status: Stats[] = [];
-
-    // for (let i = 0; i < rawTypesBg.length; i++) {
-    //   let typesValueBg = rawTypesBg[i].type.name;
-    //   typesBg.push(typesValueBg);
-    // }
-
-    // if (typesBg.length === 1) {
-    //   typesPokemon.color = `linear-gradient(90deg, var(--${typesBg}), var(--${typesBg}))`;
-    //   if (cardBg) {
-    //     cardBg.style.background = typesPokemon.color;
-    //   }
-    // } else {
-    //   typesPokemon.color = `linear-gradient(90deg, var(--${typesBg[0]}), var(--${typesBg[1]}))`;
-    //   if (cardBg) {
-    //     cardBg.style.background = typesPokemon.color;
-    //   }
-    // }
-
-    // for (let i = 0; i < pokeData.stats.length; i++) {
-    //   let { base_stat } = pokeData.stats[i];
-    //   let { name } = pokeData.stats[i].stat;
-    //   status.push({ name, base_stat })
-    // };
-
-    // for (let i = 0; i < pokeData.abilities.length; i++) {
-    //   let { name } = pokeData.abilities[i].ability;
-    //   skills.push(name)
-    // };
-
-    // const searchPoke = {
-    //   id: pokeData.id,
-    //   name: pokeData.name,
-    //   img: pokeImg,
-    //   favorite: false,
-    //   type: {
-    //     color: typesPokemon.color,
-    //     typePokemon: typesBg,
-    //   },
-    //   stats: status,
-    //   skills,
-    // }
-    // setIsPoke(searchPoke)
     return searchPoke;
   }
 

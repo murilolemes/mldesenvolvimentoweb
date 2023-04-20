@@ -8,7 +8,17 @@ interface ContainerProps {
   isErrored: boolean;
 }
 
-export const Container = styled.div<ContainerProps>`
+export const Container = styled.label`
+  width: 100%;
+  color: var(--gray-600);
+  font-weight: 600;
+
+  & + label {
+    margin-top: 0.5rem;
+  }
+`;
+
+export const Content = styled.div<ContainerProps>`
   width: 100%;
   height: 100%;
   background: var(--secondary);
@@ -19,21 +29,17 @@ export const Container = styled.div<ContainerProps>`
   display: flex;
   align-items: center;
 
-  & + div {
-    margin-top: 0.5rem;
-  }
-
   ${(props) =>
     props.isErrored &&
     css`
-      border-color: var(--red-300);
+      border: 2px solid var(--red-300);
     `}
 
   ${(props) =>
     props.isFocused &&
     css`
       color: var(--green-300);
-      border-color: var(--green-300);
+      border: 1px solid var(--green-300);
       box-shadow: 0 0 4px 1px var(--green-300);
     `}
 
@@ -41,7 +47,7 @@ export const Container = styled.div<ContainerProps>`
     props.isField &&
     css`
       color: var(--green-300);
-      border-color: var(--green-300);
+      border: 1px solid var(--green-300);
     `}
 
   input {
@@ -62,9 +68,14 @@ export const Container = styled.div<ContainerProps>`
 export const Error = styled(Tooltip)`
   height: 20px;
   margin-left: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   svg {
     margin: 0;
   }
+
   span {
     background: var(--red-300);
     color: var(--gray-100);

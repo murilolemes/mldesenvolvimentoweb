@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { v4 as uuidv4 } from 'uuid'
 
 interface Transaction {
@@ -58,6 +59,7 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
     setTransactions(updateTransactions);
 
     localStorage.setItem('@Transaction:transaction', JSON.stringify(updateTransactions));
+    toast.success('Transação cadastrada com sucesso!')
   }
 
   async function deleteTransaction(id: string) {
@@ -70,6 +72,7 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
     setTransactions(updateTransactions);
 
     localStorage.setItem('@Transaction:transaction', JSON.stringify(updateTransactions));
+    toast.success('Transação removida com sucesso!')
   }
 
   return (
