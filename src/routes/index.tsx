@@ -7,6 +7,7 @@ import { Pokemon } from 'pages/Pokemon';
 import { FavoritePokemons } from 'pages/Pokemon/FavoritePokemons';
 import { Shop } from 'pages/Shop';
 import { Cart } from 'pages/Shop/Cart';
+import { NotFound } from 'components/GlobalComponents/NotFound';
 
 export function Routes() {
   return (
@@ -18,6 +19,7 @@ export function Routes() {
       <Route path='/pokemons/favoritos' element={<FavoritePokemons />} />
       <Route path='/shop' element={<Shop />} />
       <Route path='/shop/carrinho' element={<Cart />} />
+      <Route path='*' element={<NotFound />} />
     </Router>
   )
 }
