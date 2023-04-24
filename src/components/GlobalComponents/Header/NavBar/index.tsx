@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -11,7 +11,7 @@ import Logo1 from 'assets/LogoPNG.png';
 import { Content } from './styles';
 
 export function NavBar() {
-  const [path, setPath] = useState('');
+  const path = useLocation();
   const [home, setHome] = useState(false);
   const [calc, setCalc] = useState(false);
   const [finance, setFinance] = useState(false);
@@ -21,9 +21,7 @@ export function NavBar() {
   const [cart, setCart] = useState(false);
 
   useEffect(() => {
-    const routePathName = window.location.pathname;
-    setPath(routePathName);
-    switch (path) {
+    switch (path.pathname) {
       case '/':
         setHome(true);
         setCalc(false);
@@ -90,7 +88,7 @@ export function NavBar() {
       default:
         break;
     }
-  }, [path]);
+  }, [path.pathname]);
 
   return (
     <Content>
@@ -98,7 +96,6 @@ export function NavBar() {
         <Container>
           <Link
             to='/'
-            onClick={() => setPath('home')}
             className={home === true ? 'active navbar-brand' : 'navbar-brand'}
           >
             <img src={Logo1} alt="Logo Murilo" />
@@ -115,21 +112,18 @@ export function NavBar() {
             <Nav className='me-auto'>
               <Link
                 to='/'
-                onClick={() => setPath('home')}
                 className={home === true ? 'active' : ''}
               >
                 Home
               </Link>
               <Link
                 to='/calculadora'
-                onClick={() => setPath('calculadora')}
                 className={calc === true ? 'active' : ''}
               >
                 Calculadora
               </Link>
               <Link
                 to='/financas'
-                onClick={() => setPath('financas')}
                 className={finance === true ? 'active' : ''}
               >
                 Finanças
@@ -141,14 +135,12 @@ export function NavBar() {
               >
                 <Link
                   to='/pokemons'
-                  onClick={() => setPath('pokemons')}
                   className={pokemon === true ? 'active' : 'subInative'}
                 >
                   Pokemons
                 </Link>
                 <Link
                   to='/pokemons/favoritos'
-                  onClick={() => setPath('favoritos')}
                   className={pokemonFavorite === true ? 'active' : 'subInative'}
                 >
                   Favoritos
@@ -161,14 +153,12 @@ export function NavBar() {
               >
                 <Link
                   to='/shop'
-                  onClick={() => setPath('shop')}
                   className={shop === true ? 'active' : 'subInative'}
                 >
                   Shop
                 </Link>
                 <Link
                   to='/shop/carrinho'
-                  onClick={() => setPath('carrinho')}
                   className={cart === true ? 'active' : 'subInative'}
                 >
                   Carrinho
