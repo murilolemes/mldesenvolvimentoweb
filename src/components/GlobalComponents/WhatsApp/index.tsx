@@ -9,7 +9,7 @@ export function WhatsApp() {
   const [displayOn, setDisplayOff] = useState('active')
 
   const message = 'Olá Murilo Lemes, tudo bem?'
-  const cell = '5517982152311';
+  const cell = '551799742-0235';
 
   const apiWhats = `https://api.whatsapp.com/send?phone=${cell}&text=${message}`;
 
